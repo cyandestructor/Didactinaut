@@ -4,7 +4,10 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Didactinaut\\Didactinaut\\": "src/"
+            "Didactinaut\\Didactinaut\\": "src/",
+            "Small\\Core\\": "src/Small/Core",
+            "Small\\Http\\": "src/Small/Http",
+            "Small\\Interfaces\\": "src/Small/Interfaces"
         }
     },
     "minimum-stability": "stable",
