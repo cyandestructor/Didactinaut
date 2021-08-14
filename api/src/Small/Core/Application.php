@@ -16,22 +16,22 @@
 
         public function get(string $path, $handler)
         {
-            $this->addHandler(method:'GET', path:$path, handler:$handler);
+            $this->addHandler('GET', $path, $handler);
         }
 
         public function post(string $path, $handler)
         {
-            $this->addHandler(method:'GET', path:$path, handler:$handler);
+            $this->addHandler('GET', $path, $handler);
         }
 
         public function put(string $path, $handler)
         {
-            $this->addHandler(method:'GET', path:$path, handler:$handler);
+            $this->addHandler('GET', $path, $handler);
         }
 
         public function delete(string $path, $handler)
         {
-            $this->addHandler(method:'GET', path:$path, handler:$handler);
+            $this->addHandler('GET', $path, $handler);
         }
 
         private function addHandler(string $method, string $path, $handler)

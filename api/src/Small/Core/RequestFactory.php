@@ -29,10 +29,10 @@
             $body = new Stream();
             
             $request = new Request(
-                method:$method,
-                headers:$headers,
-                body:$body,
-                uri:$uri
+                $method,
+                $headers,
+                $body,
+                $uri
             );
 
             return $request;

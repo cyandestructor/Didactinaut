@@ -12,7 +12,7 @@
 
         public function __construct(int $statusCode, array $headers = [], StreamInterface $body = null)
         {
-            parent::__construct(headers:$headers, body:$body);
+            parent::__construct($headers, $body);
             $this->statusCode = $statusCode;
         }
 
