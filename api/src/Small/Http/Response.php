@@ -2,10 +2,19 @@
     namespace Small\Http;
 
     use Small\Interfaces\ResponseInterface;
+    use Small\Interfaces\StreamInterface;
 
     class Response extends Message implements ResponseInterface
     {
         private $statusCode;
+
+        public static $STATUS_CODE_OK = 200;
+
+        public function __construct(int $statusCode, array $headers = [], StreamInterface $body = null)
+        {
+            parent::__construct(headers:$headers, body:$body);
+            $this->statusCode = $statusCode;
+        }
 
         public function getStatusCode() : int
         {

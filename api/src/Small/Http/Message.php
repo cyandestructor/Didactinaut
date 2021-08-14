@@ -9,6 +9,12 @@
         protected $body;
         protected array $headers = [];
 
+        public function __construct(array $headers = [], StreamInterface $body = null)
+        {
+            $this->headers = $headers;
+            $this->body = $body;
+        }
+
         public function getHeaders() : array
         {
             return $this->headers;
