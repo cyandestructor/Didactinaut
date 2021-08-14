@@ -1,7 +1,7 @@
 <?php
     namespace Small\Interfaces;
 
-    interface RequestInterface
+    interface RequestInterface extends MessageInterface
     {
         public function getMethod() : string;
         public function withMethod($method);
