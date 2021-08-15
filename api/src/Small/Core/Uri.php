@@ -29,7 +29,7 @@
             string $query = '',
             string $fragment = '',
             string $user = '',
-            string $password = '',
+            string $password = ''
         )
         {
             $this->scheme = $scheme;

@@ -13,8 +13,9 @@
 
             $headers = $this->processHeaders();
             
-            $uriStr = $_SERVER['REQUEST_URI'];
-            $uriInfo = parse_url($uriStr);
+            $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $uriInfo = parse_url($url);
+            $uriInfo['port'] = $_SERVER['SERVER_PORT'];
             $uri = new Uri(
                 $uriInfo['scheme'],
                 $uriInfo['host'],
