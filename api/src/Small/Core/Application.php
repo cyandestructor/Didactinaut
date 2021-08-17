@@ -36,11 +36,23 @@
 
         private function addHandler(string $method, string $path, $handler)
         {
-            $this->handlers[$method . $path] = [
-                'path' => $path,
+            $filteredPath = $this->filterPath($path);
+
+            $this->handlers[$method . $filteredPath] = [
+                'path' => $filteredPath,
                 'method' => $method,
                 'handler' => $handler
             ];
+        }
+
+        private function filterPath(string $path) : string
+        {
+            if(substr($path, -1) === '/')
+            {
+                return substr($path, 0, -1);
+            }
+
+            return $path;
         }
 
         public function run(RequestInterface $request = null) : void
@@ -50,7 +62,7 @@
                 $request = $requestFactory->createFromGlobals();
             }
 
-            $requestPath = $request->getUri()->getPath();
+            $requestPath = $this->filterPath($request->getUri()->getPath());
             $requestMethod = $request->getMethod();
             
             $callback = null;
