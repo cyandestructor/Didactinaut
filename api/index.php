@@ -7,13 +7,15 @@
 
     $app = new Application();
 
-    $app->get('/api', function (RequestInterface $request, ResponseInterface $response) {
+    $app->get('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
         $response->getBody()->write('Index');
         return $response;
     });
 
-    $app->get('/api/contact', function (RequestInterface $request, ResponseInterface $response) {
-        $response->getBody()->write('Contact');
+    $app->get('/api/contact/$id/$username', function (RequestInterface $request, ResponseInterface $response, $args) {
+        $id = $args['id'];
+        $username = $args['username'];
+        $response->getBody()->write("Hello! I'm $username with id $id");
         return $response;
     });
 
