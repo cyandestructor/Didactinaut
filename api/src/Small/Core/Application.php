@@ -117,6 +117,8 @@
                 return;
             }
 
+            $request = $request->withAttributes($parameters);
+            
             $responseFactory = new ResponseFactory();
             $response = $responseFactory->create();
             $response = call_user_func($callback, $request, $response, $parameters);

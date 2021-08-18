@@ -10,6 +10,8 @@
     class Request extends Message implements RequestInterface
     {
         private string $method;
+
+        private array $attributes;
         
         private UriInterface $uri;
 
@@ -22,6 +24,7 @@
             parent::__construct($headers, $body);
             $this->method = $method;
             $this->uri = $uri;
+            $this->attributes = [];
         }
 
         public function getMethod() : string
@@ -47,6 +50,32 @@
             $clone = clone $this;
             $clone->uri = $uri;
 
+            return $clone;
+        }
+
+        public function getAttributes() : array
+        {
+            return $this->attributes;
+        }
+
+        public function withAttributes(array $attributes)
+        {
+            $clone = clone $this;
+            $clone->attributes = $attributes;
+
+            return $clone;
+        }
+
+        public function getAttribute($name, $default = null)
+        {
+            return isset($this->attributes[$name]) ? $this->attributes[$name] : $default;
+        }
+
+        public function withAttribute($name, $value)
+        {
+            $clone = clone $this;
+            $clone->attributes[$name] = $value;
+            
             return $clone;
         }
     }
