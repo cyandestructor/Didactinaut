@@ -27,12 +27,13 @@
 
         public function getHeader($name) : array
         {
-            return $this->headers[$name];
+            $value = $this->headers[$name] ?? [];
+            return is_array($value) ? $value : [$value];
         }
         
         public function getHeaderLine($name) : string
         {
-            $values = $this->headers[$name];
+            $values = $this->getHeader($name);
             return implode(',', $values);
         }
 
