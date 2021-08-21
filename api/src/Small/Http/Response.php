@@ -1,6 +1,7 @@
 <?php
     namespace Small\Http;
 
+    use Small\Core\StreamFactory;
     use Small\Interfaces\ResponseInterface;
     use Small\Interfaces\StreamInterface;
 
@@ -12,7 +13,7 @@
 
         public function __construct(int $statusCode, array $headers = [], StreamInterface $body = null)
         {
-            parent::__construct($headers, $body);
+            parent::__construct($headers, $body ?? (new StreamFactory())->create());
             $this->statusCode = $statusCode;
         }
 

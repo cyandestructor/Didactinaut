@@ -27,7 +27,7 @@
                 $uriInfo['password'] ?? ''
             );
 
-            $body = new Stream();
+            $body = (new StreamFactory())->create();
             
             $request = new Request(
                 $method,
