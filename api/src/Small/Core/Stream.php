@@ -8,7 +8,9 @@
     {
         private $stream;
 
-        // private $finished;
+        private $cache;
+
+        private $finished;
 
         private $size;
 
@@ -18,9 +20,14 @@
 
         private $seekable;
 
-        public function __construct($stream)
+        public function __construct($stream, StreamInterface $cache = null)
         {
             $this->attach($stream);
+
+            if ($cache && (!$cache->isSeekable() || !$cache->isWritable())) {
+                // TODO: Throw exception
+            }
+            $this->cache = $cache;
         }
 
         public function write($string)
@@ -61,8 +68,11 @@
             }
 
             if (is_string($data)) {
+                if ($this->cache) {
+                    $this->cache->write($data);
+                }
                 if ($this->eof()) {
-                    // $this->finished = true;
+                    $this->finished = true;
                 }
 
                 return $data;
@@ -90,8 +100,8 @@
             $this->size = null;
             $this->finished = false;
             $this->seekable = null;
+            $this->cache = null;
             // $this->isPipe = null;
-            // $this->cache = null;
 
             return $oldResource;
         }
@@ -157,6 +167,11 @@
 
         public function getContents() : string
         {
+            if ($this->cache && $this->finished) {
+                $this->cache->rewind();
+                return $this->cache->getContents();
+            }
+            
             $contents = false;
             
             if ($this->stream) {
@@ -164,6 +179,9 @@
             }
 
             if (is_string($contents)) {
+                if ($this->cache) {
+                    $this->cache->write($contents);
+                }
                 if ($this->eof()) {
                     $this->finished = true;
                 }
@@ -192,6 +210,10 @@
         {
             if (!$this->stream) {
                 return '';
+            }
+            if ($this->cache && $this->finished) {
+                $this->cache->rewind();
+                return $this->cache->getContents();
             }
             if ($this->isSeekable()) {
                 $this->rewind();
