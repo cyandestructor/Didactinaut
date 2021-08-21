@@ -13,4 +13,7 @@
         public function withAttributes(array $attributes);
         public function getAttribute($name, $default = null);
         public function withAttribute($name, $value);
+
+        public function getQueryParams() : array;
+        public function withQueryParams(array $queryParams);
     }

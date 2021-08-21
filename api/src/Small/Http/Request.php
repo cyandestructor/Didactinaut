@@ -12,6 +12,8 @@
         private string $method;
 
         private array $attributes;
+
+        private $queryParams;
         
         private UriInterface $uri;
 
@@ -25,6 +27,7 @@
             $this->method = $method;
             $this->uri = $uri;
             $this->attributes = [];
+            $this->queryParams = null;
         }
 
         public function getMethod() : string
@@ -76,6 +79,29 @@
             $clone = clone $this;
             $clone->attributes[$name] = $value;
             
+            return $clone;
+        }
+
+        public function getQueryParams() : array
+        {
+            if (is_array($this->queryParams)) {
+                return $this->queryParams;
+            }
+
+            if ($this->uri === null) {
+                return [];
+            }
+
+            parse_str($this->uri->getQuery(), $this->queryParams);
+
+            return $this->queryParams;
+        }
+
+        public function withQueryParams(array $queryParams)
+        {
+            $clone = clone $this;
+            $clone->queryParams = $queryParams;
+
             return $clone;
         }
     }

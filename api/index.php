@@ -8,7 +8,14 @@
     $app = new Application();
 
     $app->get('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
-        $response->getBody()->write('Index');
+        $response->getBody()->write('Index: ');
+
+        $queryParams = $request->getQueryParams();
+        $username = $queryParams['username'] ?? 'Invitado';
+        $edad = $queryParams['age'] ?? '?';
+
+        $response->getBody()->write(" Bienvenido $username tienes $edad años");
+
         return $response;
     });
 
