@@ -23,9 +23,13 @@
 
         private function emitHeaders(ResponseInterface $response)
         {
-            foreach ($response->getHeaders() as $name => $value) {
-                $header = "$name: $value";
-                header($header);
+            foreach ($response->getHeaders() as $name => $values) {
+                $first = strtolower($name) !== 'set-cookie';
+                foreach ($values as $value) {
+                    $header = "$name: $value";
+                    header($header, $first);
+                    $first = false;
+                }
             }
         }
 
