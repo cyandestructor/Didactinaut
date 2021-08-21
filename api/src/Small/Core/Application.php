@@ -21,17 +21,17 @@
 
         public function post(string $path, $handler)
         {
-            $this->addHandler('GET', $path, $handler);
+            $this->addHandler('POST', $path, $handler);
         }
 
         public function put(string $path, $handler)
         {
-            $this->addHandler('GET', $path, $handler);
+            $this->addHandler('PUT', $path, $handler);
         }
 
         public function delete(string $path, $handler)
         {
-            $this->addHandler('GET', $path, $handler);
+            $this->addHandler('DELETE', $path, $handler);
         }
 
         private function addHandler(string $method, string $path, $handler)
