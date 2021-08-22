@@ -3,6 +3,8 @@
 
     interface StreamInterface
     {
+        public function __toString();
+        
         public function getSize();
         
         public function write($string);

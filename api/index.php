@@ -20,7 +20,7 @@
     });
 
     $app->post('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
-        $parsedBody = json_decode((string)$request->getBody(), true);
+        $parsedBody = json_decode($request->getBody(), true);
         $username = $parsedBody['username'] ?? 'Invitado';
         $edad = $parsedBody['age'] ?? '?';
 
