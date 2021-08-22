@@ -19,13 +19,13 @@
             return $this->createFromResource($resource);
         }
 
-        public function createFromResource($resource) : StreamInterface
+        public function createFromResource($resource, StreamInterface $cache = null) : StreamInterface
         {
             if (!is_resource($resource)) {
                 // TODO: Throw exception
             }
 
-            return new Stream($resource);
+            return new Stream($resource, $cache);
         }
     }
     

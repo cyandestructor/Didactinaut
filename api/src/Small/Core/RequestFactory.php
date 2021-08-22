@@ -27,7 +27,12 @@
                 $uriInfo['password'] ?? ''
             );
 
-            $body = (new StreamFactory())->create();
+            $cacheResource = fopen('php://temp', 'wb+');
+            $cache = $cacheResource ? new Stream($cacheResource) : null;
+
+            $inputResource = fopen('php://input', 'r');
+
+            $body = (new StreamFactory())->createFromResource($inputResource, $cache);
             
             $request = new Request(
                 $method,
