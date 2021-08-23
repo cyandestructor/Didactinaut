@@ -1,8 +1,8 @@
 <?php
-    namespace Small\Interfaces;
+namespace Small\Interfaces;
 
-    interface ResponseInterface extends MessageInterface
-    {
-        public function getStatusCode() : int;
-        public function withStatus($code);
-    }
+interface ResponseInterface extends MessageInterface
+{
+    public function getStatusCode() : int;
+    public function withStatus($code);
+}

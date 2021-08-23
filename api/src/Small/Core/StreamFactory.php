@@ -1,31 +1,30 @@
 <?php
-    namespace Small\Core;
+namespace Small\Core;
 
-    use Small\Interfaces\StreamInterface;
+use Small\Interfaces\StreamInterface;
 
-    class StreamFactory
+class StreamFactory
+{
+    public function create(string $content = '') : StreamInterface
     {
-        public function create(string $content = '') : StreamInterface
-        {
-            $resource = fopen('php://temp', 'rw+');
+        $resource = fopen('php://temp', 'rw+');
 
-            if (!is_resource($resource)) {
-                // TODO: throw exception
-            }
-
-            fwrite($resource, $content);
-            rewind($resource);
-
-            return $this->createFromResource($resource);
+        if (!is_resource($resource)) {
+            // TODO: throw exception
         }
 
-        public function createFromResource($resource, StreamInterface $cache = null) : StreamInterface
-        {
-            if (!is_resource($resource)) {
-                // TODO: Throw exception
-            }
+        fwrite($resource, $content);
+        rewind($resource);
 
-            return new Stream($resource, $cache);
-        }
+        return $this->createFromResource($resource);
     }
-    
+
+    public function createFromResource($resource, StreamInterface $cache = null) : StreamInterface
+    {
+        if (!is_resource($resource)) {
+            // TODO: Throw exception
+        }
+
+        return new Stream($resource, $cache);
+    }
+}

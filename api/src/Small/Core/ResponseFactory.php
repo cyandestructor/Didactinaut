@@ -1,14 +1,14 @@
 <?php
-    namespace Small\Core;
+namespace Small\Core;
 
-    use Small\Http\Response;
-    use Small\Interfaces\ResponseInterface;
+use Small\Http\Response;
+use Small\Interfaces\ResponseInterface;
 
-    class ResponseFactory
+class ResponseFactory
+{
+    public function create() : ResponseInterface
     {
-        public function create() : ResponseInterface
-        {
-            return new Response(Response::$STATUS_CODE_OK, []);
-        }
+        return new Response(Response::$STATUS_CODE_OK, []);
     }
+}
     
