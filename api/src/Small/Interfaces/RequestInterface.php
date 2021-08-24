@@ -11,6 +11,7 @@ interface RequestInterface extends MessageInterface
 
     public function getAttributes() : array;
     public function withAttributes(array $attributes);
+    public function withAddedAttributes(array $attributes);
     public function getAttribute($name, $default = null);
     public function withAttribute($name, $value);
 

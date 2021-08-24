@@ -69,6 +69,14 @@ class Request extends Message implements RequestInterface
         return $clone;
     }
 
+    public function withAddedAttributes(array $attributes)
+    {
+        $clone = clone $this;
+        $clone->attributes = array_merge($clone->attributes, $attributes);
+
+        return $clone;
+    }
+
     public function getAttribute($name, $default = null)
     {
         return isset($this->attributes[$name]) ? $this->attributes[$name] : $default;

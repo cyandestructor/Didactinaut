@@ -108,7 +108,7 @@ class Router implements RequestHandlerInterface
             return $response->withStatus(404);
         }
 
-        //$request = $request->withAttributes($parameters);
+        $request = $request->withAddedAttributes($parameters);
 
         return call_user_func($callback, $request, $response, $parameters);
     }
