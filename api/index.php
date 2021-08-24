@@ -4,11 +4,23 @@
     use Small\Core\Application;
     use Small\Interfaces\RequestInterface;
     use Small\Interfaces\ResponseInterface;
+    use Small\Interfaces\MiddlewareInterface;
+    use Small\Interfaces\RequestHandlerInterface;
 
     $app = new Application();
 
+    $app->addMiddleware(new class implements MiddlewareInterface {
+        public function process(RequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+        {
+            $request = $request->withAttribute("test", "Testing middleware ->");
+            return $handler->handle($request);
+        }
+    });
+
     $app->get('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
-        $response->getBody()->write('Index: ');
+        
+        $test = $request->getAttribute("test", "Default");
+        $response->getBody()->write("$test Index: ");
 
         $queryParams = $request->getQueryParams();
         $username = $queryParams['username'] ?? 'Invitado';
