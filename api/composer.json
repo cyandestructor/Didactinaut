@@ -1,0 +1,15 @@
+{
+    "name": "didactinaut/didactinaut",
+    "description": "A Rest API for Didactinaut web app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Didactinaut\\Didactinaut\\": "src/",
+            "Small\\Core\\": "src/Small/Core",
+            "Small\\Http\\": "src/Small/Http",
+            "Small\\Interfaces\\": "src/Small/Interfaces"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
