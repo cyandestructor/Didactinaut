@@ -1,0 +1,230 @@
+/* ------------------INICIAL--------------------- */
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+
+
+* {
+     font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar {
+     overflow: hidden;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 999;;
+}
+
+body {
+     margin-top: 40px;
+}
+
+.dark-theme-nav {
+     background-color: rgb(51, 51, 51);
+     padding-top: 10px;
+     padding-bottom: 10px;
+}
+
+/* LOGO DE BARRA NAV */
+.logo-navbar {
+     color: rgb(72, 229, 194);
+     font-size: 28px;
+     margin-right: 75px;
+}
+
+.logo-navbar:hover {
+     color: rgba(58, 189, 160, 0.993);
+     text-decoration: none;
+}
+
+
+/* BOTON DE COLAPSO DE NAV BAR */
+.boton-colapso {
+     border-style: solid;
+     border-color: rgb(196, 196, 196);
+     border-radius: 5px;
+     padding-top: 5px;
+     padding-bottom: 9px;
+     padding-right: 8px;
+     padding-left: 8px;
+
+}
+
+.boton-colapso img {
+     width: 30px;
+}
+
+
+/* BARRA DE BUSQUEDA/ BOTON BUSCAR */
+.buscar {
+     border-radius: 30px;
+     height: 25px;
+     width: 40vw;
+     padding-left: 18px;
+     padding-right: 30px;
+     background-color: rgb(196, 196, 196);
+     color: rgb(51, 51, 51);
+     font-weight: bolder;
+     margin-right: 65px;
+     z-index: 1;
+
+}
+
+.boton-buscar {
+     position: absolute;
+     background-color: rgba(51, 51, 51, 0);
+     border: none;
+     transform: translateX(-102px);
+}
+
+.boton-buscar img {
+     width: 20px;
+     height: 20px;
+}
+
+/* OPCION CREAR CURSO */
+.opciones-navbar {
+     position: relative;
+     color: rgb(196, 196, 196);
+     margin-right: 80px;
+     font-size: 20px;
+
+}
+
+.opciones-navbar:hover {
+     color: rgb(155, 155, 155);
+     text-decoration: none;
+}
+
+
+/* OPCION REGISTRARSE E INICIAR SESION */
+.opciones-navbar-2 {
+     position: relative;
+     color: rgb(72, 229, 194);
+     margin-right: 45px;
+     font-size: 20px;
+
+}
+
+.opciones-navbar-2:hover {
+     color: rgba(58, 189, 160, 0.993);
+     text-decoration: none;
+}
+
+
+.boton-navbar {
+     margin-right: 75px;
+     width: 27px;
+     height: 27px;
+}
+
+.boton-navbar:hover {
+     width: 29px;
+     height: 29px;
+}
+
+
+
+/* FOOTER */
+.footer {
+     width: 100%;
+     margin-top: 45px;
+     position: absolute;
+     background-color: rgb(51, 51, 51);
+}
+
+.footer h5 {
+     color: rgb(72, 229, 194);
+}
+
+.footer .copyr {
+     color: rgb(196, 196, 196);
+}
+
+.footer .facebook_icono {
+     width: 20px;
+}
+
+.footer .instagram_icono {
+     width: 20px;
+}
+
+.footer .twitter_icono {
+     width: 20px;
+     height: 21px;
+}
+
+
+/* ------------------REGISTRO--------------------- */
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+
+.formulario_registro{
+     margin-top: 5vw;
+}
+.titulo_registro{
+     margin-bottom: 26px;
+     font-weight:900;
+}
+.formulario_registro hr {
+     background-color: rgb(51, 51, 51);
+}
+.formulario_registro .inputs_registro {
+     margin-bottom: 10px;
+     width: 325px;
+     height: 42px;
+     background-color: rgb(228, 228, 228);
+     font-size: 18px;
+}
+.formulario_registro #btn_registro{
+     margin-bottom: 5px;
+     width: 180px;
+     height: 30px;
+     font-size: 18px;
+     background-color: rgba(239, 131, 56, 1);
+     transition: font-size .5s, height .5s, width .5s;
+}
+.formulario_registro #btn_registro:hover{
+     width: 187px;
+     height: 33px;
+     font-size: 19px;
+     background-color: rgb(214, 116, 46);
+     color: rgb(238, 238, 238);
+}
+.formulario_registro .link_registro{
+     color: rgba(28, 182, 149, 0.993);
+     transition: font-size 1s;
+
+}
+.formulario_registro .link_registro:hover{
+     color: rgba(34, 145, 121, 0.993);
+     text-decoration: none;
+     font-size: 20px;
+
+}
+
+.imagen_seleccion{
+     margin-top: 8vw;
+     background-color: rgb(238, 238, 238);
+     width: 250px;
+     height: 200px;
+}
+.imagen_seleccion label{
+     border-style:groove;
+     width: 100%;
+     text-align: center;
+     margin-left: 0%;
+     transition: font-size 1s;
+     background-color: rgb(77, 77, 77);
+     color: rgb(238, 238, 238);
+}
+.imagen_seleccion label:hover{
+     font-size: 20px;
+     background-color: rgb(51, 51, 51);
+
+}
+.imagen_seleccion img{
+     margin-left: 25%;
+     
+}
