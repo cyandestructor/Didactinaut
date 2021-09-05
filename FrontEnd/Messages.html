@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Navega al conocimiento con nuestros cursos - Didactinaut</title>
+    <title>Mensajes - Didactinaut</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/UserEdition.css">
-    <link rel="stylesheet" href="css/Validaciones3.css">
+    <link rel="stylesheet" href="css/Messages.css">
   </head>
   <nav class="navbar navbar-expand-lg  dark-theme-nav">
        <!-- LOGO PAGINA EN NAVBAR -->
@@ -50,12 +49,10 @@
                 <a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="opciones-navbar-2" style="margin-right: 0;"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva"> Miguel Villanueva</span>  </a>
                 <div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio">
-                    <a class="dropdown-item" href="MySales.html">Mis ventas</a>
+                    <a class="dropdown-item" href="">Mis ventas</a>
                     <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
                     <a class="dropdown-item" href="Inicio.html">Cerrar sesión</a>
-   
                 </div>
-
             </div>
                  </li>
             </ul>
@@ -99,62 +96,73 @@
    </nav>
   <body>
 
-    <!-- Content -->
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-12 col-sm-6 col-lg-4 my-3">
-                <form action="" id="editionForm">
-                    <div class="form-group">
-                        <label for="input_name">Nombre(s)</label>
-                        <input type="text" id="input_name" name="name" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <div class="form-group">
-                        <label for="input_lastname_father">Apellido paterno</label>
-                        <input type="text" id="input_lastname_father" name="lastname_father" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <div class="form-group">
-                        <label for="input_lastname_mother">Apellido materno</label>
-                        <input type="text" id="input_lastname_mother" name="lastname_mother" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <div class="form-group">
-                        <label for="input_genre">Género</label>
-                        <input type="text" id="input_genre" name="genre" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <div class="form-group">
-                        <label for="input_birthday">Fecha de nacimiento</label>
-                        <input type="date" name="birthday" id="input_birthday" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;"></input>
-                    </div>
-                    <div class="form-group">
-                        <label for="input_correo">Correo electrónico</label>
-                        <input type="email" id="input_correo" name="correo" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <button type="submit"  class="didactinaut-btn w-100 p-2">Guardar</button>
-                </form>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4 my-3">
-                <form action="" id="passwordForm">
-                    <div class="form-group">
-                        <label for="input_password">Contraseña</label>
-                        <input type="password" id="input_password" name="input_password" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <div class="form-group">
-                        <label for="input_repeat_password">Repite la contraseña</label>
-                        <input type="password" id="input_repeat_password" name="input_repeat_password" class="form-control" style="background-color: rgb(228, 228, 228); border: 1px rgba(0, 0, 0, 0.575) solid;">
-                    </div>
-                    <button type="submit" form="passwordForm" class="didactinaut-btn w-100 p-2">Guardar contraseña</button>
-                </form>
-                <div class="mt-3">
-                    <section class="imagen_seleccion">
-                        <label for="input_imagen_registro">Select file</label>
-                        <input style="display: none;" type="file" id="input_imagen_registro"  onchange="readURL(this);"> <img  src="#" id="img_registro" alt="">
-                   </section>
-                   <button type="submit" class="didactinaut-btn w-100 p-2 mt-3">Guardar imagen</button>
-                </div>
-            </div>
-        </div>
-    </div>
+     <div class="container-fluid" style="margin-bottom: 20px;">
+          <div class="row">
+               <!-- Chats listados -->
+               <div class="col-3 card">
+                    <h2 class="pt-3 pb-2 ">Chats</h2>
+                    <div style="overflow-y: auto; height: 21vw;">
+                         <a href="#" class="link-chat  pb-3">
+                              <div class="col-12 link-chat-hover">
+                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
+                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
+                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
+                              </div>
+                              <br>
+                         </a>
+                         <a href="#" class="link-chat  pb-3">
+                              <div class="col-12 link-chat-hover">
+                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
+                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
+                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
+                              </div>
+                              <br>
+                         </a>
+                         <a href="#" class="link-chat  pb-3">
+                              <div class="col-12 link-chat-hover">
+                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
+                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
+                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
+                              </div>
+                              <br>
+                         </a>
+                         <a href="#" class="link-chat  pb-3">
+                              <div class="col-12 link-chat-hover">
+                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
+                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
+                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
+                              </div>
+                              <br>
+                         </a>
 
-    <footer class="footer text-center">
+                    </div>
+               </div>
+               <!-- Cuerpo del chat seleccionado -->
+               <div class="col-9 card">
+                    <div class="row p-3 ">
+                         <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
+                         <h2 >Bryan Duarte</h2>
+                    </div><hr style="margin-top: 0;">
+                    <section class="body-chat" style="background-color: rgb(230, 230, 230); margin-left: -15px; margin-right: -15px;">
+                         <img class="imgchat-saludo" src="imgs/didactinaut-chat.png" alt=""><br>
+                         <h5 class="chat-saludo">¡Bienvenido al chat con <span>Bryan Duarte</span>!</h5>
+                    </section>
+                    <footer class="footer-chat ml-3">
+                         <button id="btn-addFiles" class="footer-chat-btn mr-1"><i class="fa fa-plus"></i></button>
+                         <button id="btn-addImgs" class="footer-chat-btn mr-4"><i class="fa fa-file-image-o "></i></button>
+                         <input id="input-chatMessage" class="footer-chat-input" type="text" placeholder="Aa">
+                    </footer>
+               </div>
+          </div>
+     </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+   <footer class="footer text-center">
         <div class="container">
             <div class="row">
                 <div class="col-1"></div>
@@ -209,14 +217,4 @@
     
         </div>
     </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/Utilidad.js"></script>
-
-  </body>
-  
 </html>

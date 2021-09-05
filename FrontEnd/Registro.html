@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/Registro.css">
+    <link rel="stylesheet" href="css/Validaciones.css">
   </head>
   <nav class="navbar navbar-expand-lg navbar-light dark-theme-nav">
        <!-- LOGO PAGINA EN NAVBAR -->
-       <a class="logo-navbar" href="#">Didactinaut</a>
+       <a class="logo-navbar" href="Inicio.html">Didactinaut</a>
 
        <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
@@ -35,11 +36,11 @@
                 </li>
                 <li class="nav-item">
                     <!-- CARRITO DE COMPRAS -->
-                    <a href="#"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
+                    <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
                  </li>
                  <li class="nav-item">
                     <!-- REGISTRARSE -->
-                    <a class="opciones-navbar-2" href="#">Registrarse</a>
+                    <a class="opciones-navbar-2" href="Registro.html">Registrarse</a>
                  </li>
                  <li class="nav-item">
                     <!-- INICIAR SESIÓN -->
@@ -49,6 +50,41 @@
        </div>
        
   </nav>
+   <nav class="container-fluid text-center barra-categorias navbar-expand-lg navbar" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
+   </button>
+    <div class="row collapse navbar-collapse" id="categorias-colapsables">
+        <div class="col-6 col-lg-2">
+            <a href="#" class="link-barra-categoria">Diseño</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="search-results.html" class="link-barra-categoria">Programación</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Modelado 3D</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Administración</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Alimentación</a>
+        </div>
+        
+        <div class="col-6 col-lg-2">
+            <div class="dropdown show">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdown-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Más categorías  </a>
+                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
+                    <a class="dropdown-item" href="#">Marketing</a>
+                    <a class="dropdown-item" href="#">Software</a>
+   
+                </div>
+
+            </div>
+        </div>
+    </div>
+   </nav>
 
   <body>
 
@@ -59,23 +95,23 @@
                          
                        <h2 class="text-center titulo_registro">¡Regístrate en Didactinaut!</h2>
                        <hr>
-                       <form action="">
-                           <input type="text" class="inputs_registro" id="nombres_registro" placeholder="Nombre(s)"> <br>
+                       <form action="" id="form_registro">
+                           <input type="text" class="inputs_registro" id="nombres_registro" name="nombres_registro" placeholder="Nombre(s)"> <br>
                
-                           <input type="text" class="inputs_registro" id="ape_pat_registro" placeholder="Apellido Paterno"> <br>
+                           <input type="text" class="inputs_registro" id="ape_pat_registro" name="ape_pat_registro" placeholder="Apellido Paterno"> <br>
                
-                           <input type="text" class="inputs_registro" id="ape_mat_registro" placeholder="Apellido Materno"> <br>
+                           <input type="text" class="inputs_registro" id="ape_mat_registro" name="ape_mat_registro" placeholder="Apellido Materno"> <br>
                
-                           <input type="text" class="inputs_registro" id="genero_registro" placeholder="Género"> <br>
+                           <input type="text" class="inputs_registro" id="genero_registro" name="genero_registro" placeholder="Género"> <br>
                
                            <label for="fechaNac_registro" >Fecha de nacimiento: </label>
-                           <input type="date" style="margin-bottom: 10px;" id="fechaNac_registro" > <br>
+                           <input type="date" style="margin-bottom: 10px;" id="fechaNac_registro" name="fechaNac_registro" > <br>
                
-                           <input type="text" class="inputs_registro" id="correo_registro" placeholder="Correo electrónico"> <br>
+                           <input type="text" class="inputs_registro" id="correo_registro" name="correo_registro" placeholder="Correo electrónico"> <br>
                
-                           <input type="text" class="inputs_registro" id="contra_registro" placeholder="Contraseña"> <br>
+                           <input type="text" class="inputs_registro" id="contra_registro"  name="contra_registro" placeholder="Contraseña"> <br>
                
-                           <input type="submit" id="btn_registro" value="Registrarse">
+                           <input type="submit" id="btn_registro" form="form_registro" value="Registrarse">
                        </form>
                        <h6>¿Ya tienes cuenta? <a class="link_registro" href="IniciaSesion.html">Inicia sesión</a></h6>
                        
@@ -84,10 +120,10 @@
                </div>
                <div class="col-4">
                     <section class="imagen_seleccion">
-                         <label for="input_imagen_registro">Select file</label>
-                         <input style="display: none;" type="file" id="input_imagen_registro"  onchange="readURL(this);"> <img  src="#" id="img_registro" alt="">
-
-                    </section>
+                         <label for="input_imagen_registro">Imagen de perfil</label>
+                         <input style="display: none;" type="file" id="input_imagen_registro" name="input_imagen_registro"  onchange="readURL(this);"> <img  src="#" id="img_registro" alt="">
+                        </section>
+                       
                </div>
           </div>
      </div>
@@ -99,6 +135,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/Utilidad.js"></script>
   </body>
 <footer class="footer text-center">

@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/Inicio.css">
+    <link rel="stylesheet" href="css/SesionIniciada.css">
   </head>
   <nav class="navbar navbar-expand-lg  dark-theme-nav">
        <!-- LOGO PAGINA EN NAVBAR -->
-       <a class="logo-navbar" href="Inicio.html">Didactinaut</a>
+       <a class="logo-navbar" href="SesionIniciada.html">Didactinaut</a>
 
        <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
@@ -32,19 +32,30 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <!-- CREAR CURSO NAVBAR --> 
-                    <a class="opciones-navbar" href="#">Crear curso</a>
+                    <a class="opciones-navbar" href="course-creation.html">Crear curso</a>
+                </li>
+                <li class="nav-item">
+                    <!-- HISTORIAL NAVBAR --> 
+                    <a class="opciones-navbar" href="Historial-usuario.html">Historial</a>
                 </li>
                 <li class="nav-item">
                     <!-- CARRITO DE COMPRAS -->
                     <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
                  </li>
-                 <li class="nav-item">
-                    <!-- REGISTRARSE -->
-                    <a class="opciones-navbar-2" href="Registro.html">Registrarse</a>
-                 </li>
+                 
                  <li class="nav-item">
                     <!-- INICIAR SESIÓN -->
-                    <a class="opciones-navbar-2" style="margin-right: 10px;" href="IniciaSesion.html">Iniciar sesión</a>
+                    <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="opciones-navbar-2" style="margin-right: 0;"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva"> Miguel Villanueva</span>  </a>
+                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio">
+                    <a class="dropdown-item" href="MySales.html">Mis ventas</a>
+                    <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
+                    <a class="dropdown-item" href="Inicio.html">Cerrar sesión</a>
+   
+                </div>
+
+            </div>
                  </li>
             </ul>
        </div>
@@ -120,11 +131,10 @@
     </div>
     
 
-  
 
 
-<div class=" row w-100 mx-auto" >
-    <!-- CURSOS RECOMENDADOS -->
+<div class="row w-100 mx-auto" >
+     <!-- CURSOS RECOMENDADOS -->
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 active">
         <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img1">
         <div class="card" style="height: 100px;">
@@ -143,7 +153,7 @@
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-       
+        <a class="courselink-inicio" href="course-details.html">
             <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img2">
             <div class="card" style="height: 100px;">
                 <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
@@ -158,7 +168,7 @@
                 </span>
             </div>
 
-       
+        </a>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img3">
@@ -191,32 +201,32 @@
             
         </div>
     </div>
-    <div class=" col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img5">
         <div class="card" style="height: 100px;">
-            <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
             <span id="course-Instructor">Bryan Duarte</span>
             <span class="stars">
-                        <span style="color: black;">4.5</span> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star-half-empty"></i> 
-                </span>
-            
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
         </div>
     </div>
-   
-</div>
     
-<br>
+</div>
+     <br>
 
-<!-- <audio id="audio_" src="ascensor.mp3" loop="loop"></audio> -->
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+     <!-- <audio id="audio_" src="ascensor.mp3" loop="loop"></audio> -->
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Navega al conocimiento con nuestros cursos - Didactinaut   </title>
+    <title>Mis alumnos - Didactinaut</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/Inicio.css">
+    <link rel="stylesheet" href="css/Students.css">
   </head>
-  <nav class="navbar navbar-expand-lg  dark-theme-nav">
+
+ <nav class="navbar navbar-expand-lg  dark-theme-nav">
        <!-- LOGO PAGINA EN NAVBAR -->
-       <a class="logo-navbar" href="Inicio.html">Didactinaut</a>
+       <a class="logo-navbar" href="SesionIniciada.html">Didactinaut</a>
 
        <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
@@ -32,25 +33,33 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <!-- CREAR CURSO NAVBAR --> 
-                    <a class="opciones-navbar" href="#">Crear curso</a>
+                    <a class="opciones-navbar" href="course-creation.html">Crear curso</a>
+                </li>
+                <li class="nav-item">
+                    <!-- HISTORIAL NAVBAR --> 
+                    <a class="opciones-navbar" href="Historial-usuario.html">Historial</a>
                 </li>
                 <li class="nav-item">
                     <!-- CARRITO DE COMPRAS -->
                     <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
                  </li>
-                 <li class="nav-item">
-                    <!-- REGISTRARSE -->
-                    <a class="opciones-navbar-2" href="Registro.html">Registrarse</a>
-                 </li>
+                 
                  <li class="nav-item">
                     <!-- INICIAR SESIÓN -->
-                    <a class="opciones-navbar-2" style="margin-right: 10px;" href="IniciaSesion.html">Iniciar sesión</a>
+                    <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="opciones-navbar-2" style="margin-right: 0;"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva"> Miguel Villanueva</span>  </a>
+                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio">
+                    <a class="dropdown-item" href="MySales.html">Mis ventas</a>
+                    <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
+                    <a class="dropdown-item" href="Inicio.html">Cerrar sesión</a>
+                </div>
+            </div>
                  </li>
             </ul>
        </div>
        
     </nav>
-    
 <nav class="container-fluid text-center barra-categorias navbar-expand-lg navbar" >
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
@@ -88,146 +97,75 @@
 </nav>
 
   <body>
-       
 
-    <div class="container card inicio-carta" >
-        <div class="row">
-            <div class="col-12 col-lg-5">
-                <img class="inicio-carta-naves" src="imgs/didactinaut-inicio.png" alt="">
-                
+       <div class="container bg-light card mb-3">
+        <div class="row mt-4 mb-4" style="margin-left: 1px;">
+            <h3>Mis alumnos</h3>
+        </div>
+        <div class="row pt-2 pb-2" style="background-color: rgb(51, 51, 51);">
+            <div class="col-8">
+                <span class="opcion-listaAlumnos" >Lista de alumnos inscritos a tus cursos</span>
             </div>
-           
-            <div class="col-12 col-lg-7" >
-                <section class="card inicio-carta-texto">
-                    <h2 style="margin-left: 15px; margin-top: 15px; font-weight: bold;">Navega al conocimiento en Didactinaut</h2>
-                    <hr style="margin-top: 4px;">
-                    <span style="margin-left: 15px; font-size: 18px;">Los mejores cursos con las lecciones más eficientes y completas para tu aprendizaje. </span>
-                </section>
+            
+        </div>
+    </div>
+
+     <div class="container-fluid card pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12 mb-3">
+                        <section class="card" style="width:50vw; transform: translate(10vw);">
+                            <div class="row">
+                               <div class="col-12 col-lg-3">
+                                   <img  class="alumnos-img-section" src="imgs/Perfil-default.png" alt="">
+                               </div>
+                               <div class="col-12 col-lg-9 mb-2" >
+                                   <span style="font-size: 20px; font-weight: bold;">Roberto Martínez González</span><br><hr> 
+                                   <span style="font-size: 16px;">Fecha de inscripción: <span id="inscriptionDateStudent">30/ago/2021</span></span><br>
+                                   <span style="font-size: 16px;">Nivel de avance: <span id="progressStudent">1</span></span><br>
+                                   <span style="font-size: 16px;">Precio pagado: $<span id="inscriptionDateStudent">1,200.00 MXN</span></span><br>
+                                   <span style="font-size: 16px;">Forma de pago: <span id="paymentMethodStudent">Tarjeta de crédito</span></span>
+                               </div>
+                            </div>
+                        </section>
+                </div>
+                <div class="col-12 col-lg-12 mb-3">
+                        <section class="card" style="width:50vw; transform: translate(10vw);">
+                            <div class="row">
+                               <div class="col-12 col-lg-3">
+                                   <img  class="alumnos-img-section" src="imgs/Perfil-default.png" alt="">
+                               </div>
+                               <div class="col-12 col-lg-9 mb-2" >
+                                   <span style="font-size: 20px; font-weight: bold;">Samantha Clara Medina Cortés</span><br><hr> 
+                                   <span style="font-size: 16px;">Fecha de inscripción: <span id="inscriptionDateStudent">01/sep/2021</span></span><br>
+                                   <span style="font-size: 16px;">Nivel de avance: <span id="progressStudent">1</span></span><br>
+                                   <span style="font-size: 16px;">Precio pagado: $<span id="inscriptionDateStudent">1,200.00 MXN</span></span><br>
+                                   <span style="font-size: 16px;">Forma de pago: <span id="paymentMethodStudent">Paypal</span></span>
+                               </div>
+                            </div>
+                        </section>
+                </div>
                 
             </div>
         </div>
     </div>
 
-    <div class="container " >
-        <div class="row">
-            <div class="col-12">
-                <h2 style="font-weight: bold;">Aterrizaje al aprendizaje</h2>
-            </div>
-            <div class="col-12">
-                <h4>Mira nuestras recomendaciones</h4>
-            </div>
-        </div>
+    <div class="container mt-3 mb-4">
+     <div class="row" style="width: 40vw; transform: translate(17vw); ">
+          <div class="col-12 card text-center totalingresos-container" >
+               <h4>Total de ingresos: $<span id="totalCourseMoney">2,400.00 MXN</span></h4>
+          </div>
+          
+     </div>
     </div>
     
 
-  
-
-
-<div class=" row w-100 mx-auto" >
-    <!-- CURSOS RECOMENDADOS -->
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 active">
-        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img1">
-        <div class="card" style="height: 100px;">
-            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
-            <span id="course-Instructor">Bryan Duarte</span>
-            
-            <span class="stars">
-                    <span style="color: black;">4.0</span> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star-o"></i> 
-            </span>
-            
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-       
-            <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img2">
-            <div class="card" style="height: 100px;">
-                <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
-                <span id="course-Instructor">Bryan Duarte</span>
-                <span class="stars">
-                        <span style="color: black;">4.5</span> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star-half-empty"></i> 
-                </span>
-            </div>
-
-       
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img3">
-        <div class="card" style="height: 100px;">
-            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
-            <span id="course-Instructor">Bryan Duarte</span>
-            <span class="stars">
-                    <span style="color: black;">4.0</span> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star"></i> 
-                    <i class="fa fa-star-o"></i> 
-            </span>
-        </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img4">
-        <div class="card" style="height: 100px;">
-            <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
-            <span id="course-Instructor">Bryan Duarte</span>
-            <span class="stars">
-                        <span style="color: black;">4.5</span> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star-half-empty"></i> 
-                </span>
-            
-        </div>
-    </div>
-    <div class=" col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img4">
-        <div class="card" style="height: 100px;">
-            <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
-            <span id="course-Instructor">Bryan Duarte</span>
-            <span class="stars">
-                        <span style="color: black;">4.5</span> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star"></i> 
-                        <i class="fa fa-star-half-empty"></i> 
-                </span>
-            
-        </div>
-    </div>
-   
-</div>
-    
-<br>
-
-<!-- <audio id="audio_" src="ascensor.mp3" loop="loop"></audio> -->
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#audio_").get(0).play();
-            $("#audio_").get(0).volume = 0.25; 
-        });
-    </script>
-    <script src="js/Inicio.js"></script>
-
   </body>
 <footer class="footer text-center">
     <div class="container">
@@ -284,5 +222,4 @@
 
     </div>
 </footer>
-  
 </html>

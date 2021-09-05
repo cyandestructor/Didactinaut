@@ -12,44 +12,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/Cart.css">
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light dark-theme-nav">
-        <!-- LOGO PAGINA EN NAVBAR -->
-        <a class="logo-navbar" href="#">Didactinaut</a>
+ <nav class="navbar navbar-expand-lg  dark-theme-nav">
+       <!-- LOGO PAGINA EN NAVBAR -->
+       <a class="logo-navbar" href="SesionIniciada.html">Didactinaut</a>
+
+       <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="boton-colapso"> <img src="imgs/Boton-colapso.png" alt=""> </span>
+       </button>
+
  
-        <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
-             <span class="boton-colapso"> <img src="imgs/Boton-colapso.png" alt=""> </span>
-        </button>
- 
-  
-         <div class="collapse navbar-collapse " id="contenidocolapsable">
-             <!-- BARRA DE BÚSQUEDA EN NAVBAR -->
-             <form action="">
-                  <input class="buscar" type="text" placeholder="Buscar cursos">
-                  <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
-             </form>
- 
-             <ul class="navbar-nav mr-auto">
-                 <li class="nav-item">
-                     <!-- CREAR CURSO NAVBAR --> 
-                     <a class="opciones-navbar" href="#">Crear curso</a>
+        <div class="collapse navbar-collapse " id="contenidocolapsable">
+            <!-- BARRA DE BÚSQUEDA EN NAVBAR -->
+            <form action="">
+                 <input class="buscar" type="text" placeholder="Buscar cursos">
+                 <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
+            </form>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <!-- CREAR CURSO NAVBAR --> 
+                    <a class="opciones-navbar" href="course-creation.html">Crear curso</a>
+                </li>
+                <li class="nav-item">
+                    <!-- HISTORIAL NAVBAR --> 
+                    <a class="opciones-navbar" href="Historial-usuario.html">Historial</a>
+                </li>
+                <li class="nav-item">
+                    <!-- CARRITO DE COMPRAS -->
+                    <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
                  </li>
+                 
                  <li class="nav-item">
-                     <!-- CARRITO DE COMPRAS -->
-                     <a href="#"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
-                  </li>
-                  <li class="nav-item">
-                     <!-- REGISTRARSE -->
-                     <a class="opciones-navbar-2" href="Registro.html">Registrarse</a>
-                  </li>
-                  <li class="nav-item">
-                     <!-- INICIAR SESIÓN -->
-                     <a class="opciones-navbar-2" style="margin-right: 10px;" href="IniciaSesion.html">Iniciar sesión</a>
-                  </li>
-             </ul>
+                    <!-- INICIAR SESIÓN -->
+                    <div class="dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="opciones-navbar-2" style="margin-right: 0;"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva"> Miguel Villanueva</span>  </a>
+                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio">
+                    <a class="dropdown-item" href="MySales.html">Mis ventas</a>
+                    <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
+                    <a class="dropdown-item" href="Inicio.html">Cerrar sesión</a>
+                </div>
+            </div>
+                 </li>
+            </ul>
+       </div>
+       
+    </nav>
+ <nav class="container-fluid text-center barra-categorias navbar-expand-lg navbar" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
+   </button>
+    <div class="row collapse navbar-collapse" id="categorias-colapsables">
+        <div class="col-6 col-lg-2">
+            <a href="#" class="link-barra-categoria">Diseño</a>
         </div>
+        <div class="col-6 col-lg-2">
+            <a href="search-results.html" class="link-barra-categoria">Programación</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Modelado 3D</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Administración</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Alimentación</a>
+        </div>
+        
+        <div class="col-6 col-lg-2">
+            <div class="dropdown show">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdown-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Más categorías  </a>
+                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
+                    <a class="dropdown-item" href="#">Marketing</a>
+                    <a class="dropdown-item" href="#">Software</a>
+   
+                </div>
+
+            </div>
+        </div>
+    </div>
    </nav>
+  <body>
     <!-- Content -->
     <div class="container">
         <h2 class="mt-2">Carrito</h2>

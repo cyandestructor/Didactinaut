@@ -1,79 +1,124 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Inicia sesión - Didactinaut</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/IniciaSesion.css">
-  </head>
-  <nav class="navbar navbar-expand-lg navbar-light dark-theme-nav">
-       <!-- LOGO PAGINA EN NAVBAR -->
-       <a class="logo-navbar" href="Inicio.html">Didactinaut</a>
-
-       <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
+    <head>
+        <title>Inicia sesión - Didactinaut</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/IniciaSesion.css">
+        <link rel="stylesheet" href="css/Validaciones.css">
+        <link rel="stylesheet" href="css/jquery.sweet-modal.min.css">
+        
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light dark-theme-nav">
+        <!-- LOGO PAGINA EN NAVBAR -->
+        <a class="logo-navbar" href="Inicio.html">Didactinaut</a>
+        
+        <!-- BOTON PARA COLAPSAR OPCIONES DE NAVBAR -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" >
             <span class="boton-colapso"> <img src="imgs/Boton-colapso.png" alt=""> </span>
-       </button>
-
- 
+        </button>
+        
+        
         <div class="collapse navbar-collapse " id="contenidocolapsable">
             <!-- BARRA DE BÚSQUEDA EN NAVBAR -->
             <form action="">
-                 <input class="buscar" type="text" placeholder="Buscar cursos">
-                 <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
+                <input class="buscar" type="text" placeholder="Buscar cursos">
+                <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
             </form>
-
+            
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <!-- CREAR CURSO NAVBAR --> 
-                    <a class="opciones-navbar" href="#">Crear curso</a>
+                    <a class="opciones-navbar" href="course-creation.html">Crear curso</a>
                 </li>
                 <li class="nav-item">
                     <!-- CARRITO DE COMPRAS -->
-                    <a href="#"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
-                 </li>
-                 <li class="nav-item">
+                    <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
+                </li>
+                <li class="nav-item">
                     <!-- REGISTRARSE -->
-                    <a class="opciones-navbar-2" href="#">Registrarse</a>
-                 </li>
-                 <li class="nav-item">
+                    <a class="opciones-navbar-2" href="Registro.html">Registrarse</a>
+                </li>
+                <li class="nav-item">
                     <!-- INICIAR SESIÓN -->
                     <a class="opciones-navbar-2" style="margin-right: 10px;" href="IniciaSesion.html">Iniciar sesión</a>
-                 </li>
+                </li>
             </ul>
-       </div>
-       
-  </nav>
-
-  <body>
+        </div>
+            
+    </nav>
+    <nav class="container-fluid text-center barra-categorias navbar-expand-lg navbar" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
+        </button>
+    <div class="row collapse navbar-collapse" id="categorias-colapsables">
+        <div class="col-6 col-lg-2">
+            <a href="#" class="link-barra-categoria">Diseño</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="search-results.html" class="link-barra-categoria">Programación</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Modelado 3D</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Administración</a>
+        </div>
+        <div class="col-6 col-lg-2">
+            <a href="#"class="link-barra-categoria">Alimentación</a>
+        </div>
+        
+        <div class="col-6 col-lg-2">
+            <div class="dropdown show">
+                <a class="btn dropdown-toggle" href="#" role="button" id="dropdown-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Más categorías  </a>
+                    <div class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
+                        <a class="dropdown-item" href="#">Marketing</a>
+                        <a class="dropdown-item" href="#">Software</a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
     
-      <section class="text-center formulario_inicia_sesion">
-          
-        <h2 class="text-center titulo_inicia_sesion">¡Inicia sesión en Didactinaut!</h2>
-        <hr>
-        <form action="">
-            <input type="text" id="correo_inicia_sesion" placeholder="Correo electrónico"> <br>
-
-            <input type="password" id="contra_inicia_sesion" placeholder="Contraseña"> <br>
-
-            <input type="submit" id="btn_inicia_sesion" value="Iniciar sesión">
+    <body>
+        
+        <section class="text-center formulario_inicia_sesion">
+        
+            <h2 class="text-center titulo_inicia_sesion">¡Inicia sesión en Didactinaut!</h2>
+            <hr>
+        <form action="" method="" id="form_iniciosesion">
+            <input type="text" id="correo_inicia_sesion" name="correo_inicia_sesion" placeholder="Correo electrónico"> <br>
+            
+            <input type="password" id="contra_inicia_sesion" name="contra_inicia_sesion" placeholder="Contraseña"> <br>
+            
+            <input type="submit" form="form_iniciosesion" id="btn_inicia_sesion" value="Iniciar sesión">
+            <a href="SesionIniciada.html" style="display: inline; color: black;">
+                <i class="fa fa-forward"></i><br>
+            </a>
         </form>
         <h6>¿Sin cuenta? <a class="link_inicia_sesion" href="Registro.html">Regístrate</a></h6>
         
     </section>
-
-
+    
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.sweet-modal.min.js"></script>
+    <script src="js/Utilidad.js"></script>
+</body>
 <footer class="footer text-center">
     <div class="container">
         <div class="row">
@@ -109,15 +154,15 @@
     <div style="background-color: rgba(0, 0, 0, 0.2);">
         <div class="container" >
             <div class="row">
-                <div class="col-lg-3 col-md-2 col-sm-2">
+                <div class="col-lg-3 col-md-2 col-sm-0">
                 </div>
                 <!-- LOGO DIDACTINAUT -->
-                <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <h5 class="p-3" >Didactinaut</h5>
                 </div>
                 
                 <!-- COPYRIGHT DIDACTINAUT -->
-                <div class="col-lg-3 col-md-4 col-sm-5">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="text-right copyr p-3" >
                         © 2021:
                         Didactinaut

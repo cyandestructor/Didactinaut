@@ -1,0 +1,12 @@
+label.error,p.error,p.error-contact {
+     display: block;
+     margin-top: -10px;
+     margin-bottom: 18px;
+     color: #e02200e7;
+     font-style: italic;
+     font-weight: bolder;
+}
+
+p.error-contact {
+     margin: 0;
+}
