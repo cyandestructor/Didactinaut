@@ -211,7 +211,7 @@ $(document).ready(function(){
             },
             input_repeat_password:{
                 required: true,
-                equalTo: input_password
+                equalTo: "#input_password"
 
             }
 
