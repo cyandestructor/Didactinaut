@@ -47,6 +47,8 @@ jQuery.validator.addMethod("formatocontrasenia", function(value, element){
 
 $(document).ready(function(){
 
+    
+
     $("#form_iniciosesion").validate({
         rules:{
             correo_inicia_sesion: {

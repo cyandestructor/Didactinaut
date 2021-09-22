@@ -228,6 +228,66 @@ hr {
      font-size: 18px;
      border: 1px rgba(0, 0, 0, 0.575) solid;
 }
+.inputs_curso_title {
+     margin-bottom: 10px;
+     height: 42px;
+     background-color: rgb(228, 228, 228);
+     font-size: 18px;
+     border: 1px rgba(0, 0, 0, 0.575) solid;
+}
+
+.inputs_curso_cat {
+     margin-bottom: 10px;
+     height: 42px;
+     background-color: rgb(228, 228, 228);
+     font-size: 18px;
+     border: 1px rgba(0, 0, 0, 0.575) solid;
+}
+
+@media only screen and (min-width: 400px) {
+     .check_cat {
+          height: 25vw;
+          width: 40vw;
+     }
+
+     .inputs_curso_cat {
+          width: 45vw;
+     }
+
+     .inputs_curso_title {
+          width: 65vw;
+     }
+}
+
+@media only screen and (min-width: 998px) {
+     .check_cat {
+          height: 12vw;
+          width: 20vw;
+     }
+
+     .inputs_curso_cat {
+          width: 20vw;
+     }
+
+     .inputs_curso_title {
+          width: 35vw;
+     }
+}
+
+@media only screen and (min-width: 1440px) {
+     .check_cat {
+          height: 12vw;
+          width: 20vw;
+     }
+
+     .inputs_curso_cat {
+          width: 20vw;
+     }
+
+     .inputs_curso_title {
+          width: 30vw;
+     }
+}
 
 .inputs_curso_nivel {
      width: 90%;

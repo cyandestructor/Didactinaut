@@ -26,7 +26,7 @@
             <!-- BARRA DE BÚSQUEDA EN NAVBAR -->
             <form action="">
                  <input class="buscar" type="text" placeholder="Buscar cursos">
-                 <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
+                 <a href="search-results.html"><button type="button" class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button></a>
             </form>
 
             <ul class="navbar-nav mr-auto">
@@ -98,6 +98,41 @@
     </div>
 </nav>
   <body>
+
+   <div class="busqueda_filtrada">
+       <h3>Buscar por fecha:</h3>
+       <input type="date"><span> - </span> <input type="date">
+       <div class="porcategoria_container">
+           <h3 id="porcat">Por categoría</h3><br>
+           <select class="mr-2 mb-2 " name="" id="courseCategorie_input">
+                                   <option value="">Ninguna</option>
+                                   <option value="">Todas</option>
+                                   <option value="">Diseño</option>
+                                   <option value="">Programación</option>
+                                   <option value="">Modelado 3D</option>
+                                   <option value="">Administración</option>
+                                   <option value="">Alimentación</option>
+                                   <option value="">Marketing</option>
+                                   <option value="">Software</option>
+                               </select>
+
+       </div>
+
+       <div class="btn_busquedafiltrada_container">
+            <button class="btn_busquedafiltrada" type="button">
+                <a href="" class="btn_busquedaLink">Utilizar filtros</a>
+            </button>
+       </div>
+
+   </div>
+
+  
+
+
+
+
+  
+
      
      <h2 class="mt-5 ml-5" style="font-weight: bold;">Cursos de <span id="selectedcategory-search">Programación</span> </h2>
 

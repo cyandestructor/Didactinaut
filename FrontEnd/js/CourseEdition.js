@@ -15,7 +15,7 @@ $(function(){
 
 //BOTONES PARA AGREGAR
 $("#newCourseLevel").on("click", function(){
-          $(".inputs_curso_nivel").append("<div class='accordion'><div class='card'><div class='card-header'><label class='d-inline'> Nombre de nivel: <input id='levelName_input_edit' type='text'><button type='button' id='btn_eliminarNivel_edit' class='btnEliminarNivel'> <i class='fa fa-trash'> </i> </button></label></div><div class='card p-3'><button style='font-size: 16px;' type='button' id='newCourselesson_edit' class='btn_nuevaLeccion'><i class='fa fa-plus'></i> Nueva Lección</button><button style='font-size: 16px;' type='button' id='newCourseFile_edit' class='btn_nuevaLeccion'><i class='fa fa-plus'></i> Nuevo archivo</button></div><ul class='list-unstyled'></ul></div></div>");
+          $(".inputs_curso_nivel").append("<div class='accordion'><div class='card'><div class='card-header'><label class='d-inline'> Nombre de nivel: <input id='levelName_input_edit' type='text'><button type='button' id='btn_eliminarNivel_edit' class='btnEliminarNivel'> <i class='fa fa-trash'> </i> </button>  <input style='' type='text' placeholder='Precio'></label></div><div class='card p-3'><button style='font-size: 16px;' type='button' id='newCourselesson_edit' class='btn_nuevaLeccion'><i class='fa fa-plus'></i> Nueva Lección</button><button style='font-size: 16px;' type='button' id='newCourseFile_edit' class='btn_nuevaLeccion'><i class='fa fa-plus'></i> Nuevo archivo</button></div><ul class='list-unstyled'></ul></div></div>");
 });
 
 
