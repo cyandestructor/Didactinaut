@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS Users (
     user_name VARCHAR(50) NOT NULL,
     user_lastname VARCHAR(50) NOT NULL,
     user_description TEXT,
-    user_role ENUM('Instructor', 'User'),
+    user_role ENUM('Instructor', 'User') DEFAULT 'User',
     user_email VARCHAR(60) NOT NULL UNIQUE,
     user_password VARCHAR(255) NOT NULL,
     account_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
