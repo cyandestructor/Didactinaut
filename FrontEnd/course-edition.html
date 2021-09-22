@@ -28,7 +28,7 @@
             <!-- BARRA DE BÚSQUEDA EN NAVBAR -->
             <form action="">
                  <input class="buscar" type="text" placeholder="Buscar cursos">
-                 <button class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button>
+                  <a href="search-results.html"><button type="button" class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button></a>
             </form>
 
             <ul class="navbar-nav mr-auto">
@@ -101,29 +101,43 @@
 
       <h1 class="text-center " style="font-weight: bold;">Edita tu curso</h1>
       
-      <form action="" id="form_courseEdition">
-     <div class="container card container-coursecreation" >
+    <form action="" id="form_courseEdition">
+    <div class="container card container-coursecreation" >
           <div class="row">
                <div class="col-12"><h4 style="font-weight: bold;">Configuración general del curso</h4></div>
           </div>
           <hr>
           <div class="row">
-                  <div class="col-6">
-                       <h5>Título del curso</h5>
-                       <input type="text" id="courseTitle_input_edit" name="courseTitle_input_edit" class="inputs_curso" >     
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6">
-                       <h5>Categoría</h5>
-                           <select class="mr-2 mb-3" name="" id="courseCategorie_input_edit">
-                               <option value="">Diseño</option>
-                               <option value="">Programación</option>
-                               <option value="">Modelado 3D</option>
-                               <option value="">Administración</option>
-                               <option value="">Alimentación</option>
-                               <option value="">Marketing</option>
-                               <option value="">Software</option>
-                           </select>
-                  </div>
+                  <div class="col-12 text-center">
+                      <h5>Título del curso</h5>
+                      <input type="text" id="courseTitle_input" name="courseTitle_input" class="inputs_curso_title" >     
+                    </div>
+                  <div class="col-12">
+                        <div class="text-center">
+                            Crea aquí tu propia Categoría: <br>
+                            <input class="inputs_curso_cat" type="text" id="nuevaCategoriaCurso_edit">
+                        </div>
+                        <div class="text-center">O selecciona las que quieras: <br></div>
+                       
+                        <div class="card-header container check_cat" style="overflow-y: auto; margin-bottom: 10px;">
+                            <form action="">
+                                <input type="checkbox" id="cat1">
+                                <label for="cat1">Diseño </label><br>
+                                <input type="checkbox" id="cat2">
+                                <label for="cat2">Programación </label><br>
+                                <input type="checkbox" id="cat3">
+                                <label for="cat3">Modelado 3D </label><br>
+                                <input type="checkbox" id="cat4">
+                                <label for="cat4">Administración </label><br>
+                                <input type="checkbox" id="cat5">
+                                <label for="cat5">Alimentación </label><br>
+                                <input type="checkbox" id="cat6">
+                                <label for="cat6">Marketing </label><br>
+                                <input type="checkbox" id="cat7">
+                                <label for="cat7">Software </label><br>
+                            </form>
+                        </div>
+                    </div>
                   <div class="col-lg-6 col-md-12 col-sm-12">
                        <h5>Descripción del curso</h5>
                        <textarea class="inputs_curso" name="courseDescription_input_edit" id="courseDescription_input_edit" cols="30" rows="10"></textarea>

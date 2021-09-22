@@ -256,3 +256,32 @@ body {
      margin-left: 25%;
      
 }
+
+@media only screen and (min-width: 500px) {
+
+     .imagen_seleccion {
+          margin-left: 20vw;
+     }
+     body{
+          margin-top: 100px;
+     }
+}
+@media only screen and (min-width: 998px){
+     .imagen_seleccion{
+          margin-left: 0vw;
+     }
+}
+@media only screen and (min-width: 1200px) {
+
+     .imagen_seleccion {
+          margin-left: 0vw;
+     }
+}
+@media only screen and (min-width: 1400px) {
+     .imagen_seleccion {
+          margin-left: 0;
+     }
+     body{
+          margin-top: 75px;
+     }
+}
