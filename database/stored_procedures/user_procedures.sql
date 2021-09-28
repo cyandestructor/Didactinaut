@@ -56,7 +56,6 @@ BEGIN
 END $$
 DELIMITER ;
 
--- TODO
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SetUserImage $$
 
@@ -80,6 +79,14 @@ BEGIN
 			_image,
             _content_type
         );
+        
+        SET _image_id = LAST_INSERT_ID();
+        
+        UPDATE Users AS U
+        SET
+			U.user_image = _image_id
+		WHERE
+			U.user_id = _id;
     ELSE
 		UPDATE Users AS U, Images AS I
 		SET
@@ -109,24 +116,6 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS GetUserImage $$
-
-CREATE PROCEDURE GetUserImage (
-	IN _id INT
-)
-BEGIN
-	SELECT
-		I.image_content,
-        I.image_content_type
-	FROM
-		Images AS I
-        INNER JOIN Users AS U ON U.user_image = I.image_id
-	WHERE
-		U.user_id = _id;
-END $$
-DELIMITER ;
-
-DELIMITER $$
 DROP PROCEDURE IF EXISTS GetUserInfo $$
 
 CREATE PROCEDURE GetUserInfo (
@@ -139,6 +128,7 @@ BEGIN
 		U.user_name,
 		U.user_lastname,
         U.user_email,
+        U.user_image,
 		U.user_description,
 		U.user_role,
 		U.account_creation,
