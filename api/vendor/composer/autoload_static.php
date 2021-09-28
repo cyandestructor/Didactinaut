@@ -15,7 +15,9 @@ class ComposerStaticInit395d085166ce992cdc0b6c7f2ee46096
         ),
         'D' => 
         array (
+            'Didactinaut\\Factories\\Database\\' => 31,
             'Didactinaut\\Didactinaut\\' => 24,
+            'Didactinaut\\Configuration\\Database\\' => 35,
         ),
     );
 
@@ -32,9 +34,17 @@ class ComposerStaticInit395d085166ce992cdc0b6c7f2ee46096
         array (
             0 => __DIR__ . '/../..' . '/src/Small/Core',
         ),
+        'Didactinaut\\Factories\\Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Didactinaut/Factories/Database',
+        ),
         'Didactinaut\\Didactinaut\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Didactinaut\\Configuration\\Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Didactinaut/Configuration/Database',
         ),
     );
 

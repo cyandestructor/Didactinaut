@@ -5,6 +5,8 @@
     "autoload": {
         "psr-4": {
             "Didactinaut\\Didactinaut\\": "src/",
+            "Didactinaut\\Configuration\\Database\\": "src/Didactinaut/Configuration/Database/",
+            "Didactinaut\\Factories\\Database\\": "src/Didactinaut/Factories/Database/",
             "Small\\Core\\": "src/Small/Core",
             "Small\\Http\\": "src/Small/Http",
             "Small\\Interfaces\\": "src/Small/Interfaces"
