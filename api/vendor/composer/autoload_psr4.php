@@ -9,6 +9,8 @@ return array(
     'Small\\Interfaces\\' => array($baseDir . '/src/Small/Interfaces'),
     'Small\\Http\\' => array($baseDir . '/src/Small/Http'),
     'Small\\Core\\' => array($baseDir . '/src/Small/Core'),
+    'Didactinaut\\Models\\Dto\\' => array($baseDir . '/src/Didactinaut/Models/Dto'),
+    'Didactinaut\\Models\\' => array($baseDir . '/src/Didactinaut/Models'),
     'Didactinaut\\Factories\\Database\\' => array($baseDir . '/src/Didactinaut/Factories/Database'),
     'Didactinaut\\Didactinaut\\' => array($baseDir . '/src'),
     'Didactinaut\\Configuration\\Database\\' => array($baseDir . '/src/Didactinaut/Configuration/Database'),
