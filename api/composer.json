@@ -9,6 +9,7 @@
             "Didactinaut\\Factories\\Database\\": "src/Didactinaut/Factories/Database/",
             "Didactinaut\\Models\\": "src/Didactinaut/Models/",
             "Didactinaut\\Models\\Dto\\": "src/Didactinaut/Models/Dto/",
+            "Didactinaut\\Controllers\\": "src/Didactinaut/Controllers/",
             "Small\\Core\\": "src/Small/Core",
             "Small\\Http\\": "src/Small/Http",
             "Small\\Interfaces\\": "src/Small/Interfaces"
