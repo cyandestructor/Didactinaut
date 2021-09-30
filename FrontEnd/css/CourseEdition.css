@@ -257,6 +257,19 @@ hr {
      .inputs_curso_title {
           width: 65vw;
      }
+     #descripcionCategoriaCurso_edit {
+          width: 45vw;
+          height: 15vw;
+     }
+
+     .categoria_edit {
+          margin-left: 0;
+     }
+
+     .categoria_seleccion {
+          margin-left: 0;
+     }
+
 }
 
 @media only screen and (min-width: 998px) {
@@ -272,6 +285,18 @@ hr {
      .inputs_curso_title {
           width: 35vw;
      }
+     #descripcionCategoriaCurso_edit {
+          width: 20vw;
+          height: 6vw;
+     }
+
+     .categoria_edit {
+          margin-left: 75px;
+     }
+
+     .categoria_seleccion {
+          margin-left: -155px;
+     }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -286,6 +311,18 @@ hr {
 
      .inputs_curso_title {
           width: 30vw;
+     }
+     #descripcionCategoriaCurso_edit {
+          width: 20vw;
+          height: 6vw;
+     }
+
+     .categoria_edit {
+          margin-left: 75px;
+     }
+
+     .categoria_seleccion {
+          margin-left: -155px;
      }
 }
 

@@ -253,6 +253,17 @@ hr{
      .inputs_curso_title{
           width: 65vw;
      }
+     #descripcionCategoriaCurso {
+          width: 45vw;
+          height: 15vw;
+     }
+     .categoria_nueva {
+          margin-left: 0;
+     }
+     .categoria_seleccion {
+          margin-left: 0;
+     }
+
 }
 @media only screen and (min-width: 998px){
      .check_cat{
@@ -265,6 +276,17 @@ hr{
      .inputs_curso_title {
           width: 35vw;
      }
+     #descripcionCategoriaCurso {
+          width: 20vw;
+          height: 6vw;
+     }
+     .categoria_nueva {
+          margin-left: 75px;
+     }
+     .categoria_seleccion {
+          margin-left: -155px;
+     }
+
 }
 @media only screen and (min-width: 1440px){
      .check_cat{
@@ -277,6 +299,17 @@ hr{
      .inputs_curso_title {
           width: 30vw;
      }
+     #descripcionCategoriaCurso {
+          width: 20vw;
+          height: 6vw;
+     }
+     .categoria_nueva {
+          margin-left: 75px;
+     }
+     .categoria_seleccion {
+          margin-left: -155px;
+     }
+
 }
 
 
@@ -290,7 +323,6 @@ hr{
      height: auto;
      font-size: 18px;
 }
-
 
 #courseDescription_input{
      width: 450px;
