@@ -16,6 +16,7 @@ class ComposerStaticInit395d085166ce992cdc0b6c7f2ee46096
         ),
         'D' => 
         array (
+            'Didactinaut\\Validators\\' => 23,
             'Didactinaut\\Models\\Dto\\' => 23,
             'Didactinaut\\Models\\' => 19,
             'Didactinaut\\Factories\\Database\\' => 31,
@@ -41,6 +42,10 @@ class ComposerStaticInit395d085166ce992cdc0b6c7f2ee46096
         'Small\\Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Small/Core',
+        ),
+        'Didactinaut\\Validators\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Didactinaut/Validators',
         ),
         'Didactinaut\\Models\\Dto\\' => 
         array (
