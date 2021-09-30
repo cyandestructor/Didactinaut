@@ -17,4 +17,7 @@ interface RequestInterface extends MessageInterface
 
     public function getQueryParams() : array;
     public function withQueryParams(array $queryParams);
+
+    public function getParsedBody();
+    public function withParsedBody($data);
 }

@@ -17,6 +17,8 @@ class Request extends Message implements RequestInterface
     
     private UriInterface $uri;
 
+    private $parsedBody;
+
     public function __construct(
         string $method,
         array $headers = [],
@@ -109,6 +111,19 @@ class Request extends Message implements RequestInterface
     {
         $clone = clone $this;
         $clone->queryParams = $queryParams;
+
+        return $clone;
+    }
+
+    public function getParsedBody()
+    {
+        return $this->parsedBody;
+    }
+
+    public function withParsedBody($data)
+    {
+        $clone = clone $this;
+        $clone->parsedBody = $data;
 
         return $clone;
     }
