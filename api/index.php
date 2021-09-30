@@ -4,18 +4,12 @@
     use Small\Core\Application;
     use Small\Interfaces\RequestInterface;
     use Small\Interfaces\ResponseInterface;
-    use Small\Interfaces\MiddlewareInterface;
-    use Small\Interfaces\RequestHandlerInterface;
+
+    use Small\Middleware\BodyParserMiddleware;
 
     $app = new Application();
 
-    $app->addMiddleware(new class implements MiddlewareInterface {
-        public function process(RequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
-        {
-            $request = $request->withAttribute("test", "Testing middleware ->");
-            return $handler->handle($request);
-        }
-    });
+    $app->addMiddleware(new BodyParserMiddleware());
 
     $app->get('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
         
@@ -32,7 +26,7 @@
     });
 
     $app->post('/api', function (RequestInterface $request, ResponseInterface $response, $args) {
-        $parsedBody = json_decode($request->getBody(), true);
+        $parsedBody = $request->getParsedBody();
         $username = $parsedBody['username'] ?? 'Invitado';
         $edad = $parsedBody['age'] ?? '?';
 
