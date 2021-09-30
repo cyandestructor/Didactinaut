@@ -78,17 +78,16 @@ $(document).ready(function(){
                 required: true,
                 sololetra: true
             },
-            ape_pat_registro:{
-                required: true,
-                sololetra: true
-            },
-            ape_mat_registro:{
+            ape_registro:{
                 required: true,
                 sololetra: true
             },
             genero_registro:{
                 required: true,
                 sololetra: true
+            },
+            descripcion_registro:{
+                required: true,
             },
             fechaNac_registro:{
                 required: true
@@ -110,17 +109,16 @@ $(document).ready(function(){
                 required: "Ingresa tu nombre(s)",
                 sololetra: "Ingresa sólo letras"
             },
-            ape_pat_registro:{
-                required: "Ingresa tu apellido paterno",
-                sololetra: "Ingresa sólo letras"
-            },
-            ape_mat_registro:{
-                required: "Ingresa tu apellido materno",
+            ape_registro:{
+                required: "Ingresa tu apellido(s)",
                 sololetra: "Ingresa sólo letras"
             },
             genero_registro:{
                 required: "Ingresa tu género",
                 sololetra: "Ingresa sólo letras"
+            },
+            descripcion_registro:{
+                required: "Ingresa una descripción",
             },
             fechaNac_registro:{
                 required: "Ingresa tu fecha de nacimiento"
@@ -145,24 +143,13 @@ $(document).ready(function(){
                 required: true,
                 sololetra: true
             },
-            lastname_father:{
+            lastnames:{
                 required: true, 
                 sololetra: true
 
             },
-            lastname_mother:{
-                required: true,
-                sololetra: true
-
-            },
-            genre:{
-                required: true,
-                sololetra: true
-
-            },
-            birthday:{
+            descripcion:{
                 required: true
-
             },
             correo:{
                 required: true,
@@ -176,24 +163,13 @@ $(document).ready(function(){
                 required: "Ingresa tu nombre(s)",
                 sololetra: "Ingresa sólo letras"
             },
-            lastname_father:{
-                required: "Ingresa tu apellido paterno", 
+            lastnames:{
+                required: "Ingresa tu apellido(s)", 
                 sololetra: "Ingresa sólo letras"
 
             },
-            lastname_mother:{
-                required: "Ingresa tu apellido materno",
-                sololetra: "Ingresa sólo letras"
-
-            },
-            genre:{
-                required: "Ingresa tu género",
-                sololetra: "Ingresa sólo letras"
-
-            },
-            birthday:{
-                required: "Ingresa tu fecha de nacimiento"
-
+            descripcion:{
+                required: "Ingresa una descripción"
             },
             correo:{
                 required: "Ingresa tu correo",

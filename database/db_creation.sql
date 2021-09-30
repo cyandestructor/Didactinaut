@@ -231,3 +231,143 @@ CREATE TABLE IF NOT EXISTS Users_Lessons (
     CONSTRAINT FK_Users_Lessons_Lesson_Id FOREIGN KEY (lesson_id)
         REFERENCES Lessons (lesson_id)
 );
+
+-- DATA DICTIONARY---------------------------------------------------------------------------------------------------------------------------------
+
+-- Images DD
+ALTER TABLE Images MODIFY COLUMN image_id INT NOT NULL AUTO_INCREMENT comment 'Id de imagen';
+ALTER TABLE Images MODIFY COLUMN image_content MEDIUMBLOB comment 'Contenido de la imagen';
+ALTER TABLE Images MODIFY COLUMN image_content_type VARCHAR(50) comment 'Tipo de contenido de la imagen';
+
+-- Users DD
+ALTER TABLE Users MODIFY COLUMN user_id INT NOT NULL AUTO_INCREMENT comment 'Id de usuario';
+ALTER TABLE Users MODIFY COLUMN user_username VARCHAR(50) NOT NULL UNIQUE comment 'Nombre de usuario';
+ALTER TABLE Users MODIFY COLUMN user_name VARCHAR(50) NOT NULL comment 'Nombre o nombres del usuario';
+ALTER TABLE Users MODIFY COLUMN user_lastname VARCHAR(50) NOT NULL comment 'Apellido o apellidos del usuario';
+ALTER TABLE Users MODIFY COLUMN user_description TEXT comment 'Descripción del usuario';
+ALTER TABLE Users MODIFY COLUMN user_role ENUM('Instructor', 'User') DEFAULT 'User' comment 'Rol de usuario';
+ALTER TABLE Users MODIFY COLUMN user_email VARCHAR(60) NOT NULL UNIQUE comment 'Correo electrónico de usuario';
+ALTER TABLE Users MODIFY COLUMN user_password VARCHAR(255) NOT NULL comment 'Contraseña de usuario';
+ALTER TABLE Users MODIFY COLUMN account_creation DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de creación de la cuenta de usuario';
+ALTER TABLE Users MODIFY COLUMN account_last_change DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'Fecha de último cambio a la cuenta';
+ALTER TABLE Users MODIFY COLUMN user_is_public BIT DEFAULT 1 comment 'Valida si el usuario es público o no';
+ALTER TABLE Users MODIFY COLUMN user_image INT comment 'Imagen de usuario';
+
+-- Products DD
+ALTER TABLE Products MODIFY COLUMN product_id INT NOT NULL AUTO_INCREMENT comment 'Id de producto';
+ALTER TABLE Products MODIFY COLUMN product_price DECIMAL(15 , 2 ) NOT NULL DEFAULT 0 comment 'Precio total del producto';
+
+-- Courses DD
+ALTER TABLE Courses MODIFY COLUMN course_id INT NOT NULL AUTO_INCREMENT comment 'Id de curso';
+ALTER TABLE Courses MODIFY COLUMN course_title VARCHAR(70) NOT NULL comment 'Título de curso';
+ALTER TABLE Courses MODIFY COLUMN course_description TEXT comment 'Descripción de curso';
+ALTER TABLE Courses MODIFY COLUMN publication_date DATETIME comment 'Fecha de publicación de curso';
+ALTER TABLE Courses MODIFY COLUMN last_update DATETIME comment 'Fecha de última actualización del curso';
+ALTER TABLE Courses MODIFY COLUMN course_published BIT DEFAULT 0 comment 'Valida si el curso está publicado o no';
+ALTER TABLE Courses MODIFY COLUMN course_image INT comment 'Imagen del curso';
+ALTER TABLE Courses MODIFY COLUMN product_id INT NOT NULL comment 'Id del producto en el curso';
+ALTER TABLE Courses MODIFY COLUMN course_instructor INT NOT NULL comment 'Id del instructor que imparte el curso';
+
+-- Sections/Levels DD
+ALTER TABLE Sections MODIFY COLUMN section_id INT NOT NULL AUTO_INCREMENT comment 'Id de sección o nivel';
+ALTER TABLE Sections MODIFY COLUMN section_title VARCHAR(50) NOT NULL comment 'Título de sección o nivel';
+ALTER TABLE Sections MODIFY COLUMN course_id INT NOT NULL comment 'Id del curso al que pertenece la sección';
+ALTER TABLE Sections MODIFY COLUMN product_id INT comment 'Id del producto en la sección';
+
+-- Lessons DD
+ALTER TABLE Lessons MODIFY COLUMN lesson_id INT NOT NULL AUTO_INCREMENT comment 'Id de lección';
+ALTER TABLE Lessons MODIFY COLUMN lesson_title VARCHAR(50) NOT NULL comment 'Título de lección';
+ALTER TABLE Lessons MODIFY COLUMN lesson_text MEDIUMTEXT comment 'Texto en lección';
+ALTER TABLE Lessons MODIFY COLUMN section_id INT NOT NULL comment 'Id de sección a la que pertenece la lección';
+
+-- Resources DD
+ALTER TABLE Resources MODIFY COLUMN resource_id INT NOT NULL AUTO_INCREMENT comment 'Id de recurso';
+ALTER TABLE Resources MODIFY COLUMN resource_content LONGBLOB comment 'Contenido de recurso';
+ALTER TABLE Resources MODIFY COLUMN resource_content_type VARCHAR(255) comment 'Tipo de contenido del recurso';
+ALTER TABLE Resources MODIFY COLUMN lesson_id INT NOT NULL comment 'Id de lección a la que pertenece el recurso';
+
+-- Videos DD
+ALTER TABLE Videos MODIFY COLUMN video_id INT NOT NULL AUTO_INCREMENT comment 'Id de video';
+ALTER TABLE Videos MODIFY COLUMN video_address VARCHAR(255) comment 'Dirección del video';
+ALTER TABLE Videos MODIFY COLUMN video_duration INT comment 'Duración del video';
+ALTER TABLE Videos MODIFY COLUMN lesson_id INT comment 'Id de lección a la que pertenece el video';
+
+-- Chats DD
+ALTER TABLE Chats MODIFY COLUMN chat_id INT NOT NULL AUTO_INCREMENT comment 'Id de chat';
+ALTER TABLE Chats MODIFY COLUMN chat_subject VARCHAR(80) comment 'Sujeto del chat';
+
+-- Messages DD
+ALTER TABLE Messages MODIFY COLUMN message_id INT NOT NULL AUTO_INCREMENT comment 'Id de mensaje';
+ALTER TABLE Messages MODIFY COLUMN message_body MEDIUMTEXT comment 'Cuerpo de mensaje';
+ALTER TABLE Messages MODIFY COLUMN message_date DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de envío de mensaje';
+ALTER TABLE Messages MODIFY COLUMN sender_user_id INT comment 'Id de emisor de mensaje';
+ALTER TABLE Messages MODIFY COLUMN chat_id INT NOT NULL comment 'Id de chat al que pertenecen los mensajes';
+
+-- Reviews DD
+ALTER TABLE Reviews MODIFY COLUMN review_id INT NOT NULL AUTO_INCREMENT comment 'Id de reseña';
+ALTER TABLE Reviews MODIFY COLUMN review_body TEXT comment 'Cuerpo de reseña';
+ALTER TABLE Reviews MODIFY COLUMN review_date DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de publicación de la reseña';
+ALTER TABLE Reviews MODIFY COLUMN review_score INT comment 'Puntuación dada en la reseña';
+ALTER TABLE Reviews MODIFY COLUMN review_published BIT DEFAULT 1 comment 'Valida si la reseña está publicada o no';
+ALTER TABLE Reviews MODIFY COLUMN user_id INT comment 'Id del usuario';
+ALTER TABLE Reviews MODIFY COLUMN course_id INT comment 'Id del curso';
+
+-- Certificates DD
+ALTER TABLE Certificates MODIFY COLUMN certificate_id BINARY(16) NOT NULL comment 'Id de certificado';
+ALTER TABLE Certificates MODIFY COLUMN expedition_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP comment 'Fecha de expedición de certificado';
+ALTER TABLE Certificates MODIFY COLUMN instructor_id INT comment 'Id del instructor que imparte el certificado';
+
+-- PaymentMethods DD
+ALTER TABLE PaymentMethods MODIFY COLUMN payment_method_id INT NOT NULL AUTO_INCREMENT comment 'Id de método de pago';
+ALTER TABLE PaymentMethods MODIFY COLUMN payment_method_name VARCHAR(30) NOT NULL comment 'Nombre del método de pago';
+
+-- Orders DD
+ALTER TABLE Orders MODIFY COLUMN order_id INT NOT NULL AUTO_INCREMENT comment 'Id de orden';
+ALTER TABLE Orders MODIFY COLUMN order_date DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de la orden';
+ALTER TABLE Orders MODIFY COLUMN orderer_user_id INT NOT NULL comment 'Id del usuario que ordena';
+ALTER TABLE Orders MODIFY COLUMN seller_user_id INT NOT NULL comment 'Id del usuario que vende';
+ALTER TABLE Orders MODIFY COLUMN payment_method INT NOT NULL comment 'Id de método de pago en orden';
+
+-- Categories DD
+ALTER TABLE Categories MODIFY COLUMN category_id INT NOT NULL AUTO_INCREMENT comment 'Id de categoría';
+ALTER TABLE Categories MODIFY COLUMN category_name VARCHAR(50) NOT NULL comment 'Nombre de categoría';
+ALTER TABLE Categories MODIFY COLUMN category_description TEXT comment 'Decripción de categoría';
+
+-- Users_Courses DD
+ALTER TABLE Users_Courses MODIFY COLUMN user_course_id INT NOT NULL AUTO_INCREMENT comment 'Id de cursos adquiridos por usuarios';
+ALTER TABLE Users_Courses MODIFY COLUMN enroll_date DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de inscripción';
+ALTER TABLE Users_Courses MODIFY COLUMN last_time_checked DATETIME comment 'Fecha en que fue revisado el curso por última vez';
+ALTER TABLE Users_Courses MODIFY COLUMN user_id INT NOT NULL comment 'Id de usuario inscrito';
+ALTER TABLE Users_Courses MODIFY COLUMN course_id INT NOT NULL comment 'Id de curso al que se ha inscrito';
+ALTER TABLE Users_Courses MODIFY COLUMN certificate_id BINARY(16) comment 'Id del certificado de curso';
+
+-- Courses_Categories DD
+ALTER TABLE Courses_Categories MODIFY COLUMN course_category_id INT NOT NULL AUTO_INCREMENT comment 'Id de tabla categorías en cursos';
+ALTER TABLE Courses_Categories MODIFY COLUMN course_id INT NOT NULL comment 'Id de curso al que pertenece la categoría';
+ALTER TABLE Courses_Categories MODIFY COLUMN category_id INT NOT NULL comment 'Id de categoría en Courses_Categories';
+
+-- Orders_Products DD
+ALTER TABLE Orders_Products MODIFY COLUMN order_product_id INT NOT NULL AUTO_INCREMENT comment 'Id de tabla producto en orden';
+ALTER TABLE Orders_Products MODIFY COLUMN final_product_price DECIMAL(15 , 2 ) NOT NULL comment 'Precio total del producto final';
+ALTER TABLE Orders_Products MODIFY COLUMN order_id INT NOT NULL comment 'Id de orden en Orders_Products';
+ALTER TABLE Orders_Products MODIFY COLUMN product_id INT NOT NULL comment 'Id de producto en Orders_Products';
+
+-- Users_Chats DD
+ALTER TABLE Users_Chats MODIFY COLUMN user_chat_id INT NOT NULL AUTO_INCREMENT comment 'Id de tabla chat de usuarios';
+ALTER TABLE Users_Chats MODIFY COLUMN user_id INT NOT NULL comment 'Id de usuario en Users_Chats';
+ALTER TABLE Users_Chats MODIFY COLUMN chat_id INT NOT NULL comment 'Id de chat en Users_Chats';
+
+-- Users_Lessons DD
+ALTER TABLE Users_Lessons MODIFY COLUMN  user_lesson_id INT NOT NULL AUTO_INCREMENT comment 'Id de lección de usuario';
+ALTER TABLE Users_Lessons MODIFY COLUMN  user_id INT NOT NULL comment 'Id del usuario de la lección';
+ALTER TABLE Users_Lessons MODIFY COLUMN  lesson_id INT NOT NULL comment 'Id de la lección de usuario';
+
+
+
+
+
+
+
+
+
+
