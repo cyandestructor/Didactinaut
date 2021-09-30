@@ -7,6 +7,8 @@ use Small\Interfaces\ResponseInterface;
 
 class Router implements RequestHandlerInterface
 {
+    private $handlers = [];
+    
     public function get(string $path, $handler)
     {
         $this->addHandler('GET', $path, $handler);
