@@ -6,6 +6,7 @@
     use Small\Middleware\BodyParserMiddleware;
 
     use Didactinaut\Controllers\UsersController;
+    use Didactinaut\Controllers\ImagesController;
     use Didactinaut\Factories\Database\MySQLDatabaseFactory;
 
     $databaseFactory = new MySQLDatabaseFactory('localhost', 'didactinaut_dev');
@@ -21,6 +22,11 @@
         $app->post('/api/users/', [new UsersController($databaseFactory), 'postUser']);
         $app->put('/api/users/$id', [new UsersController($databaseFactory), 'putUser']);
         $app->put('/api/users/$id/image', [new UsersController($databaseFactory), 'putUserImage']);
+    }
+
+    // Images
+    {
+        $app->get('/api/images/$id', [new ImagesController($databaseFactory), 'getUnique']);
     }
 
     $app->run();
