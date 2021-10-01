@@ -151,6 +151,9 @@ BEGIN
 	SELECT
 		U.user_id,
 		U.user_username,
+        U.user_name,
+        U.user_lastname,
+        U.user_image,
 		U.user_role,
         U.user_password
     FROM

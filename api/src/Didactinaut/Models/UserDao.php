@@ -129,6 +129,9 @@ class UserDao
         if($row = $statement->fetch()){
             $user->id = $row['user_id'];
             $user->username = $row['user_username'];
+            $user->name = $row['user_name'];
+            $user->lastname = $row['user_lastname'];
+            $user->imageId = $row['user_image'];
             $user->role = $row['user_role'];
             $hashedPassword = $row['user_password'];
 
