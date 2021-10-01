@@ -1,5 +1,5 @@
 <?php
-namespace Didactinaut\Models\Dto;
+namespace Didactinaut\Models;
 
 use Didactinaut\Configuration\Database\DatabaseInterface;
 use Didactinaut\Models\Dto\Image;
