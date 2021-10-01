@@ -14,6 +14,13 @@
 
     $app->addMiddleware(new BodyParserMiddleware());
 
-    $app->post('/api/users/', [new UsersController($databaseFactory), 'postUser']);
+    // Users
+    {
+        $app->get('/api/users/', [new UsersController($databaseFactory), 'checkUserExists']);
+        $app->get('/api/users/$id', [new UsersController($databaseFactory), 'getUnique']);
+        $app->post('/api/users/', [new UsersController($databaseFactory), 'postUser']);
+        $app->put('/api/users/$id', [new UsersController($databaseFactory), 'putUser']);
+        $app->put('/api/users/$id/image', [new UsersController($databaseFactory), 'putUserImage']);
+    }
 
     $app->run();
