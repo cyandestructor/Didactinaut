@@ -4,15 +4,18 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Small\Core\Application;
 
 use Small\Middleware\BodyParserMiddleware;
+use Small\Middleware\SessionMiddleware;
 
 use Didactinaut\Controllers\UsersController;
 use Didactinaut\Controllers\ImagesController;
+use Didactinaut\Controllers\SessionController;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
 
 $databaseFactory = new MySQLDatabaseFactory('localhost', 'didactinaut_dev');
 
 $app = new Application();
 
+$app->addMiddleware(new SessionMiddleware());
 $app->addMiddleware(new BodyParserMiddleware());
 
 // Users
@@ -27,6 +30,13 @@ $app->addMiddleware(new BodyParserMiddleware());
 // Images
 {
     $app->get('/api/images/$id', [new ImagesController($databaseFactory), 'getUnique']);
+}
+
+// Session
+{
+    $app->put('/api/session/', [new SessionController($databaseFactory), 'login']);
+    $app->get('/api/session/', [new SessionController($databaseFactory), 'getCurrent']);
+    $app->delete('/api/session/', [new SessionController($databaseFactory), 'logout']);
 }
 
 $app->run();
