@@ -71,6 +71,7 @@ BEGIN
 		SELECT I.image_id
         FROM Images AS I
 		INNER JOIN Users AS U ON U.user_image = I.image_id
+        WHERE U.user_id = _id AND I.image_id = U.user_image
     ) THEN
 		INSERT INTO Images (
 			image_content,
