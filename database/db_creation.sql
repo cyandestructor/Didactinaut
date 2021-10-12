@@ -372,7 +372,25 @@ ALTER TABLE Users_Lessons MODIFY COLUMN  user_lesson_id INT NOT NULL AUTO_INCREM
 ALTER TABLE Users_Lessons MODIFY COLUMN  user_id INT NOT NULL comment 'Id del usuario de la lección';
 ALTER TABLE Users_Lessons MODIFY COLUMN  lesson_id INT NOT NULL comment 'Id de la lección de usuario';
 
-
+SELECT distinct
+		t.table_schema AS Nombre_BD,
+        t.table_name AS Nombre_tabla,
+        c.column_name AS Atributo,
+        c.column_type AS Tipo_de_Dato,
+        c.column_default AS Default_value,
+        c.column_key AS Tipo_de_llave,
+        c.is_nullable AS Es_Null,
+        c.column_comment AS Descripcion
+        
+FROM information_schema.tables AS t
+INNER JOIN information_schema.columns AS c
+	ON t.table_name = c.table_name
+	AND t.table_schema = c.table_schema
+WHERE t.table_type IN ('BASE TABLE')
+AND t.table_schema = 'didactinaut_dev'
+ORDER BY
+		c.column_name,
+		c.ordinal_position;
 
 
 
