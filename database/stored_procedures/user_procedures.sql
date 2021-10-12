@@ -8,7 +8,9 @@ CREATE PROCEDURE RegisterUser (
     IN _name VARCHAR(50),
     IN _lastname VARCHAR(50),
     IN _email VARCHAR(60),
-    IN _password VARCHAR(255)
+    IN _password VARCHAR(255),
+    IN _gender VARCHAR(20),
+    IN _birthdate DATE
 )
 BEGIN
 	INSERT INTO Users (
@@ -16,14 +18,18 @@ BEGIN
 		user_name,
 		user_lastname,
 		user_email,
-		user_password
+		user_password,
+        user_gender,
+        user_birthdate
 	)
 	VALUES (
 		_username,
 		_name,
 		_lastname,
 		_email,
-		_password
+		_password,
+        _gender,
+        _birthdate
 	);
     
     SELECT LAST_INSERT_ID();
@@ -40,7 +46,9 @@ CREATE PROCEDURE EditUser (
     IN _lastname VARCHAR(50),
     IN _email VARCHAR(60),
     IN _description TEXT,
-    IN _role ENUM('Instructor', 'User')
+    IN _role ENUM('Instructor', 'User'),
+    IN _gender VARCHAR(20),
+    IN _birthdate DATE
 )
 BEGIN
 	UPDATE Users AS U
@@ -50,7 +58,9 @@ BEGIN
         U.user_lastname = _lastname,
         U.user_email = _email,
         U.user_description = _description,
-        U.user_role = _role
+        U.user_role = _role,
+        U.user_gender = _gender,
+        U.user_birthdate = _birthdate
 	WHERE
 		U.user_id = _id;
 END $$
@@ -132,6 +142,8 @@ BEGIN
         U.user_image,
 		U.user_description,
 		U.user_role,
+        U.user_gender,
+        U.user_birthdate,
 		U.account_creation,
 		U.account_last_change,
         U.user_is_public

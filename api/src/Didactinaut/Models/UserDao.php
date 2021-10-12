@@ -17,7 +17,7 @@ class UserDao
     {
         $userID = -1;
         
-        $sql = 'CALL RegisterUser(?, ?, ?, ?, ?)';
+        $sql = 'CALL RegisterUser(?, ?, ?, ?, ?, ?, ?)';
         
         $statement = $this->connection->prepare($sql);
         
@@ -28,7 +28,9 @@ class UserDao
             $user->name,
             $user->lastname,
             $user->email,
-            $hashedPassword
+            $hashedPassword,
+            $user->gender,
+            $user->birthdate
         ]);
 
         $statement->bindColumn(1, $userID, \PDO::PARAM_INT);
@@ -59,6 +61,8 @@ class UserDao
             $user->accountLastChange = $row['account_last_change'];
             $user->isPublic = $row['user_is_public'];
             $user->imageId = $row['user_image'];
+            $user->gender = $row['user_gender'];
+            $user->birthdate = $row['user_birthdate'];
         }
         else{
             return null;
@@ -69,7 +73,7 @@ class UserDao
 
     public function editUser(User $user)
     {
-        $sql = 'CALL EditUser(?, ?, ?, ?, ?, ?, ?)';
+        $sql = 'CALL EditUser(?, ?, ?, ?, ?, ?, ?, ?, ?)';
     
         $statement = $this->connection->prepare($sql);
         
@@ -80,7 +84,9 @@ class UserDao
             $user->lastname,
             $user->email,
             $user->description,
-            $user->role
+            $user->role,
+            $user->gender,
+            $user->birthdate
         ]);
     }
 

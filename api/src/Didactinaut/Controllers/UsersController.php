@@ -49,6 +49,8 @@ class UsersController
         $user->lastname = $data['lastname'];
         $user->email = $data['email'];
         $user->password = $data['password'];
+        $user->gender = $data['gender'];
+        $user->birthdate = $data['birthdate'];
 
         $userDao = new UserDao($this->dbFactory->create());
 
@@ -81,6 +83,8 @@ class UsersController
         $result['accountCreation'] = $user->accountCreation;
         $result['accountLastChange'] = $user->accountLastChange;
         $result['isPublic'] = (bool)$user->isPublic;
+        $result['gender'] = $user->gender;
+        $result['birthdate'] = $user->birthdate;
         $userImage = $user->imageId;
         $result['avatar'] = $userImage ? "/api/images/$userImage" : null;
 
@@ -135,6 +139,8 @@ class UsersController
         $editedUser->email = $data['email'] ?? $user->email;
         $editedUser->description = $data['description'] ?? $user->description;
         $editedUser->role = $data['role'] ?? $user->role;
+        $editedUser->gender = $data['gender'] ?? $user->gender;
+        $editedUser->birthdate = $data['birthdate'] ?? $user->birthdate;
 
         $userDAO->editUser($editedUser);
 
@@ -146,7 +152,9 @@ class UsersController
             'lastname' => $user->lastname,
             'email' => $user->email,
             'description' => $user->description,
-            'role' => $user->role
+            'role' => $user->role,
+            'gender' => $user->gender,
+            'birthdate' => $user->birthdate
         ];
 
         $result['new'] = [
@@ -156,7 +164,9 @@ class UsersController
             'lastname' => $editedUser->lastname,
             'email' => $editedUser->email,
             'description' => $editedUser->description,
-            'role' => $editedUser->role
+            'role' => $editedUser->role,
+            'gender' => $editedUser->gender,
+            'birthdate' => $editedUser->birthdate
         ];
 
         $response->getBody()->write(json_encode($result));

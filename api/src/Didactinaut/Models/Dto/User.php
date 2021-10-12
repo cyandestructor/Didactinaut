@@ -15,4 +15,6 @@ class User
     public $accountLastChange;
     public $isPublic;
     public $imageId;
+    public $gender;
+    public $birthdate;
 }
