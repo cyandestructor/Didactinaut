@@ -142,6 +142,7 @@ class UsersController
         $editedUser->gender = $data['gender'] ?? $user->gender;
         $editedUser->birthdate = $data['birthdate'] ?? $user->birthdate;
         $editedUser->password = $data['password'] ?? null;
+        $editedUser->imageId = $user->imageId;
 
         $userDAO->editUser($editedUser);
         SessionController::updateUserSession($editedUser);
