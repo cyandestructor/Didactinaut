@@ -143,6 +143,7 @@ class UsersController
         $editedUser->birthdate = $data['birthdate'] ?? $user->birthdate;
 
         $userDAO->editUser($editedUser);
+        SessionController::updateUserSession($editedUser);
 
         // Return the old and new data
         $result['old'] = [
@@ -199,6 +200,10 @@ class UsersController
 
         $userDAO = new UserDao($this->dbFactory->create());
         $userDAO->setImage($userID, $avatar, $contentType);
+        
+        // Update session
+        $user = $userDAO->getUser($userID);
+        SessionController::updateUserSession($user);
 
         return $response;
     }
