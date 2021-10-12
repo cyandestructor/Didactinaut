@@ -1,6 +1,8 @@
 CREATE DATABASE IF NOT EXISTS didactinaut_dev;
 USE didactinaut_dev;
 
+DROP SCHEMA didactinaut_dev;
+
 CREATE TABLE IF NOT EXISTS Images (
     image_id INT NOT NULL AUTO_INCREMENT,
     image_content MEDIUMBLOB,
@@ -234,6 +236,10 @@ CREATE TABLE IF NOT EXISTS Users_Lessons (
         REFERENCES Lessons (lesson_id)
 );
 
+alter table courses add constraint FK_Courses_Course_Image foreign key (course_image) references Images (image_id);
+
+
+
 -- DATA DICTIONARY---------------------------------------------------------------------------------------------------------------------------------
 
 -- Images DD
@@ -248,6 +254,8 @@ ALTER TABLE Users MODIFY COLUMN user_name VARCHAR(50) NOT NULL comment 'Nombre o
 ALTER TABLE Users MODIFY COLUMN user_lastname VARCHAR(50) NOT NULL comment 'Apellido o apellidos del usuario';
 ALTER TABLE Users MODIFY COLUMN user_description TEXT comment 'Descripción del usuario';
 ALTER TABLE Users MODIFY COLUMN user_role ENUM('Instructor', 'User') DEFAULT 'User' comment 'Rol de usuario';
+ALTER TABLE Users MODIFY COLUMN user_gender VARCHAR(20) comment 'Género de usuario';
+ALTER TABLE Users MODIFY COLUMN user_birthdate DATE comment 'Fecha de nacimiento de usuario';
 ALTER TABLE Users MODIFY COLUMN user_email VARCHAR(60) NOT NULL UNIQUE comment 'Correo electrónico de usuario';
 ALTER TABLE Users MODIFY COLUMN user_password VARCHAR(255) NOT NULL comment 'Contraseña de usuario';
 ALTER TABLE Users MODIFY COLUMN account_creation DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de creación de la cuenta de usuario';
