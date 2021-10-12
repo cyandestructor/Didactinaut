@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS Courses (
     product_id INT NOT NULL,
     course_instructor INT NOT NULL,
     CONSTRAINT PK_Courses PRIMARY KEY (course_id),
+    CONSTRAINT FK_Courses_Course_Image FOREIGN KEY (course_image) REFERENCES Images (image_id),
     CONSTRAINT FK_Courses_Product_Id FOREIGN KEY (product_id)
         REFERENCES Products (product_id),
     CONSTRAINT FK_Courses_Course_Instructor FOREIGN KEY (course_instructor)
