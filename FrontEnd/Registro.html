@@ -90,26 +90,26 @@
 
      <div class="container">
           <div class="row">
-               <div class="col-lg-8 col-sm-12">
+               <div class="col-lg-12 col-sm-12">
                     <section class="text-center formulario_registro">
                          
                        <h2 class="text-center titulo_registro">¡Regístrate en Didactinaut!</h2>
                        <hr>
                        <form action="" id="form_registro">
-                           <input type="text" class="inputs_registro" id="nombres_registro" name="nombres_registro" placeholder="Nombre(s)"> <br>
-               
-                           <input type="text" class="inputs_registro" id="ape_registro" name="ape_registro" placeholder="Apellido(s)"> <br>
-               
-                           <input type="text" class="inputs_registro" id="genero_registro" name="genero_registro" placeholder="Género"> <br>
+                            <input type="text" class="inputs_registro" id="nombreUsuario_registro" name="username" placeholder="Nombre de Usuario"> <br>
 
-                           <textarea style="height: 80px;" class="inputs_registro" name="descripcion_registro" id="descripcion_registro" placeholder="Descripción" ></textarea><br>
+                           <input type="text" class="inputs_registro" id="nombres_registro" name="name" placeholder="Nombre(s)"> <br>
+               
+                           <input type="text" class="inputs_registro" id="ape_registro" name="lastname" placeholder="Apellido(s)"> <br>
+               
+                           <input type="text" class="inputs_registro" id="genero_registro" name="gender" placeholder="Género"> <br>
                
                            <label for="fechaNac_registro" >Fecha de nacimiento: </label>
-                           <input type="date" style="margin-bottom: 10px;" id="fechaNac_registro" name="fechaNac_registro" > <br>
+                           <input type="date" style="margin-bottom: 10px;" id="fechaNac_registro" name="birthdate" > <br>
                
-                           <input type="text" class="inputs_registro" id="correo_registro" name="correo_registro" placeholder="Correo electrónico"> <br>
+                           <input type="text" class="inputs_registro" id="correo_registro" name="email" placeholder="Correo electrónico"> <br>
                
-                           <input type="text" class="inputs_registro" id="contra_registro"  name="contra_registro" placeholder="Contraseña"> <br>
+                           <input type="text" class="inputs_registro" id="contra_registro"  name="password" placeholder="Contraseña"> <br>
                
                            <input type="submit" id="btn_registro" form="form_registro" value="Registrarse">
                        </form>
@@ -117,13 +117,6 @@
                        
                    </section>
 
-               </div>
-               <div class="col-lg-4 col-sm-12">
-                    <section class="imagen_seleccion">
-                         <label for="input_imagen_registro">Imagen de perfil</label>
-                         <input style="display: none;" type="file" id="input_imagen_registro" name="input_imagen_registro"  onchange="readURL(this);"> <img  src="#" id="img_registro" alt="">
-                        </section>
-                       
                </div>
           </div>
      </div>
@@ -137,6 +130,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/Utilidad.js"></script>
+    <script type="module" src="js/Registro.js"></script>
   </body>
 <footer class="footer text-center">
     <div class="container">

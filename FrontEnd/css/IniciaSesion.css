@@ -198,7 +198,7 @@ html {
 .formulario_inicia_sesion hr{
      background-color: rgb(51, 51, 51);
 }
-.formulario_inicia_sesion #correo_inicia_sesion{
+.formulario_inicia_sesion #usuario_inicia_sesion {
      margin-bottom: 10px;
      width: 325px;
      height: 42px;

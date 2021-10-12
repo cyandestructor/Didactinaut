@@ -47,11 +47,12 @@
                     <!-- INICIAR SESIÓN -->
                     <div class="dropdown show">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="opciones-navbar-2" style="margin-right: 0;"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva"> Miguel Villanueva</span>  </a>
+                <span class="opciones-navbar-2" style="margin-right: 0;" id="nom_usu_pag"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt=""> </span>  </a>
                 <div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio">
                     <a class="dropdown-item" href="MySales.html">Mis ventas</a>
+                    <a class="dropdown-item" href="user-profile.html">Perfil público</a>
                     <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
-                    <a class="dropdown-item" href="Inicio.html">Cerrar sesión</a>
+                    <a id="cierra_sesion" class="dropdown-item" href="Inicio.html" >Cerrar sesión</a>
    
                 </div>
 
@@ -230,13 +231,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#audio_").get(0).play();
-            $("#audio_").get(0).volume = 0.25; 
-        });
-    </script>
+    
     <script src="js/Inicio.js"></script>
+    <script type="module" src="./js/SesionInciada.js"></script>
 
   </body>
 <footer class="footer text-center">

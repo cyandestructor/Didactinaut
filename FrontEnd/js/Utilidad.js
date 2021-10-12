@@ -51,20 +51,18 @@ $(document).ready(function(){
 
     $("#form_iniciosesion").validate({
         rules:{
-            correo_inicia_sesion: {
-                required: true,
-                email: true
+            input: {
+                required: true
             },
-            contra_inicia_sesion: {
+            password: {
                 required: true
             }
         },
         messages:{
-            correo_inicia_sesion: {
-                required: "Ingresa un correo",
-                email: "Ingresa un formato de correo"
+            input: {
+                required: "Ingresa un correo"
             },
-            contra_inicia_sesion:{
+            password:{
                 required: "Ingresa la contraseña"
             }
         }
@@ -74,84 +72,77 @@ $(document).ready(function(){
 
     $("#form_registro").validate({
         rules:{
-            nombres_registro:{
+            username:{
+                required:true
+            },
+            name:{
                 required: true,
                 sololetra: true
             },
-            ape_registro:{
+            lastname:{
                 required: true,
                 sololetra: true
             },
-            genero_registro:{
+            gender:{
                 required: true,
                 sololetra: true
             },
-            descripcion_registro:{
-                required: true,
-            },
-            fechaNac_registro:{
+            birthdate:{
                 required: true
             },
-            correo_registro:{
+            email:{
                 required: true,
                 email: true
             },
-            contra_registro:{
+            password:{
                 required: true,
                 formatocontrasenia: true
-            },
-            input_imagen_registro:{
-                required: true
             }
         },
         messages:{
-            nombres_registro:{
+            username:{
+                required:"Ingresa un nombre de usuario"            },
+            name:{
                 required: "Ingresa tu nombre(s)",
                 sololetra: "Ingresa sólo letras"
             },
-            ape_registro:{
+            lastname:{
                 required: "Ingresa tu apellido(s)",
                 sololetra: "Ingresa sólo letras"
             },
-            genero_registro:{
+            gender:{
                 required: "Ingresa tu género",
                 sololetra: "Ingresa sólo letras"
             },
-            descripcion_registro:{
-                required: "Ingresa una descripción",
-            },
-            fechaNac_registro:{
+            birthdate:{
                 required: "Ingresa tu fecha de nacimiento"
             },
-            correo_registro:{
+            email:{
                 required: "Ingresa tu correo",
                 email: "Ingresa un formato de correo"
             },
-            contra_registro:{
+            password:{
                 required: "Ingresa la contraseña",
                 formatocontrasenia: "Ingresa: 8 caracteres mín. 1 mayúscula, 1 carácter especial, 1 número"
-            },
-            input_imagen_registro:{
-                required: "Elige una imagen de perfil"
             }
         }
     });
 
     $("#editionForm").validate({
         rules:{
+            username:{
+                required: true
+            }, 
             name:{
                 required: true,
                 sololetra: true
             },
-            lastnames:{
+            lastname:{
                 required: true, 
                 sololetra: true
 
             },
-            descripcion:{
-                required: true
-            },
-            correo:{
+            email:{
                 required: true,
                 email: true
 
@@ -159,19 +150,19 @@ $(document).ready(function(){
 
         },
         messages:{
+            username:{
+                required:"Ingresa un nombre de usuario"
+            },      
             name:{
                 required: "Ingresa tu nombre(s)",
                 sololetra: "Ingresa sólo letras"
             },
-            lastnames:{
+            lastname:{
                 required: "Ingresa tu apellido(s)", 
                 sololetra: "Ingresa sólo letras"
 
             },
-            descripcion:{
-                required: "Ingresa una descripción"
-            },
-            correo:{
+            email:{
                 required: "Ingresa tu correo",
                 email: "Ingresa un formato de correo"
 

@@ -96,14 +96,15 @@
             <h2 class="text-center titulo_inicia_sesion">¡Inicia sesión en Didactinaut!</h2>
             <hr>
         <form action="" method="" id="form_iniciosesion">
-            <input type="text" id="correo_inicia_sesion" name="correo_inicia_sesion" placeholder="Correo electrónico"> <br>
+            <input type="text" id="usuario_inicia_sesion" name="input" placeholder="Nombre de usuario"> <br>
             
-            <input type="password" id="contra_inicia_sesion" name="contra_inicia_sesion" placeholder="Contraseña"> <br>
+            <input type="password" id="contra_inicia_sesion" name="password" placeholder="Contraseña"> <br>
             
-            <input type="submit" form="form_iniciosesion" id="btn_inicia_sesion" value="Iniciar sesión">
-            <a href="SesionIniciada.html" style="display: inline; color: black;">
-                <i class="fa fa-forward"></i><br>
+            <a href="SesionIniciada.html">
+                <input type="submit" form="form_iniciosesion" id="btn_inicia_sesion" value="Iniciar sesión">
+                
             </a>
+            
         </form>
         <h6>¿Sin cuenta? <a class="link_inicia_sesion" href="Registro.html">Regístrate</a></h6>
         
@@ -118,6 +119,7 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.sweet-modal.min.js"></script>
     <script src="js/Utilidad.js"></script>
+    <script type="module" src="./js/IniciaSesion.js"></script>
 </body>
 <footer class="footer text-center">
     <div class="container">
