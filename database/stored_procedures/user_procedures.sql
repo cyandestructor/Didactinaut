@@ -48,7 +48,8 @@ CREATE PROCEDURE EditUser (
     IN _description TEXT,
     IN _role ENUM('Instructor', 'User'),
     IN _gender VARCHAR(20),
-    IN _birthdate DATE
+    IN _birthdate DATE,
+    IN _password VARCHAR(255)
 )
 BEGIN
 	UPDATE Users AS U
@@ -60,7 +61,8 @@ BEGIN
         U.user_description = _description,
         U.user_role = _role,
         U.user_gender = _gender,
-        U.user_birthdate = _birthdate
+        U.user_birthdate = _birthdate,
+        U.user_password = COALESCE(_password, U.user_password)
 	WHERE
 		U.user_id = _id;
 END $$

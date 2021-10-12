@@ -73,8 +73,12 @@ class UserDao
 
     public function editUser(User $user)
     {
-        $sql = 'CALL EditUser(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sql = 'CALL EditUser(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     
+        if($user->password) {
+            $hashedPassword = password_hash($user->password, PASSWORD_DEFAULT);
+        }
+
         $statement = $this->connection->prepare($sql);
         
         $statement->execute([
@@ -86,7 +90,8 @@ class UserDao
             $user->description,
             $user->role,
             $user->gender,
-            $user->birthdate
+            $user->birthdate,
+            $hashedPassword ?? null
         ]);
     }
 
