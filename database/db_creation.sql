@@ -1,8 +1,6 @@
 CREATE DATABASE IF NOT EXISTS didactinaut_dev;
 USE didactinaut_dev;
 
-DROP SCHEMA didactinaut_dev;
-
 CREATE TABLE IF NOT EXISTS Images (
     image_id INT NOT NULL AUTO_INCREMENT,
     image_content MEDIUMBLOB,
