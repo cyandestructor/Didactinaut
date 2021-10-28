@@ -9,6 +9,7 @@ use Small\Middleware\SessionMiddleware;
 use Didactinaut\Controllers\UsersController;
 use Didactinaut\Controllers\ImagesController;
 use Didactinaut\Controllers\SessionController;
+use Didactinaut\Controllers\CoursesController;
 use Didactinaut\Controllers\CategoryController;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
 
@@ -26,6 +27,18 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->post('/api/users/', [new UsersController($databaseFactory), 'postUser']);
     $app->put('/api/users/$id', [new UsersController($databaseFactory), 'putUser']);
     $app->put('/api/users/$id/image', [new UsersController($databaseFactory), 'putUserImage']);
+}
+
+// Courses
+{
+    $app->get('/api/courses/$id', [new CoursesController($databaseFactory), 'getUnique']);
+    $app->get('/api/courses/', [new CoursesController($databaseFactory), 'getList']);
+    $app->get('/api/users/$id/courses/', [new CoursesController($databaseFactory), 'getInstructorCourses']);
+    $app->post('/api/courses/', [new CoursesController($databaseFactory), 'postCourse']);
+    $app->post('/api/courses/$id/categories/', [new CoursesController($databaseFactory), 'addCourseCategory']);
+    $app->delete('/api/courses/$id/categories/$categoryId', [new CoursesController($databaseFactory), 'deleteCourseCategory']);
+    $app->put('/api/courses/$id', [new CoursesController($databaseFactory), 'putCourse']);
+    $app->put('/api/courses/$id/image', [new CoursesController($databaseFactory), 'putCourseImage']);
 }
 
 // Categories
