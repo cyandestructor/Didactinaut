@@ -38,7 +38,7 @@ CREATE FUNCTION get_course_total_students(_course_id INT)
 		SELECT
 			COUNT(*)
 		FROM
-			User_Courses AS UC
+			Users_Courses AS UC
 		WHERE
 			UC.course_id = _course_id
 	);

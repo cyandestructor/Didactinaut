@@ -50,18 +50,18 @@ BEGIN
     SET
 		C.course_title = _title,
 		C.course_description = _description,
-        C.published = _published,
+        C.course_published = _published,
         C.publication_date = IF (C.publication_date IS NULL AND _published = 1, CURRENT_TIMESTAMP(), C.publication_date)
 	WHERE
 		C.course_id = _id;
         
-	UPDATE Products AS P
-        INNER JOIN
-    Courses AS C ON C.product_id = P.product_id 
-SET 
-    P.product_price = _price
-WHERE
-    C.course_id = _id;
+	UPDATE
+		Products AS P
+		INNER JOIN Courses AS C ON C.product_id = P.product_id 
+	SET 
+		P.product_price = _price
+	WHERE
+		C.course_id = _id;
 END $$
 DELIMITER ;
 
@@ -130,6 +130,8 @@ BEGIN
         CI.course_published
     FROM
 		Courses_Info AS CI
+	WHERE
+		CI.course_published = 1
 	LIMIT
 		_total_rows
 	OFFSET
@@ -163,6 +165,39 @@ BEGIN
 		CI.course_published = 1
 	ORDER BY
 		CI.total_students DESC
+	LIMIT
+		_total_rows
+	OFFSET
+		_row_offset;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS GetTopScoreCourses $$
+
+CREATE PROCEDURE GetTopScoreCourses (
+	IN _total_rows INT,
+    IN _row_offset INT
+)
+BEGIN
+	SELECT
+		CI.course_id,
+        CI.course_image,
+        CI.course_title,
+        CI.course_description,
+        CI.product_id,
+        CI.course_price,
+        CI.instructor_id,
+        CI.instructor_name,
+        CI.instructor_lastname,
+        CI.course_score,
+        CI.course_published
+    FROM
+		Courses_Info AS CI
+	WHERE
+		CI.course_published = 1
+	ORDER BY
+		CI.course_score DESC
 	LIMIT
 		_total_rows
 	OFFSET
