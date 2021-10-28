@@ -9,6 +9,7 @@ use Small\Middleware\SessionMiddleware;
 use Didactinaut\Controllers\UsersController;
 use Didactinaut\Controllers\ImagesController;
 use Didactinaut\Controllers\SessionController;
+use Didactinaut\Controllers\CategoryController;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
 
 $databaseFactory = new MySQLDatabaseFactory('localhost', 'didactinaut_dev');
@@ -25,6 +26,14 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->post('/api/users/', [new UsersController($databaseFactory), 'postUser']);
     $app->put('/api/users/$id', [new UsersController($databaseFactory), 'putUser']);
     $app->put('/api/users/$id/image', [new UsersController($databaseFactory), 'putUserImage']);
+}
+
+// Categories
+{
+    $app->get('/api/categories/', [new CategoryController($databaseFactory), 'getList']);
+    $app->get('/api/courses/$id/categories/', [new CategoryController($databaseFactory), 'getCourseCategories']);
+    $app->get('/api/categories/$id', [new CategoryController($databaseFactory), 'getUnique']);
+    $app->post('/api/categories/', [new CategoryController($databaseFactory), 'postCategory']);
 }
 
 // Images
