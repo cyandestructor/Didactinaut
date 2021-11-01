@@ -1,0 +1,18 @@
+USE didactinaut_dev;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS TR_AFTER_INSERT_ON_LESSONS $$
+
+CREATE TRIGGER TR_AFTER_INSERT_ON_LESSONS
+AFTER INSERT
+ON Lessons FOR EACH ROW
+BEGIN
+	UPDATE
+		Courses AS C
+        INNER JOIN Sections AS S ON S.course_id = C.id_course
+	SET
+		C.last_update = CURRENT_TIMESTAMP()
+	WHERE
+		S.section_id = New.section_id;
+END $$
+DELIMITER ;
