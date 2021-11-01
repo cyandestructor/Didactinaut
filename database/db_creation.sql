@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS Lessons (
 
 CREATE TABLE IF NOT EXISTS Resources (
     resource_id INT NOT NULL AUTO_INCREMENT,
+    resource_name VARCHAR(60),
     resource_content LONGBLOB,
     resource_content_type VARCHAR(255),
     lesson_id INT NOT NULL,
