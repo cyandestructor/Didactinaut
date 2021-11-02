@@ -6,6 +6,7 @@
         "psr-4": {
             "Didactinaut\\Didactinaut\\": "src/",
             "Didactinaut\\Configuration\\Database\\": "src/Didactinaut/Configuration/Database/",
+            "Didactinaut\\Configuration\\VideoUpload\\": "src/Didactinaut/Configuration/VideoUpload/",
             "Didactinaut\\Factories\\Database\\": "src/Didactinaut/Factories/Database/",
             "Didactinaut\\Models\\": "src/Didactinaut/Models/",
             "Didactinaut\\Models\\Dto\\": "src/Didactinaut/Models/Dto/",

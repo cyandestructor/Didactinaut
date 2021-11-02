@@ -23,5 +23,6 @@ return array(
     'Didactinaut\\Factories\\Database\\' => array($baseDir . '/src/Didactinaut/Factories/Database'),
     'Didactinaut\\Didactinaut\\' => array($baseDir . '/src'),
     'Didactinaut\\Controllers\\' => array($baseDir . '/src/Didactinaut/Controllers'),
+    'Didactinaut\\Configuration\\VideoUpload\\' => array($baseDir . '/src/Didactinaut/Configuration/VideoUpload'),
     'Didactinaut\\Configuration\\Database\\' => array($baseDir . '/src/Didactinaut/Configuration/Database'),
 );
