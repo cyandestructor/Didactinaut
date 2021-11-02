@@ -20,7 +20,7 @@ BEGIN
     VALUES (
 		_address,
         _duration,
-        _lesson
+        _lesson_id
     );
     
     SELECT LAST_INSERT_ID();
