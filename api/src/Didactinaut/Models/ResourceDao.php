@@ -61,7 +61,7 @@ class ResourceDao
 
             $resource->id = $row['resource_id'];
             $resource->name = $row['resource_name'];
-            $resource->contentType = $row['content_type'];
+            $resource->contentType = $row['resource_content_type'];
 
             $resources[] = $resource;
         }
@@ -83,7 +83,7 @@ class ResourceDao
             $resource->id = $row['resource_id'];
             $resource->name = $row['resource_name'];
             $resource->content = $row['resource_content'];
-            $resource->contentType = $row['content_type'];
+            $resource->contentType = $row['resource_content_type'];
             $resource->lessonId = $row['lesson_id'];
             return $resource;
         }
