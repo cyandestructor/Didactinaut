@@ -15,6 +15,7 @@ use Didactinaut\Controllers\SectionsController;
 use Didactinaut\Controllers\LessonsController;
 use Didactinaut\Controllers\ResourcesController;
 use Didactinaut\Controllers\VideosController;
+use Didactinaut\Controllers\ChatsController;
 
 use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
@@ -63,6 +64,12 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->put('/api/lessons/$id', [new LessonsController($databaseFactory), 'putLesson']);
     $app->put('/api/users/$userId/lessons/$lessonId', [new LessonsController($databaseFactory), 'setCompleted']);
     $app->post('/api/sections/$id/lessons/', [new LessonsController($databaseFactory), 'postLesson']);
+}
+
+// Chats
+{
+    $app->get('/api/users/$id/chats/', [new ChatsController($databaseFactory), 'getUserChats']);
+    $app->post('/api/users/$id/chats/', [new ChatsController($databaseFactory), 'postChat']);
 }
 
 // Resources
