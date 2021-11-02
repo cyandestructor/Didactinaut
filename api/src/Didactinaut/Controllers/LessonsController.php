@@ -35,7 +35,7 @@ class LessonsController
 
         $lesson = new Lesson();
         $lesson->title = $data['title'];
-        $lesson->text = $data['text'];
+        $lesson->text = $data['text'] ?? null;
         $lesson->sectionId = $sectionID;
 
         $result['id'] = $lessonDAO->addLesson($lesson);
