@@ -54,7 +54,7 @@ BEGIN
 	FROM
 		Resources AS R
 	WHERE
-		R.lesson_id = id_lesson;
+		R.lesson_id = _lesson_id;
 END $$
 DELIMITER ;
 
