@@ -64,7 +64,7 @@ CREATE FUNCTION text_duration(str LONGTEXT)
     DECLARE secondsPerWord DECIMAL(5,2) DEFAULT 0.24;
     DECLARE wordCnt DECIMAL(5,2);
     
-    SET wordCnt = wordcount(str);
+    SET wordCnt = word_count(str);
     
     RETURN FLOOR(wordCnt * secondsPerWord);
   END

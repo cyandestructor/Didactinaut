@@ -9,7 +9,7 @@ ON Lessons FOR EACH ROW
 BEGIN
 	UPDATE
 		Courses AS C
-        INNER JOIN Sections AS S ON S.course_id = C.id_course
+        INNER JOIN Sections AS S ON S.course_id = C.course_id
 	SET
 		C.last_update = CURRENT_TIMESTAMP()
 	WHERE
