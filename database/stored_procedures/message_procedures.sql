@@ -42,6 +42,8 @@ BEGIN
 		Messages AS M
         LEFT JOIN Users AS U ON U.user_id = M.sender_user_id
 	WHERE
-		M.chat_id = _chat_id;
+		M.chat_id = _chat_id
+	ORDER BY
+		M.message_date ASC;
 END $$
 DELIMITER ;
