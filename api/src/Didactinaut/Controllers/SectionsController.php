@@ -36,7 +36,7 @@ class SectionsController
         $section = new Section();
         $section->title = $data['title'];
         $section->courseId = $courseID;
-        $section->product['price'] = $data['price'];
+        $section->product['price'] = $data['price'] ?? null;
 
         $result['id'] = $sectionDAO->addSection($section);
         $response->getBody()->write(json_encode($result));
@@ -87,13 +87,13 @@ class SectionsController
         $result['old'] = [
             'id' => $original->id,
             'title' => $original->title,
-            'price' => $original->price
+            'price' => $original->product['price']
         ];
 
         $result['new'] = [
             'id' => $sectionData->id,
             'title' => $sectionData->title,
-            'price' => $sectionData->price
+            'price' => $sectionData->product['price']
         ];
         
         $response->getBody()->write(json_encode($result));
