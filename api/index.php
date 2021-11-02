@@ -14,9 +14,13 @@ use Didactinaut\Controllers\CategoryController;
 use Didactinaut\Controllers\SectionsController;
 use Didactinaut\Controllers\LessonsController;
 use Didactinaut\Controllers\ResourcesController;
+use Didactinaut\Controllers\VideosController;
+
+use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
 
 $databaseFactory = new MySQLDatabaseFactory('localhost', 'didactinaut_dev');
+$videoUploader = new AzureBlobStorageVideoUploader();
 
 $app = new Application();
 
@@ -67,6 +71,13 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->get('/api/lessons/$id/resources/', [new ResourcesController($databaseFactory), 'getLessonResources']);
     $app->post('/api/lessons/$id/resources/', [new ResourcesController($databaseFactory), 'postResource']);
     $app->delete('/api/resources/$id', [new ResourcesController($databaseFactory), 'deleteResource']);
+}
+
+// Videos
+{
+    $app->get('/api/lessons/$id/video/', [new VideosController($databaseFactory, $videoUploader), 'getLessonVideo']);
+    $app->put('/api/lessons/$id/video/', [new VideosController($databaseFactory, $videoUploader), 'putLessonVideo']);
+    $app->delete('/api/videos/$id', [new VideosController($databaseFactory, $videoUploader), 'deleteVideo']);
 }
 
 // Categories
