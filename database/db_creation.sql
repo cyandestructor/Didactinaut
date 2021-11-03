@@ -156,12 +156,9 @@ CREATE TABLE IF NOT EXISTS Orders (
     order_id INT NOT NULL AUTO_INCREMENT,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     orderer_user_id INT NOT NULL,
-    seller_user_id INT NOT NULL,
     payment_method INT NOT NULL,
     CONSTRAINT PK_Orders PRIMARY KEY (order_id),
     CONSTRAINT FK_Orders_Orderer_User_Id FOREIGN KEY (orderer_user_id)
-        REFERENCES Users (user_id),
-    CONSTRAINT FK_Orders_Seller_User_Id FOREIGN KEY (seller_user_id)
         REFERENCES Users (user_id),
     CONSTRAINT FK_Orders_Payment_Method FOREIGN KEY (payment_method)
         REFERENCES PaymentMethods (payment_method_id)
