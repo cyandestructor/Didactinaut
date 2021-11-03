@@ -177,3 +177,19 @@ BEGIN
 		_input IN (U.user_username, U.user_email);
 END $$
 DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SetUserCourseLastTimeChecked $$
+
+CREATE PROCEDURE SetUserCourseLastTimeChecked (
+	IN _user_id INT,
+    IN _course_id INT
+)
+BEGIN
+	UPDATE Users_Courses
+	SET
+		last_time_checked = CURRENT_TIMESTAMP()
+	WHERE
+		user_id = _user_id AND course_id = _course_id;
+END $$
+DELIMITER ;

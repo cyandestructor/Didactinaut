@@ -474,3 +474,96 @@ BEGIN
 		course_id = _course_id AND category_id = _category_id;
 END $$
 DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS InstructorReportA $$
+
+CREATE PROCEDURE InstructorReportA (
+	IN _instructor_id INT
+)
+BEGIN
+	CREATE TEMPORARY TABLE Instructor_Courses_Sales
+    SELECT
+		CS.course_id,
+        SUM(CS.total_sales) AS total_sales
+	FROM
+		Courses_Sales AS CS
+	WHERE
+		C.instructor_id = _instructor_id
+	GROUP BY
+		C.course_id;
+
+	CREATE TEMPORARY TABLE Courses_Avg_Users_Completion
+    SELECT
+		ICS.course_id,
+        ICS.total_sales,
+        AVG(
+			get_user_course_completed_lessons(UC.user_id, UC.course_id) /
+            GREATEST(get_course_total_lessons(UC.course_id), 1)
+        ) AS average_completion
+	FROM
+		Instructor_Courses_Sales AS ICS
+        LEFT JOIN Users_Courses AS UC ON UC.course_id = ICS.course_id
+	GROUP BY
+		ICS.course_id, ICS.total_sales;
+
+	SELECT
+		C.course_id,
+        C.course_title,
+        get_course_total_students(C.course_id) AS total_students,
+        CAUC.average_completion,
+        CAUC.total_sales
+    FROM
+		Courses AS C
+        INNER JOIN Courses_Avg_Users_Completion AS CAUC ON CAUC.course_id = C.course_id;
+        
+	DROP TABLE Instructor_Courses_Sales;
+    DROP TABLE Courses_Avg_Users_Completion;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS InstructorReportB $$
+
+CREATE PROCEDURE InstructorReportB (
+	IN _instructor_id INT
+)
+BEGIN
+	SELECT
+		PM.payment_method_name AS payment_method,
+		CS.total_sales
+    FROM
+		Courses AS C
+        INNER JOIN Courses_Sales AS CS ON CS.course_id = C.course_id
+        INNER JOIN PaymentMethods AS PM ON PM.payment_method_id = CS.payment_method
+	WHERE
+		C.instructor_id = _instructor_id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS CourseReportA $$
+
+CREATE PROCEDURE CourseReportA (
+	IN _course_id INT
+)
+BEGIN
+	SELECT
+		CONCAT(U.user_name, ' ', U.user_lastname) AS user_fullname,
+        UC.enroll_date,
+        (
+			get_user_course_completed_lessons(UC.user_id, UC.course_id) /
+            GREATEST(get_course_total_lessons(UC.course_id), 1)
+        ) AS completion_ratio,
+        S.final_product_price AS total_paid,
+        PM.payment_method_name AS payment_method
+    FROM
+		Courses AS C
+		INNER JOIN Users_Courses AS UC ON UC.course_id = C.course_id
+        INNER JOIN Users AS U ON U.user_id = UC.user_id
+        INNER JOIN Sales AS S ON S.product_id = C.product_id AND S.orderer_id = U.user_id
+        INNER JOIN PaymentMethods AS PM ON PM.payment_method_id = S.payment_method
+	WHERE
+		C.course_id = _course_id;
+END $$
+DELIMITER ;
