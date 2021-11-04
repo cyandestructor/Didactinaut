@@ -48,13 +48,17 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->get('/api/courses/$id', [new CoursesController($databaseFactory), 'getUnique']);
     $app->get('/api/courses/', [new CoursesController($databaseFactory), 'getList']);
     $app->get('/api/users/$id/courses/', [new CoursesController($databaseFactory), 'getInstructorCourses']);
-    $app->get('/api/users/$id/enrollments/', [new CoursesController($databaseFactory), 'getUserCourses']);
-    $app->put('/api/users/$userId/enrollments/$courseId', [new CoursesController($databaseFactory), 'putLastTimeChecked']);
     $app->post('/api/courses/', [new CoursesController($databaseFactory), 'postCourse']);
     $app->post('/api/courses/$id/categories/', [new CoursesController($databaseFactory), 'addCourseCategory']);
     $app->delete('/api/courses/$id/categories/$categoryId', [new CoursesController($databaseFactory), 'deleteCourseCategory']);
     $app->put('/api/courses/$id', [new CoursesController($databaseFactory), 'putCourse']);
     $app->put('/api/courses/$id/image', [new CoursesController($databaseFactory), 'putCourseImage']);
+}
+
+// Enrollments
+{
+    $app->get('/api/users/$id/enrollments/', [new CoursesController($databaseFactory), 'getUserCourses']);
+    $app->put('/api/users/$userId/enrollments/$courseId', [new CoursesController($databaseFactory), 'putLastTimeChecked']);
 }
 
 // Sections
