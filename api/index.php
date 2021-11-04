@@ -21,6 +21,7 @@ use Didactinaut\Controllers\OrdersController;
 use Didactinaut\Controllers\ReportsController;
 use Didactinaut\Controllers\ReviewsController;
 use Didactinaut\Controllers\PaymentMethodsController;
+use Didactinaut\Controllers\CertificatesController;
 
 use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
@@ -112,6 +113,13 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->get('/api/courses/$id/reviews/', [new ReviewsController($databaseFactory), 'getCourseReviews']);
     $app->post('/api/courses/$id/reviews/', [new ReviewsController($databaseFactory), 'postReview']);
     $app->put('/api/reviews/$id', [new ReviewsController($databaseFactory), 'putReview']);
+}
+
+// Certificates
+{
+    $app->get('/api/certificates/$id', [new CertificatesController($databaseFactory), 'getUnique']);
+    $app->get('/api/users/$id/certificates/', [new CertificatesController($databaseFactory), 'getUserCertificates']);
+    $app->post('/api/certificates/', [new CertificatesController($databaseFactory), 'postCertificate']);
 }
 
 // Images

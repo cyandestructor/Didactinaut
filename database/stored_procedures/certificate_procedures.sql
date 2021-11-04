@@ -56,15 +56,16 @@ BEGIN
 	SELECT
 		BIN_TO_UUID(CF.certificate_id) AS certificate_id,
 		CONCAT(U.user_name, ' ', U.user_lastname) AS user_fullname,
-		_instructor_name,
+		_instructor_name AS instructor_fullname,
 		C.course_title,
 		CF.expedition_date
 	FROM
 		Certificates AS CF
         INNER JOIN Users_Courses AS UC ON UC.certificate_id = CF.certificate_id
         INNER JOIN Courses AS C ON C.course_id = UC.course_id
+        INNER JOIN Users AS U ON U.user_id = UC.user_id
 	WHERE
-		C.certificate_id = UUID_TO_BIN(_certificate_id);
+		CF.certificate_id = UUID_TO_BIN(_certificate_id);
 END $$
 DELIMITER ;
 
@@ -79,7 +80,7 @@ BEGIN
 		BIN_TO_UUID(UC.certificate_id) AS certificate_id,
         C.course_title
 	FROM
-		Users_Certificates AS UC
+		Users_Courses AS UC
         INNER JOIN Courses AS C ON C.course_id = UC.course_id
 	WHERE
 		UC.user_id = _user_id;
