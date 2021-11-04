@@ -17,6 +17,7 @@ use Didactinaut\Controllers\ResourcesController;
 use Didactinaut\Controllers\VideosController;
 use Didactinaut\Controllers\ChatsController;
 use Didactinaut\Controllers\MessagesController;
+use Didactinaut\Controllers\OrdersController;
 
 use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
@@ -105,6 +106,11 @@ $app->addMiddleware(new BodyParserMiddleware());
 // Images
 {
     $app->get('/api/images/$id', [new ImagesController($databaseFactory), 'getUnique']);
+}
+
+// Orders
+{
+    $app->post('/api/orders/', [new OrdersController($databaseFactory), 'postOrder']);
 }
 
 // Session

@@ -25,10 +25,20 @@ DROP PROCEDURE IF EXISTS AddProductToOrder $$
 
 CREATE PROCEDURE AddProductToOrder (
 	IN _order_id INT,
-    IN _product_id INT,
-    IN _final_price DECIMAL(15 , 2 )
+    IN _product_id INT
 )
 BEGIN
+	DECLARE _final_price DECIMAL(15 , 2 );
+    
+    SET _final_price = (
+		SELECT
+			product_price
+		FROM
+			Products
+		WHERE
+			product_id = _product_id
+    );
+
 	INSERT INTO Orders_Products (
 		order_id,
         product_id,

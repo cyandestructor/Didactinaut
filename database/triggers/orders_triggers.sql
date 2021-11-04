@@ -18,7 +18,8 @@ BEGIN
 				O.orderer_user_id
 			FROM
 				Orders AS O
-                INNER JOIN New ON New.order_id = O.order_id
+			WHERE
+				O.order_id = New.order_id
 		);
         
         IF _user_id IS NOT NULL THEN
