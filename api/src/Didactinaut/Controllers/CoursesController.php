@@ -420,4 +420,16 @@ class CoursesController
                     ->withHeader('Content-Type', 'application/json');
     }
 
+    public function putLastTimeChecked(Request $request, Response $response, $args)
+    {
+        $userID = $request->getAttribute('userId');
+        $courseID = $request->getAttribute('courseId');
+
+        $courseDao = new CourseDao($this->dbFactory->create());
+
+        $courseDao->setUserLastTimeChecked($userID, $courseID);
+
+        return $response;
+    }
+
 }

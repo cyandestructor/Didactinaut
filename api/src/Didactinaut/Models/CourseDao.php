@@ -380,4 +380,16 @@ class CourseDao
 
         return $courses;
     }
+
+    public function setUserLastTimeChecked($userId, $courseId)
+    {
+        $sql = 'CALL SetUserCourseLastTimeChecked(?, ?)';
+        
+        $statement = $this->connection->prepare($sql);
+        
+        $statement->execute([
+            $userId,
+            $courseId
+        ]);
+    }
 }
