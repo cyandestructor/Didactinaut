@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Courses (
         REFERENCES Products (product_id),
     CONSTRAINT FK_Courses_Course_Instructor FOREIGN KEY (course_instructor)
         REFERENCES Users (user_id),
-    FULLTEXT ( course_title )
+    FULLTEXT ( course_description )
 );
 
 CREATE TABLE IF NOT EXISTS Sections (

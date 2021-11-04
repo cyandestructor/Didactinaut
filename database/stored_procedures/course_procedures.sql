@@ -366,7 +366,8 @@ BEGIN
 			Courses_Info AS CI
             INNER JOIN Courses_Categories AS CC ON CC.course_id = CI.course_id
 		WHERE
-			(MATCH(CI.course_title) AGAINST(_input IN NATURAL LANGUAGE MODE)
+			(MATCH(CI.course_description) AGAINST(_input IN NATURAL LANGUAGE MODE)
+            OR CI.course_title LIKE (CONCAT('%', _input, '%'))
 			OR _input IN (CI.instructor_name, CI.instructor_lastname, CI.instructor_username))
 			AND CI.course_published = 1
             AND CI.publication_date BETWEEN _from_date AND _to_date
@@ -391,7 +392,8 @@ BEGIN
 		FROM
 			Courses_Info AS CI
 		WHERE
-			(MATCH(CI.course_title) AGAINST(_input IN NATURAL LANGUAGE MODE)
+			(MATCH(CI.course_description) AGAINST(_input IN NATURAL LANGUAGE MODE)
+            OR CI.course_title LIKE (CONCAT('%', _input, '%'))
 			OR _input IN (CI.instructor_name, CI.instructor_lastname, CI.instructor_username))
 			AND CI.course_published = 1
             AND CI.publication_date BETWEEN _from_date AND _to_date
