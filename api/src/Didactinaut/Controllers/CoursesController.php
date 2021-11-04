@@ -432,4 +432,90 @@ class CoursesController
         return $response;
     }
 
+    public function getResultCourses(Request $request, Response $response, $args)
+    {
+        $queryParams = $request->getQueryParams();
+
+        if(!isset($queryParams['query'])){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "query" must be defined'
+                ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        $query = $queryParams['query'];
+
+        if(!isset($queryParams['count'])){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "count" must be defined'
+                ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        if(!is_numeric($queryParams['count']) || $queryParams['count'] < 0){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "count" must be a positive number'
+                ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        $limit = $queryParams['count'];
+        $page = $queryParams['page'] ?? 1;
+
+        if(!is_numeric($page) || $page < 0){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "page" must be a positive number'
+            ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        $offset = ($page - 1) * $limit;
+
+        $fromDate = $queryParams['from'] ?? null;
+        $toDate = $queryParams['to'] ?? null;
+        $categoryId = $queryParams['category'] ?? null;
+
+        $courseDao = new CourseDao($this->dbFactory->create());
+
+        $courses = $courseDao->getResultCourses($query, $limit, $offset, [
+            'from' => $fromDate,
+            'to' => $toDate,
+            'category' => $categoryId
+        ]);
+
+        $result = [];
+        foreach ($courses as $course) {
+            $element = [];
+
+            $element['id'] = $course->id;
+            $courseImage = $course->imageId; 
+            $element['image'] = "/api/images/$courseImage";
+            $element['title'] = $course->title;
+            $element['description'] = $course->description;
+            $element['productId'] = $course->product['id'];
+            $element['price'] = $course->product['price'];
+            $element['instructor'] = [
+                'id' => $course->instructor['id'],
+                'name' => $course->instructor['name'],
+                'lastname' => $course->instructor['lastname']
+            ];
+            $element['score'] = $course->extra['score'];
+            $element['published'] = (bool)$course->published;
+
+            $result[] = $element;
+        }
+
+        $response->getBody()->write(json_encode($result));
+        return $response
+                    ->withHeader('Content-Type', 'application/json');
+    }
+
 }

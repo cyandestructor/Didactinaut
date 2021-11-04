@@ -55,6 +55,11 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->put('/api/courses/$id/image', [new CoursesController($databaseFactory), 'putCourseImage']);
 }
 
+// Results
+{
+    $app->get('/api/results/', [new CoursesController($databaseFactory), 'getResultCourses']);
+}
+
 // Enrollments
 {
     $app->get('/api/users/$id/enrollments/', [new CoursesController($databaseFactory), 'getUserCourses']);
