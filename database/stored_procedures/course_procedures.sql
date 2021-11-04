@@ -488,10 +488,8 @@ BEGIN
         SUM(CS.total_sales) AS total_sales
 	FROM
 		Courses_Sales AS CS
-	WHERE
-		C.instructor_id = _instructor_id
 	GROUP BY
-		C.course_id;
+		CS.course_id;
 
 	CREATE TEMPORARY TABLE Courses_Avg_Users_Completion
     SELECT
@@ -515,7 +513,9 @@ BEGIN
         CAUC.total_sales
     FROM
 		Courses AS C
-        INNER JOIN Courses_Avg_Users_Completion AS CAUC ON CAUC.course_id = C.course_id;
+        INNER JOIN Courses_Avg_Users_Completion AS CAUC ON CAUC.course_id = C.course_id
+	WHERE
+		C.course_instructor = _instructor_id;
         
 	DROP TABLE Instructor_Courses_Sales;
     DROP TABLE Courses_Avg_Users_Completion;
@@ -537,7 +537,7 @@ BEGIN
         INNER JOIN Courses_Sales AS CS ON CS.course_id = C.course_id
         INNER JOIN PaymentMethods AS PM ON PM.payment_method_id = CS.payment_method
 	WHERE
-		C.instructor_id = _instructor_id;
+		C.course_instructor = _instructor_id;
 END $$
 DELIMITER ;
 

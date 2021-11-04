@@ -45,8 +45,8 @@ AS
         SL.payment_method,
         SUM(SL.final_product_price) AS total_sales
 	FROM
-		Courses AS C
-        INNER JOIN Sections AS SC ON SC.course_id = C.course_id
-        LEFT JOIN Sales AS SL ON SL.product_id = SC.product_id OR SL.product_id = C.product_id
+		Sales AS SL
+        RIGHT JOIN Courses AS C ON C.product_id = SL.product_id
+        LEFT JOIN Sections AS SC ON SC.course_id = C.course_id AND SC.product_id = SL.product_id
 	GROUP BY
 		C.course_id, SL.payment_method;
