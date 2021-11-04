@@ -97,10 +97,6 @@ BEGIN
 		Reviews AS R
         LEFT JOIN Users AS U ON U.user_id = R.user_id
 	WHERE
-		R.review_id = _id
-	LIMIT
-		_total_rows
-	OFFSET
-		_row_offset;
+		R.review_id = _id;
 END $$
 DELIMITER ;

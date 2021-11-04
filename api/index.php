@@ -19,6 +19,7 @@ use Didactinaut\Controllers\ChatsController;
 use Didactinaut\Controllers\MessagesController;
 use Didactinaut\Controllers\OrdersController;
 use Didactinaut\Controllers\ReportsController;
+use Didactinaut\Controllers\ReviewsController;
 
 use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
@@ -102,6 +103,14 @@ $app->addMiddleware(new BodyParserMiddleware());
     $app->get('/api/courses/$id/categories/', [new CategoryController($databaseFactory), 'getCourseCategories']);
     $app->get('/api/categories/$id', [new CategoryController($databaseFactory), 'getUnique']);
     $app->post('/api/categories/', [new CategoryController($databaseFactory), 'postCategory']);
+}
+
+// Reviews
+{
+    $app->get('/api/reviews/$id', [new ReviewsController($databaseFactory), 'getUnique']);
+    $app->get('/api/courses/$id/reviews/', [new ReviewsController($databaseFactory), 'getCourseReviews']);
+    $app->post('/api/courses/$id/reviews/', [new ReviewsController($databaseFactory), 'postReview']);
+    $app->put('/api/reviews/$id', [new ReviewsController($databaseFactory), 'putReview']);
 }
 
 // Images
