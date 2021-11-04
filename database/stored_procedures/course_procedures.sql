@@ -318,7 +318,7 @@ BEGIN
 		CI.course_published,
         UC.enroll_date,
         UC.last_time_checked,
-        UC.certificate_id,
+        BIN_TO_UUID(UC.certificate_id) AS certificate_id,
         get_user_course_completed_lessons(UC.user_id, UC.course_id) AS total_completed_lessons
 	FROM
 		Courses_Info AS CI

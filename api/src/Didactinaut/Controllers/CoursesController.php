@@ -346,4 +346,78 @@ class CoursesController
                     ->withHeader('Content-Type', 'application/json');
     }
 
+    public function getUserCourses(Request $request, Response $response, $args)
+    {
+        $userID = $request->getAttribute('id');
+        $queryParams = $request->getQueryParams();
+
+        if(!isset($queryParams['count'])){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "count" must be defined'
+                ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        if(!is_numeric($queryParams['count']) || $queryParams['count'] < 0){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "count" must be a positive number'
+                ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        $limit = $queryParams['count'];
+        $page = $queryParams['page'] ?? 1;
+
+        if(!is_numeric($page) || $page < 0){
+            $response->getBody()->write(json_encode([
+                'message' => 'Parameter "page" must be a positive number'
+            ]));
+            return $response
+                        ->withHeader('Content-Type', 'application/json')
+                        ->withStatus(400);
+        }
+
+        $offset = ($page - 1) * $limit;
+
+        $courseDAO = new CourseDAO($this->dbFactory->create());
+
+        $courses = $courseDAO->getUserCourses($userID, $limit, $offset);
+
+        $result = [];
+        foreach ($courses as $course) {
+            $element = [];
+
+            $element['id'] = $course->id;
+            $courseImage = $course->imageId;
+            $element['image'] = "/api/images/$courseImage";
+            $element['title'] = $course->title;
+            $element['description'] = $course->description;
+            $element['productId'] = $course->product['id'];
+            $element['price'] = $course->product['price'];
+            $instructor = [];
+            $instructor['id'] = $course->instructor['id'];
+            $instructor['name'] = $course->instructor['name'];
+            $instructor['lastname'] = $course->instructor['lastname'];
+            $element['instructor'] = $instructor;
+            $element['score'] = $course->extra['score'];
+            $element['totalLessons'] = $course->extra['totalLessons'];
+            $element['enrollDate'] = $course->extra['enrollDate'];
+            $element['lastTimeChecked'] = $course->extra['lastTimeChecked'];
+            $element['certificateId'] = $course->extra['certificateId'];
+            $element['totalCompletedLessons'] = $course->extra['totalCompletedLessons'];
+            $element['completionRatio'] = $course->extra['totalCompletedLessons'] / max($course->extra['totalLessons'], 1);
+            $element['published'] = (bool)$course->published;
+
+            $result[] = $element;
+        }
+
+        $response->getBody()->write(json_encode($result));
+        return $response
+                    ->withHeader('Content-Type', 'application/json');
+    }
+
 }
