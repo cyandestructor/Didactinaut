@@ -50,7 +50,21 @@ async function cargarInformacionUsuario() {
                body: img
           }).then((response)=>{
                if(response.ok){
-                    window.alert("Imagen actualizada");
+                    // window.alert("Imagen actualizada");
+                    Swal.fire({
+                         icon: 'success',
+                         title: '<h2 style="color: white;">Imagen actualizada</h2>',
+                         confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
+                         confirmButtonColor: '#48e5c2',
+                         showConfirmButton: false,
+                         timer: 1200,
+                         timerProgressBar: true,
+                         didOpen: (toast) => {
+                         toast.addEventListener('mouseenter', Swal.stopTimer)
+                         toast.addEventListener('mouseenter', Swal.resumeTimer)
+                         },
+                         background: '#333333',
+                    })
                     return;
                }
           })
@@ -71,7 +85,21 @@ async function cargarInformacionUsuario() {
                body: JSON.stringify(info)
           }).then((response)=>{
                if(response.ok){
-                    window.alert("Información actualizada");
+                    // window.alert("Información actualizada");
+                    Swal.fire({
+                         icon: 'success',
+                         title: '<h2 style="color: white;">Información actualizada</h2>',
+                         confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
+                         confirmButtonColor: '#48e5c2',
+                         showConfirmButton: false,
+                         timer: 1200,
+                         timerProgressBar: true,
+                         didOpen: (toast) => {
+                         toast.addEventListener('mouseenter', Swal.stopTimer)
+                         toast.addEventListener('mouseenter', Swal.resumeTimer)
+                         },
+                         background: '#333333',
+                    })
                     return response.json();
                }
           })
@@ -91,12 +119,50 @@ async function cargarInformacionUsuario() {
           }).then((response)=>{
                if(response.ok){
                     formPasword.reset();
-                    window.alert("Contraseña actualizada");
+                    // window.alert("Contraseña actualizada");
+                    Swal.fire({
+                         icon: 'success',
+                         title: '<h2 style="color: white;">Contraseña actualizada</h2>',
+                         confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
+                         confirmButtonColor: '#48e5c2',
+                         showConfirmButton: false,
+                         timer: 1200,
+                         timerProgressBar: true,
+                         didOpen: (toast) => {
+                         toast.addEventListener('mouseenter', Swal.stopTimer)
+                         toast.addEventListener('mouseenter', Swal.resumeTimer)
+                         },
+                         background: '#333333',
+                    })
                     return response.json();
                }
           })
      
      })
+
+     fetch('http://localhost/api/categories/', {
+               method: 'GET'
+          }).then((response)=>{
+               if(response.ok){
+                    return response.json();
+               }
+          }).then((data)=>{
+               console.log(data);
+               var nav_categories = $("#categorias-colapsables");
+               var drop_categories = $("#dropdown_categorias");
+               var len = data.length - 5;
+
+
+               //Carga categoria de 1 a 5 en barra de categorias
+               for(var i = 0; i < 5; i++){
+                   nav_categories.append('<div class="col-6 col-lg-2 ml-4"><a href="search-results.html" class="link-barra-categoria">' + data[i].name + '</a></div>')
+               }
+
+               //Carga categorias de la 6 en adelante en dropdown en bara 
+               for(var i=5; i < len; i++ ){
+                  drop_categories.append('<a class="dropdown-item" href="search-results.html">' + data[i].name + '</a>')
+               }
+          })
 }
 
 $(document).ready(function(){

@@ -23,11 +23,9 @@ $(document).ready(function(){
           }).then((data)=>{
                console.log(data);
                $("#nom_usu_pag").append(data.username);
-               $("#nom_usuario").append(data.username);
-               $("#img_perfil_usuario").attr('src', data.avatar);
                $(".image-user-inicio").attr('src', data.avatar);
                document.getElementById("cierra_sesion").onclick = confirmacerrar;
-          })
+          });
 
 
       fetch('http://localhost/api/categories/', {
@@ -53,8 +51,4 @@ $(document).ready(function(){
                   drop_categories.append('<a class="dropdown-item" href="search-results.html">' + data[i].name + '</a>')
                }
           })
-
-     
-
 });
-

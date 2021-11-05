@@ -4,7 +4,7 @@ $(document).ready(function(){
 
      var opc_creacurso = $("#op_crearcurso");
      var opc_carrito = $("#op_carrito");
-     
+
      opc_creacurso.on("click", function(){
           Swal.fire({
                icon: 'warning',
@@ -25,45 +25,7 @@ $(document).ready(function(){
           })     
      });
 
-     
-     document.getElementById("form_registro").addEventListener("submit", (result) => {
-          result.preventDefault();
-     
-          //form.files[0] accede a imagen
-          //'imagen.type'
-          const form = result.target;
-          const info = Utility.formDataToObject(new FormData(form));
-     
-          fetch('http://localhost/api/users/', {
-               method: 'POST',
-               headers: {
-                    'Content-Type': 'application/json'
-               },
-               body: JSON.stringify(info)
-          }).then((response)=>{
-               if(response.ok){
-                    // window.alert("¡Usuario registrado! - Iniciemos sesión");
-                    form.reset();
-                    Swal.fire({
-                         icon: 'success',
-                         title: '<h2 style="color: white;">¡Usuario registrado! - Iniciemos sesión</h2>',
-                         confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
-                         confirmButtonColor: '#48e5c2',
-                         background: '#333333',
-                    }).then((result)=>{
-                         if (result.isConfirmed){
-                                   return response.json(window.location.replace("IniciaSesion.html"));
-                              }
-                         })
-               }
-          }).then((data)=>{
-               console.log(data);
-          })
-     
-     })
-
-
-     fetch('http://localhost/api/categories/', {
+      fetch('http://localhost/api/categories/', {
                method: 'GET'
           }).then((response)=>{
                if(response.ok){
@@ -88,5 +50,5 @@ $(document).ready(function(){
           })
 
 
-});
 
+});

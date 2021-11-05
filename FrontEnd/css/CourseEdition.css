@@ -431,6 +431,18 @@ hr {
      border: 1px rgba(0, 0, 0, 0.575) solid;
 }
 
+.btn_crearcat {
+     font-size: 18px;
+     background-color: rgba(239, 131, 56, 1);
+     border: 1px rgba(0, 0, 0, 0.575) solid;
+}
+
+.btn_crearcat:hover {
+     font-size: 18px;
+     color: rgb(238, 238, 238);
+     background-color: rgb(214, 116, 46);
+}
+
 
 
 
