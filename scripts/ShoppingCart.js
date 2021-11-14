@@ -8,7 +8,7 @@ export default class ShoppingCart {
         }
 
         if (!cart.includes(product)) {
-            cart.push(product);
+            cart.push(Number(product));
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -26,18 +26,21 @@ export default class ShoppingCart {
     }
     
     static removeProduct(product) {
+        const id = Number(product);
         const currentCartJson = localStorage.getItem('cart');
         if (currentCartJson) {
             const cart = JSON.parse(currentCartJson);
 
-            console.log(cart);
             const index = cart.indexOf(product);
             if (index >= 0) {
                 cart.splice(index, 1);
             }
-            console.log(cart);
 
             localStorage.setItem('cart', JSON.stringify(cart));
         }
+    }
+
+    static clearCart() {
+        localStorage.removeItem('cart');
     }
 }
