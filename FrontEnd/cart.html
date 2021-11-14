@@ -86,32 +86,8 @@
         <h2 class="mt-2">Carrito</h2>
         <div class="row mt-2">
             <div class="col-12 col-lg-9">
-                <h4>2 artículos en el carrito</h4>
+                <h4><span id="totalProducts">0</span> artículos en el carrito</h4>
                 <div id="products">
-                    <div class="product-box d-flex flex-row p-2 rounded mb-2">
-                        <button class="delete-btn mr-2"><i class="fa fa-trash"></i></button>
-                        <div class="d-inline-block product-box-image">
-                            <img src="./imgs/course-example.jpg" alt="Desarrollo de Motores de Juego con C++ y OpenGL">
-                        </div>
-                        <div class="ml-2">
-                            <h5>Desarrollo de Motores de Juego con C++ y OpenGL</h5>
-                        </div>
-                        <div class="ml-auto text-right">
-                            <h5 class="product-price">$1500.00 MXN</h5>
-                        </div>
-                    </div>
-                    <div class="product-box d-flex flex-row p-2 rounded mb-2">
-                        <button class="delete-btn mr-2"><i class="fa fa-trash"></i></button>
-                        <div class="d-inline-block product-box-image">
-                            <img src="./imgs/course-example-2.jpg" alt="Introducción a Unreal Engine 4">
-                        </div>
-                        <div class="ml-2">
-                            <h5 class="d-inline">Introducción a Unreal Engine 4</h5>
-                        </div>
-                        <div class="ml-auto text-right">
-                            <h5 class="product-price">$1299.00 MXN</h5>
-                        </div>
-                    </div>
                 </div>
                 <div class="border-top mt-3">
                     <h4 class="mt-2">
@@ -184,7 +160,7 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="mb-4">
-                            Total: <span class="float-right" style="font-size: 1.25em; font-weight: bold;">$2799.00 MXN</span>
+                            Total: <span class="float-right" style="font-size: 1.25em; font-weight: bold;">$<span id="total">0.00</span> MXN</span>
                         </p>
                         <button class="didactinaut-btn w-100 p-3">Pagar</button>
                     </div>
@@ -255,6 +231,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/cart.js"></script>
+    <script type="module" src="../scripts/pages/cart.js"></script>
 
   </body>
   
