@@ -31,7 +31,7 @@ export default class ShoppingCart {
         if (currentCartJson) {
             const cart = JSON.parse(currentCartJson);
 
-            const index = cart.indexOf(product);
+            const index = cart.indexOf(id);
             if (index >= 0) {
                 cart.splice(index, 1);
             }
