@@ -203,6 +203,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const reviewsContainer = document.getElementById('courseReviews');
     const courseReviews = await getCourseReviews(courseId, 10);
 
+    document.getElementById('courseTotalReviews').textContent = courseReviews.length;
+
     if (courseReviews.length > 0) {
         reviewsContainer.innerHTML = '';
     }
