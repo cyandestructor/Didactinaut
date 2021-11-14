@@ -33,7 +33,8 @@ class ProductsController
         $result['id'] = $product->id;
         $result['name'] = $product->name;
         $result['price'] = $product->price;
-        $result['image'] = $product->image;
+        $image = $product->image;
+        $result['image'] = "/api/images/$image";
 
         $response->getBody()->write(json_encode($result));
         return $response
