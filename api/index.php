@@ -22,6 +22,7 @@ use Didactinaut\Controllers\ReportsController;
 use Didactinaut\Controllers\ReviewsController;
 use Didactinaut\Controllers\PaymentMethodsController;
 use Didactinaut\Controllers\CertificatesController;
+use Didactinaut\Controllers\ProductsController;
 
 use Didactinaut\Configuration\VideoUpload\AzureBlobStorageVideoUploader;
 use Didactinaut\Factories\Database\MySQLDatabaseFactory;
@@ -141,6 +142,11 @@ $app->addMiddleware(new BodyParserMiddleware());
 // Orders
 {
     $app->post('/api/orders/', [new OrdersController($databaseFactory), 'postOrder']);
+}
+
+// Products
+{
+    $app->get('/api/products/$id', [new ProductsController($databaseFactory), 'getUnique']);
 }
 
 // Report

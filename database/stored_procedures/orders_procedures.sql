@@ -1,6 +1,25 @@
 USE didactinaut_dev;
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS GetProductInfo $$
+
+CREATE PROCEDURE GetProductInfo (
+	IN _id INT
+)
+BEGIN
+	SELECT
+		product_id,
+        product_name,
+        product_price,
+        product_image
+	FROM
+		Products_Info
+	WHERE
+		product_id = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS PlaceOrder $$
 
 CREATE PROCEDURE PlaceOrder (
