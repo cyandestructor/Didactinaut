@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Desarrollo de Motores de Juego con C++ y OpenGL - Didactinaut   </title>
+    <title>Didactinaut</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -86,18 +86,18 @@
         <div class="row my-4">
             <div class="col-12 col-lg-4 mb-2">
                 <div class="card w-100">
-                    <img class="card-img-top" src="./imgs/course-example.jpg" alt="Card image cap">
+                    <img id="courseImage" class="card-img-top" src="" alt="Card image cap">
                     <div class="card-body">
-                      <h2 class="card-title">$1500.00 MXN</h2>
-                      <button class="didactinaut-btn d-block w-100 my-2 p-2">Agregar al Carrito</button>
-                      <button class="didactinaut-btn d-block w-100 my-2 p-2">Comprar Ahora</button>
+                      <h2 class="card-title">$<span id="coursePrice">0.00</span> MXN</h2>
+                      <button id="btnAddToCart" class="didactinaut-btn d-block w-100 my-2 p-2">Agregar al Carrito</button>
+                      <button id="btnBuyNow" class="didactinaut-btn d-block w-100 my-2 p-2">Comprar Ahora</button>
                       <h5 class="mt-3">Este curso incluye:</h5>
                       <ul class="list-unstyled">
                           <li>
-                              <i class="fa fa-list-alt"></i><span class="ml-2">3 Lecciones</span>
+                              <i class="fa fa-list-alt"></i><span class="ml-2"><span id="courseTotalLessons">0</span> Lecciones</span>
                           </li>
                           <li>
-                              <i class="fa fa-paperclip"></i><span class="ml-2">6 recursos descargables</span>
+                              <i class="fa fa-group"></i><span class="ml-2"><span id="courseTotalStudents">0</span> Estudiantes</span>
                           </li>
                           <li>
                               <i class="fa fa-trophy"></i><span class="ml-2">Certificado de finalización</span>
@@ -108,138 +108,42 @@
             </div>
             <div class="col-12 col-lg-8">
                 <h1 id="courseTitle">
-                    Desarrollo de Motores de Juego con C++ y OpenGL
                 </h1>
-                <div id="courseRating">
-                    <span>4.5</span>
-                    <span class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-empty"></i>
+                <div>
+                    <span id="courseScore">0</span>
+                    <span id="courseStars" class="stars">
                     </span>
-                    <a href="#">(2 Reseñas)</a>
+                    <a href="#reviewsHeader">(2 Reseñas)</a>
                     <div style="display: inline;">
                          Categoría: <span href="#" id="courseCategory">Programación</span>
                     </div>
                 </div>
                 <div>
-                    Creado por: <a href="Messages.html" id="courseInstructor">Bryan Duarte</a>
+                    Creado por: <a href="Messages.html" id="courseInstructor"></a>
                 </div>
                 <div>
-                    Fecha de creación: <span id="courseCreationDate">27 de Agosto 2021</span>
+                    Fecha de creación: <span id="courseCreationDate"></span>
                 </div>
                 <div>
-                    Última actualización: <span id="courseLastUpdateDate">28 de Agosto 2021</span>
+                    Última actualización: <span id="courseLastUpdateDate"></span>
                 </div>
-                <p id="courseShortDescription" class="mt-2">
-                    Aprende a desarrollar un motor de juegos desde cero, utilizando el lenguaje de programación C++ y la API de gráficos OpenGL
-                </p>
                 <h2>Contenido del Curso</h2>
-                <div class="accordion">
-                    <div class="card">
-                        <a href="#section-introduccion" class="section-collapse" data-toggle="collapse" role="button">
-                            <div class="card-header">
-                                <h4 class="d-inline">Introducción</h4>
-                                    <span class="float-right">2 Lecciones</span>
-                            </div>
-                        </a>
-                        <div id="section-introduccion" class="collapse show">
-                            <div class="card-body">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-play-circle mr-2"></i>Presentación del curso
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-paperclip mr-2"></i>Plantilla para Visual Studio
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <a href="#section-opengl" class="section-collapse" data-toggle="collapse" role="button">
-                            <div class="card-header">
-                                <h4 class="d-inline">OpenGL</h4>
-                                    <span class="float-right">1 Lección</span>
-                            </div>
-                        </a>
-                        <div id="section-opengl" class="collapse">
-                            <div class="card-body">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <i class="fa fa-play-circle mr-2"></i>¿Qué es OpenGL?
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+                <div id="courseContent" class="accordion">
                 </div>
                 <h2 class="mt-4">Descripción</h2>
                 <div id="courseLongDescription">
-                    <p>
-                        Tunguska event intelligent beings citizens of distant epochs great turbulent clouds across the centuries a mote of dust suspended in a sunbeam. Dream of the mind's eye bits of moving fluff preserve and cherish that pale blue dot the ash of stellar alchemy descended from astronomers descended from astronomers. The carbon in our apple pies with pretty stories for which there's little good evidence a very small stage in a vast cosmic arena tendrils of gossamer clouds rich in heavy atoms made in the interiors of collapsing stars?
-                    </p>
-                    <p>
-                        Intelligent beings something incredible is waiting to be known Drake Equation Jean-François Champollion encyclopaedia galactica not a sunrise but a galaxyrise? Venture the carbon in our apple pies another world another world laws of physics Orion's sword. Great turbulent clouds dream of the mind's eye extraordinary claims require extraordinary evidence gathered by gravity Orion's sword the ash of stellar alchemy. Inconspicuous motes of rock and gas with pretty stories for which there's little good evidence the sky calls to us courage of our questions vanquish the impossible the only home we've ever known.
-                    </p>
-                    <p>
-                        Rings of Uranus cosmic fugue descended from astronomers across the centuries encyclopaedia galactica intelligent beings? Emerged into consciousness at the edge of forever at the edge of forever not a sunrise but a galaxyrise a very small stage in a vast cosmic arena hearts of the stars. Courage of our questions something incredible is waiting to be known gathered by gravity rich in heavy atoms the only home we've ever known Orion's sword.
-                    </p>
-                    <p>
-                        Finite but unbounded circumnavigated the only home we've ever known explorations vanquish the impossible extraplanetary. Tunguska event preserve and cherish that pale blue dot a still more glorious dawn awaits birth birth take root and flourish. A very small stage in a vast cosmic arena rich in heavy atoms courage of our questions something incredible is waiting to be known made in the interiors of collapsing stars gathered by gravity and billions upon billions upon billions upon billions upon billions upon billions upon billions.
-                    </p>
+                    
                 </div>
-                <h2>Reseñas</h2>
-                <div class="courseReviews">
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <div class="didactinaut-profile-picture float-left pr-2">
-                                <img src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt="Miguel Villanueva">
-                            </div>
-                            <h5 class="card-title">Miguel Villanueva</h5>
-                            <h6 class="card-subtitle text-muted mb-2">29 Agosto 2021</h6>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-empty"></i>
-                            </div>
-                            <p>
-                                Bastante bueno para crear un pequeño motor de juegos con C++
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card mb-2">
-                        <div class="card-body">
-                            <div class="didactinaut-profile-picture float-left pr-2">
-                                <img src="https://avatars.dicebear.com/api/bottts/jaciany-lizeth.svg?background=%23FF6694" alt="Jaciany Lizeth">
-                            </div>
-                            <h5 class="card-title">Jaciany Lizeth</h5>
-                            <h6 class="card-subtitle text-muted mb-2">28 Agosto 2021</h6>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-empty"></i>
-                            </div>
-                            <p>
-                                Me gustó mucho, siento que aprendí bastante 😊
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card mb-2">
-                        <form action="">
-                            <input type="text" name="comment" placeholder="Escribe tu comentario" id="comment">
-                            Calificación: <input type="number" value="1" min="1" max="5" name="calification" id="calification"><br>
-                            <input type="submit" class="didactinaut-btn mt-2" value="Publicar comentario">
-                        </form>
-                    </div>
+                <h2 id="reviewsHeader">Reseñas</h2>
+                <div id="courseReviews" class="courseReviews">
+                    No hay reseñas aún...
+                </div>
+                <div class="card mb-2">
+                    <form action="">
+                        <input type="text" name="comment" placeholder="Escribe tu comentario" id="comment">
+                        Calificación: <input type="number" value="1" min="1" max="5" name="calification" id="calification"><br>
+                        <input type="submit" class="didactinaut-btn mt-2" value="Publicar comentario">
+                    </form>
                 </div>
             </div>
         </div>
@@ -307,6 +211,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/CourseDetails.js"></script>
+    <script type="module" src="../scripts/pages/course-details.js"></script>
 
   </body>
   
