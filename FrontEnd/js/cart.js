@@ -14,6 +14,7 @@ function confirmacerrar(){
 }
 
 $(document).ready(function(){
+
      fetch('http://localhost/api/session/', {
                method: 'GET'
           }).then((response)=>{
@@ -23,11 +24,9 @@ $(document).ready(function(){
           }).then((data)=>{
                console.log(data);
                $("#nom_usu_pag").append(data.username);
-               $("#nom_usuario").append(data.username);
-               $("#img_perfil_usuario").attr('src', data.avatar);
                $(".image-user-inicio").attr('src', data.avatar);
                document.getElementById("cierra_sesion").onclick = confirmacerrar;
-          })
+          });
 
 
       fetch('http://localhost/api/categories/', {
@@ -38,10 +37,11 @@ $(document).ready(function(){
                }
           }).then((data)=>{
                console.log(data);
-               var nav_categories = $("#categorias-colapsables");
+               var nav_categories = $("#categorias_antes_de_dropdown");
                var drop_categories = $("#dropdown_categorias");
                var len = data.length - 5;
 
+              
 
                //Carga categoria de 1 a 5 en barra de categorias
                for(var i = 0; i < 5; i++){
@@ -53,8 +53,4 @@ $(document).ready(function(){
                   drop_categories.append('<a class="dropdown-item" href="search-results.html">' + data[i].name + '</a>')
                }
           })
-
-     
-
 });
-

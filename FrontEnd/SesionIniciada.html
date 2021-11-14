@@ -52,7 +52,7 @@
                     <a class="dropdown-item" href="MySales.html">Mis ventas</a>
                     <a class="dropdown-item" href="user-profile.html">Perfil público</a>
                     <a class="dropdown-item" href="user-edition.html">Editar perfil</a>
-                    <a id="cierra_sesion" class="dropdown-item" href="Inicio.html" >Cerrar sesión</a>
+                    <a id="cierra_sesion" class="dropdown-item" href="#" >Cerrar sesión</a>
    
                 </div>
 
@@ -67,36 +67,22 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
    </button>
-    <div class="row collapse navbar-collapse" id="categorias-colapsables">
-        <div class="col-6 col-lg-2">
-            <a href="#" class="link-barra-categoria">Diseño</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="search-results.html" class="link-barra-categoria">Programación</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Modelado 3D</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Administración</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Alimentación</a>
+  
+      <div class="ml-4 row collapse navbar-collapse" id="categorias-colapsables">
+            <!-- CATEGORIAS EN BARRA ANTES DE DROP DE CATEGORIAS -->
         </div>
         
         <div class="col-6 col-lg-2">
             <div class="dropdown show">
                 <a class="btn dropdown-toggle" href="#" role="button" id="dropdown-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Más categorías  </a>
-                <div class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
-                    <a class="dropdown-item" href="#">Marketing</a>
-                    <a class="dropdown-item" href="#">Software</a>
-   
+                <div id="dropdown_categorias" class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
+                    <!-- CATEGORIAS EN DROPDOWN -->
                 </div>
 
             </div>
         </div>
-    </div>
+  
 </nav>
 
   <body>
@@ -126,14 +112,11 @@
                 <h2 style="font-weight: bold;">Aterrizaje al aprendizaje</h2>
             </div>
             <div class="col-12">
-                <h4>Mira nuestras recomendaciones</h4>
+                <h3>Mira nuestras recomendaciones</h3>
             </div>
         </div>
     </div>
     
-
-
-
 <div class="row w-100 mx-auto" >
      <!-- CURSOS RECOMENDADOS -->
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 active">
@@ -219,7 +202,199 @@
     </div>
     
 </div>
-     <br>
+    <br>
+<!-- ------------------------------------------------ -->
+
+       <div class="container " >
+        <div class="row">
+            <div class="col-12">
+                <h3>Cursos más vendidos</h3>
+            </div>
+        </div>
+    </div>
+
+<div class="row w-100 mx-auto" >
+     <!-- CURSOS MÁS VENDIDOS -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 active">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img1">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+            
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a class="courselink-inicio" href="course-details.html">
+            <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img2">
+            <div class="card" style="height: 100px;">
+                <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
+                <span id="course-Instructor">Bryan Duarte</span>
+                <span class="stars">
+                        <span style="color: black;">4.5</span> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star-half-empty"></i> 
+                </span>
+            </div>
+
+        </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img3">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img4">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                        <span style="color: black;">4.5</span> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star-half-empty"></i> 
+                </span>
+            
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img5">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+        </div>
+    </div>
+    
+</div>
+    <br>
+<!-- ------------------------------------------------ -->
+    
+       <div class="container " >
+        <div class="row">
+            <div class="col-12">
+                <h3>Cursos más recientes</h3>
+            </div>
+        </div>
+    </div>
+    
+<div class="row w-100 mx-auto" >
+     <!-- CURSOS MÁS RECIENTES -->
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 active">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img1">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+            
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <a class="courselink-inicio" href="course-details.html">
+            <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img2">
+            <div class="card" style="height: 100px;">
+                <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
+                <span id="course-Instructor">Bryan Duarte</span>
+                <span class="stars">
+                        <span style="color: black;">4.5</span> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star-half-empty"></i> 
+                </span>
+            </div>
+
+        </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img3">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example.jpg" class="img-fluid mx-auto d-block" alt="img4">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Desarrollo de Motores de Juego con C++ y OpenGL</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                        <span style="color: black;">4.5</span> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star"></i> 
+                        <i class="fa fa-star-half-empty"></i> 
+                </span>
+            
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img5">
+        <div class="card" style="height: 100px;">
+            <span id="courseTitle-inicio">Introducción a Unreal Engine 4</span> 
+            <span id="course-Instructor">Bryan Duarte</span>
+            <span class="stars">
+                    <span style="color: black;">4.0</span> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star"></i> 
+                    <i class="fa fa-star-o"></i> 
+            </span>
+        </div>
+    </div>
+    
+</div>
+    
 
 
 
@@ -231,7 +406,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/Inicio.js"></script>
     <script type="module" src="./js/SesionInciada.js"></script>
 

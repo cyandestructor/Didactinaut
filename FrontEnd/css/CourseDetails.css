@@ -194,6 +194,139 @@ body {
     color: rgb(238, 238, 238);
 }
 
+
+@media only screen and (min-width: 400px){
+     .ajuste_comentario{
+          font-size: 13px;
+          width: 30vw;
+     }
+     #comment{
+          width: 50vw;
+     }
+     
+}
+
+@media only screen and (min-width: 500px){
+     .ajuste_comentario{
+          font-size: 15px;
+          width: 30vw;
+     }
+     #comment{
+          width: 40vw;
+     }
+     
+}
+
+@media only screen and (min-width: 600px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 40vw;
+     }
+     
+}
+
+@media only screen and (min-width: 700px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 45vw;
+     }
+     
+}
+@media only screen and (min-width: 770px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 55vw;
+     }
+     
+}
+
+@media only screen and (min-width: 800px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 60vw;
+     }
+     
+}
+
+@media only screen and (min-width: 900px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 55vw;
+     }
+     
+}
+
+@media only screen and (min-width: 980px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 45vw;
+     }
+     
+}
+
+@media only screen and (min-width: 1000px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 40vw;
+     }
+     
+}
+
+@media only screen and (min-width: 1100px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 35vw;
+     }
+     
+}
+
+@media only screen and (min-width: 1200px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 36vw;
+     }
+     
+}
+
+@media only screen and (min-width: 1300px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 40vw;
+     }
+     
+}
+
+@media only screen and (min-width: 1400px){
+     .ajuste_comentario{
+          font-size: 15px;
+     }
+     #comment{
+          width: 35vw;
+     }
+     
+}
+
+
 .section-collapse{
     text-decoration: none;
     color: black;

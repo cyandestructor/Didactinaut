@@ -264,6 +264,36 @@ hr{
      .categoria_seleccion {
           margin-left: 0;
      }
+     .img-diseño{
+          width: 170px;
+     }
+     .imagen_seleccion{
+          transform: translateX(30px);
+     }
+     
+}
+@media only screen and (min-width: 550px){
+     .imagen_seleccion{
+          transform: translateX(65px);
+     }
+
+}
+@media only screen and (min-width: 600px){
+     .imagen_seleccion{
+          transform: translateX(50px);
+     }
+
+}
+@media only screen and (min-width: 850px){
+     .imagen_seleccion{
+          transform: translateX(90px);
+     }
+
+}
+@media only screen and (min-width: 900px){
+     .imagen_seleccion{
+          transform: translateX(170px);
+     }
 
 }
 @media only screen and (min-width: 998px){
@@ -282,10 +312,22 @@ hr{
           height: 6vw;
      }
      .categoria_nueva {
-          margin-left: 75px;
+          margin-left: 0px;
      }
      .categoria_seleccion {
-          margin-left: -155px;
+          margin-left: 0px;
+     }
+     .img-diseño{
+          width: 220px;
+     }
+     .imagen_seleccion{
+          transform: translateX(235px);
+     }
+     
+}
+@media only screen and (min-width: 1200px){
+     .imagen_seleccion{
+          transform: translateX(260px);
      }
 
 }
@@ -305,10 +347,16 @@ hr{
           height: 6vw;
      }
      .categoria_nueva {
-          margin-left: 75px;
+          margin-left: 0px;
      }
      .categoria_seleccion {
-          margin-left: -155px;
+          margin-left: 0px;
+     }
+     .img-diseño{
+          width: 280px;
+     }
+     .imagen_seleccion{
+          transform: translateX(270px);
      }
 
 }
@@ -327,7 +375,7 @@ hr{
 
 #courseDescription_input{
      width: 450px;
-     height: 200px;
+     height: 70px;
      resize: none;
      border: 1px rgba(0, 0, 0, 0.575) solid;
 }
@@ -364,7 +412,7 @@ hr{
 }
 
 .img-diseño{
-     margin-left: 250px;
+     margin-left: 270px;
      margin-top: -240px;
 }
 
@@ -414,6 +462,18 @@ hr{
      background-color: rgb(214, 116, 46);
      color: rgb(238, 238, 238);
      border: 1px rgba(0, 0, 0, 0.575) solid;
+}
+
+.btn_crearcat{
+     font-size: 18px;
+     background-color: rgba(239, 131, 56, 1);
+     border: 1px rgba(0, 0, 0, 0.575) solid;
+}
+
+.btn_crearcat:hover{
+     font-size: 18px;
+     color: rgb(238, 238, 238);
+     background-color: rgb(214, 116, 46);
 }
 
 

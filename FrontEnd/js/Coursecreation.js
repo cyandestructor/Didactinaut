@@ -1,6 +1,123 @@
 //CREACION DE CURSO
 //---------------------------------------------------
 //---------------------------------------------------
+import Utility from '/scripts/Utility.js';
+
+
+function confirmacerrar(){
+     var resp = confirm("¿Deseas cerrar sesión?");
+
+     if(resp == true){
+          fetch('http://localhost/api/session/', {
+               method: 'DELETE'
+          })
+
+     }else if (resp == false){
+          return false;
+     }
+}
+
+$(document).ready(function(){
+    
+    fetch('http://localhost/api/session/', {
+         method: 'GET'
+     }).then((response)=>{
+          if(response.ok){
+               return response.json();
+          }
+     }).then((data)=>{
+          console.log(data);
+          $("#nom_usu_pag").append(data.username);
+          $(".image-user-inicio").attr('src', data.avatar);
+          document.getElementById("cierra_sesion").onclick = confirmacerrar;
+     });
+     
+
+
+    document.getElementById("form_crearcategoria").addEventListener("submit", (result) => {
+        result.preventDefault();
+    
+         const form = result.target;
+         const info = Utility.formDataToObject(new FormData(form));
+         var titulo_cat = info.name.trim();
+         var desc_cat = info.description.trim();
+
+     //  console.log(info);
+     // console.log(desc_cat);
+     //  return;
+     if(titulo_cat != '' && desc_cat != ''){
+          fetch('http://localhost/api/categories/', {
+               method: 'POST',
+               headers: {
+                    'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(info)
+          }).then((response)=>{
+                //     window.alert("Categoría creada!");
+               if(response.ok){
+                    form.reset();
+                    Swal.fire({
+                         icon: 'success',
+                         title: '<h2 style="color: white;">Categoría creada</h2>',
+                         confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
+                         confirmButtonColor: '#48e5c2',
+                         showConfirmButton: false,
+                         timer: 1200,
+                         timerProgressBar: true,
+                         didOpen: (toast) => {
+                              toast.addEventListener('mouseenter', Swal.stopTimer)
+                              toast.addEventListener('mouseenter', Swal.resumeTimer)
+                         },
+                         background: '#333333',
+                    })
+
+               }
+          })
+     }
+    })
+
+    document.getElementById("form_coursecreation").addEventListener("submit", (result) => {
+          result.preventDefault();
+
+          const form = result.target;
+          const info = Utility.formDataToObject(new FormData(form));
+
+    });
+
+    fetch('http://localhost/api/categories/', {
+               method: 'GET'
+          }).then((response)=>{
+               if(response.ok){
+                    return response.json();
+               }
+          }).then((data)=>{
+               console.log(data);
+               var select_categories = $("#categoria_container");
+               var nav_categories = $("#categorias-colapsables");
+               var drop_categories = $("#dropdown_categorias");
+               var len = data.length - 5;
+
+               //Carga categorias en dropdown de crear curso
+               for(var i=0; i < data.length; i++){
+                   select_categories.append('<option value="' + data[i].id + '">' + data[i].name + '</option>') ; 
+               }
+
+               //Carga categoria de 1 a 5 en barra de categorias
+               for(var i = 0; i < 5; i++){
+                   nav_categories.append('<div class="col-6 col-lg-2 ml-4"><a href="search-results.html" class="link-barra-categoria">' + data[i].name + '</a></div>')
+               }
+
+               //Carga categorias de la 6 en adelante en dropdown en bara 
+               for(var i=5; i < len; i++ ){
+                  drop_categories.append('<a class="dropdown-item" href="search-results.html">' + data[i].name + '</a>')
+               }
+          })
+
+
+
+})
+
+
 $(function(){
     $("#precio_gratis").on("click", function(){
         if($(this).is(":checked")){
@@ -43,9 +160,9 @@ $(".inputs_curso_nivel").on("click", ".btnEliminarNivel", function(){
                     
 });
      
-$(".inputs_curso_nivel").on("click", ".btnEliminarArchivo", function(){
-                         //acceder al elemento padre que lo contiene y eliminarlo con la función remove
+// $(".inputs_curso_nivel").on("click", ".btnEliminarArchivo", function(){
+//                          //acceder al elemento padre que lo contiene y eliminarlo con la función remove
                          
-                         $(this).parent().remove();
+//                          $(this).parent().remove();
                     
-});
+// });

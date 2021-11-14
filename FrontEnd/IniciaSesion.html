@@ -35,11 +35,11 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <!-- CREAR CURSO NAVBAR --> 
-                    <a class="opciones-navbar" href="course-creation.html">Crear curso</a>
+                    <a class="opciones-navbar" id="op_crearcurso" href="#">Crear curso</a>
                 </li>
                 <li class="nav-item">
                     <!-- CARRITO DE COMPRAS -->
-                    <a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
+                    <a href="#" id="op_carrito"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a>
                 </li>
                 <li class="nav-item">
                     <!-- REGISTRARSE -->
@@ -57,36 +57,21 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categorias-colapsables" aria-controls="categorias-colapsables" aria-expanded="false" aria-label="Toggle navigation" >
             <span class="boton-colapso"> <img src="imgs/Boton-colapso-2.png" alt=""> </span>
         </button>
-    <div class="row collapse navbar-collapse" id="categorias-colapsables">
-        <div class="col-6 col-lg-2">
-            <a href="#" class="link-barra-categoria">Diseño</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="search-results.html" class="link-barra-categoria">Programación</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Modelado 3D</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Administración</a>
-        </div>
-        <div class="col-6 col-lg-2">
-            <a href="#"class="link-barra-categoria">Alimentación</a>
+       <div class="ml-4 row collapse navbar-collapse" id="categorias-colapsables">
+            <!-- CATEGORIAS EN BARRA ANTES DE DROP DE CATEGORIAS -->
         </div>
         
         <div class="col-6 col-lg-2">
             <div class="dropdown show">
                 <a class="btn dropdown-toggle" href="#" role="button" id="dropdown-categorias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Más categorías  </a>
-                    <div class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
-                        <a class="dropdown-item" href="#">Marketing</a>
-                        <a class="dropdown-item" href="#">Software</a>
-                        
-                    </div>
-                    
+                Más categorías  </a>
+                <div id="dropdown_categorias" class="nav-item dropdown-menu" aria-labelledby="dropdown-categorias">
+                    <!-- CATEGORIAS EN DROPDOWN -->
                 </div>
+
             </div>
         </div>
+      
     </nav>
     
     <body>
@@ -100,7 +85,7 @@
             
             <input type="password" id="contra_inicia_sesion" name="password" placeholder="Contraseña"> <br>
             
-            <a href="SesionIniciada.html">
+            <a id="opc_iniciasesion" href="#">
                 <input type="submit" form="form_iniciosesion" id="btn_inicia_sesion" value="Iniciar sesión">
                 
             </a>
@@ -118,6 +103,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.sweet-modal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/Utilidad.js"></script>
     <script type="module" src="./js/IniciaSesion.js"></script>
 </body>
