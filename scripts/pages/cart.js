@@ -125,8 +125,14 @@ async function placeOrderButton(e) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const cart = ShoppingCart.getProducts();
+
+    const btnPay = document.getElementById('btnPay');
+    btnPay.disabled = true;
     
     Promise.all(cart.map((productId) => getProductInfo(productId))).then(loadProductsInfo);
 
-    document.getElementById('btnPay').addEventListener('click', placeOrderButton);
+    if (cart.length > 0) {
+        btnPay.addEventListener('click', placeOrderButton);
+        btnPay.disabled = false;
+    }
 });
