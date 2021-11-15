@@ -102,7 +102,7 @@ async function placeOrderButton(e) {
         return;
     }
     
-    const paymentMethod = 1; // TEMP
+    const paymentMethod = document.querySelector('input[name="payment-option"]:checked').value;
 
     const order = {
         ordererId: session.id,
