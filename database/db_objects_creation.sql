@@ -1711,7 +1711,7 @@ BEGIN
                 S.product_id IN (SI.product_id, C.product_id)
         ) AS user_access
 	FROM
-		SectionsInfo AS SI
+		Sections_Info AS SI
         INNER JOIN Courses AS C ON C.course_id = SI.course_id
 	WHERE
 		SI.course_id = _course_id;
