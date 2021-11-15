@@ -99,40 +99,7 @@
 
      <div class="container-fluid card pt-3 pb-3">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12 mb-3">
-                        <section class="card" style="width:50vw; transform: translate(10vw);">
-                            <div class="row">
-                               <div class="col-12 col-lg-3">
-                                   <img  class="alumnos-img-section" src="imgs/Perfil-default.png" alt="">
-                               </div>
-                               <div class="col-12 col-lg-9 mb-2" >
-                                   <span style="font-size: 20px; font-weight: bold;">Roberto Martínez González</span><br><hr> 
-                                   <span style="font-size: 16px;">Fecha de inscripción: <span id="inscriptionDateStudent">30/ago/2021</span></span><br>
-                                   <span style="font-size: 16px;">Nivel de avance: <span id="progressStudent">1</span></span><br>
-                                   <span style="font-size: 16px;">Precio pagado: $<span id="inscriptionDateStudent">1,200.00 MXN</span></span><br>
-                                   <span style="font-size: 16px;">Forma de pago: <span id="paymentMethodStudent">Tarjeta de crédito</span></span>
-                               </div>
-                            </div>
-                        </section>
-                </div>
-                <div class="col-12 col-lg-12 mb-3">
-                        <section class="card" style="width:50vw; transform: translate(10vw);">
-                            <div class="row">
-                               <div class="col-12 col-lg-3">
-                                   <img  class="alumnos-img-section" src="imgs/Perfil-default.png" alt="">
-                               </div>
-                               <div class="col-12 col-lg-9 mb-2" >
-                                   <span style="font-size: 20px; font-weight: bold;">Samantha Clara Medina Cortés</span><br><hr> 
-                                   <span style="font-size: 16px;">Fecha de inscripción: <span id="inscriptionDateStudent">01/sep/2021</span></span><br>
-                                   <span style="font-size: 16px;">Nivel de avance: <span id="progressStudent">1</span></span><br>
-                                   <span style="font-size: 16px;">Precio pagado: $<span id="inscriptionDateStudent">1,200.00 MXN</span></span><br>
-                                   <span style="font-size: 16px;">Forma de pago: <span id="paymentMethodStudent">Paypal</span></span>
-                               </div>
-                            </div>
-                        </section>
-                </div>
-                
+            <div id="studentsContainer" class="row">                
             </div>
         </div>
     </div>
@@ -140,7 +107,7 @@
     <div class="container mt-3 mb-4">
      <div class="row" style="width: 40vw; transform: translate(17vw); ">
           <div class="col-12 card text-center totalingresos-container" >
-               <h4>Total de ingresos: $<span id="totalCourseMoney">2,400.00 MXN</span></h4>
+               <h4>Total de ingresos: $<span id="totalCourseMoney">0.00</span> MXN</h4>
           </div>
           
      </div>
@@ -155,6 +122,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/Students.js"></script>
+    <script src="../scripts/pages/students.js"></script>
 
   </body>
 <footer class="footer text-center">
