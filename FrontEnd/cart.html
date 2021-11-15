@@ -149,7 +149,24 @@
                             <div id="paypal-payment-method" class="collapse" data-parent="#payment-method-accordion">
                                 <div class="card-body">
                                     <h5 class="card-title"><i class="fa fa-lock"></i> Conexión segura</h5>
-                                    Para completar la transacción, te enviaremos a los servidores seguros de Paypal
+                                    Para completar la transacción, te enviaremos a los servidores seguros de Paypal, haz clic en el botón
+                                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                                    <input type="hidden" name="cmd" value="_cart" />
+                                    <input type="hidden" name="upload" value="1" />
+                                    <input type="hidden" name="business" value="sb-0b8448467251@business.example.com" />
+                                    <input type="hidden" name="currency_code" value="MXN" />
+                                    <input type="hidden" name="lc" value="MX" />
+                                    <input type="hidden" name="rm" value="2" />
+                                    <input type="hidden" name="return" value="https://domain.com/thankyou" />
+                                    <input type="hidden" name="cancel_return" value="https://domain.com/cancel" />
+                                    <input type="hidden" name="notify_url" value="https://domain.com/ipn" />
+                                    <input type="hidden" name="charset" value="utf-8" />
+                                    <input type="hidden" name="item_name_1" value="PC" />
+                                    <input type="hidden" name="item_number_1" value="0045" />
+                                    <input type="hidden" name="amount_1" value="500.00" />
+                                    <input type="hidden" name="quantity_1" value="1" />
+                                    <input style="margin-top:10px; width: 5vw;" type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+                                    </form>
                                 </div>
                             </div>
                         </div>
