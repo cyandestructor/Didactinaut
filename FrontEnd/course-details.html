@@ -119,7 +119,35 @@
                     </div>
                 </div>
                 <div>
-                    Creado por: <a href="Messages.html" id="courseInstructor"></a>
+                    Creado por: <a href="Messages.html" id="courseInstructor"></a><button type="button" class="btn" data-toggle="modal" data-target="#messageform" style="display: inline-block;"><i class="fa fa-wechat"></i></button>
+                    <div class="modal fade" id="messageform" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header" style="background-color: rgb(51, 51, 51);">
+                                <h5 style="color: white;" class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                <div class="form-group">
+                                    <label for="subject-text" class="col-form-label">Asunto:</label>
+                                    <input type="text" class="form-control" id="subject-text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Mensaje inicial:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                <button style="background-color: rgb(72, 229, 194);" type="button" class="btn btn-success">Send message</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     Fecha de creación: <span id="courseCreationDate"></span>
