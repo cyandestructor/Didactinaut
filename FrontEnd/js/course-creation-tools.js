@@ -117,6 +117,26 @@ async function createCourse(course) {
     return courseId;
 }
 
+async function addCourseCategory(categoryId, courseId) {
+    const url = `http://localhost/api/courses/${courseId}/categories/`;
+
+    const data = {
+        categoryId: categoryId
+    };
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        console.log('Added category ' + categoryId + ' to course ' + courseId);
+    }
+}
+
 async function  uploadCourseInfo(info, userId) {
     const courseInfo = {
         title: info.title,
@@ -128,6 +148,11 @@ async function  uploadCourseInfo(info, userId) {
 
     // Create course in DB
     const courseId = await createCourse(courseInfo);
+
+    // Add course categories
+    for (const category of info.categories) {
+        await addCourseCategory(category, courseId);
+    }
 
     // Create each section
     for (const section of info.sections) {
@@ -143,7 +168,7 @@ async function  uploadCourseInfo(info, userId) {
         for (const lesson of section.lessons) {
             const lessonInfo = {
                 title: lesson.title,
-                text: '',
+                text: lesson.text,
                 section: sectionId
             };
 
@@ -194,7 +219,10 @@ function getLessonsInfo(level) {
         const lesson = {};
 
         lesson.title = lessonForm.getElementsByClassName('lesson-title-input')[0].value;
-        lesson.video = lessonForm.getElementsByClassName('video-input')[0].files[0];
+        lesson.text = lessonForm.getElementsByClassName('lesson-text-input')[0].value;
+        const videoInput = lessonForm.getElementsByClassName('video-input')[0];
+
+        lesson.video = videoInput.files.length > 0 ? videoInput.files[0] : null;
 
         lesson.files = getFilesInfo(lessonForm);
 
@@ -230,6 +258,12 @@ function getCourseInfo() {
     info.price = document.getElementById('courseCost_input').value;
     info.image = document.getElementById('courseImage_input').files[0];
 
+    const categoriesSelect = document.getElementById('categoria_container');
+    info.categories = [];
+    for (const option of categoriesSelect.selectedOptions) {
+        info.categories.push(option.value);
+    }
+
     info.sections = getLevelsInfo();
 
     return info;
@@ -264,9 +298,10 @@ async function publishCourse(courseId) {
 
 document.getElementById('form_coursecreation').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const submitBtn = document.getElementById('btnCourseSubmit');
+    submitBtn.disabled = true;
 
     const courseInfo = getCourseInfo();
-    // console.log(courseInfo);
 
     let session = null;
     try {
@@ -278,12 +313,15 @@ document.getElementById('form_coursecreation').addEventListener('submit', async 
     if (session) {
         try {
             await uploadCourseInfo(courseInfo, session.id);
-            console.log('Course created');
+            alert('Course created');
+            window.location.href = '/FrontEnd/user-profile.html';
         } catch (error) {
             console.log(error);
         }
     }
     else {
-        console.log('No current session');
+        alert('No current session');
     }
+
+    submitBtn.disabled = false;
 });

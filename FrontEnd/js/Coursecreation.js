@@ -137,7 +137,7 @@ $("#newCourseLevel").on("click", function(){
 });
 
 $(".inputs_curso_nivel").on("click", ".btn-new-lesson", function(){
-    $(this).parent().parent().find('#lessons-container').append("<li class='container_lessonvideo lesson-form'><i class='fa fa-play-circle mr-2'></i>Nombre de lección: <input class='mb-3 lesson-title-input' id='lessonName_input' type='text'> <button type='button' id='btn_eliminarLeccion' class='btnEliminarLeccion'> <i class='fa fa-trash'> </i> </button><br> <span class='ml-4'>Video de lección:</span><input class='mb-3 ml-4 video-input'  type='file' name='' id='lessonVideo-input'><div class='card p-3'><button style='font-size: 16px;' type='button' id='newCourseFile' class='btn_nuevaLeccion btn_new_file'><i class='fa fa-plus'></i> Nuevo archivo</button><ul class='list-unstyled' id='files-container'></ul></div></li>");
+    $(this).parent().parent().find('#lessons-container').append("<li class='container_lessonvideo lesson-form'><i class='fa fa-play-circle mr-2'></i>Nombre de lección: <input class='mb-3 lesson-title-input' id='lessonName_input' type='text'> <button type='button' id='btn_eliminarLeccion' class='btnEliminarLeccion'> <i class='fa fa-trash'> </i> </button><br><span class='ml-4'>Texto:</span><textarea class='lesson-text-input'></textarea><br><span class='ml-4'>Video de lección:</span><input class='mb-3 ml-4 video-input'  type='file' name='' id='lessonVideo-input'><div class='card p-3'><button style='font-size: 16px;' type='button' id='newCourseFile' class='btn_nuevaLeccion btn_new_file'><i class='fa fa-plus'></i> Nuevo archivo</button><ul class='list-unstyled' id='files-container'></ul></div></li>");
 });
      
 $(".inputs_curso_nivel").on("click", ".btn_new_file", function(){
