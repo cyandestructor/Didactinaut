@@ -1,0 +1,748 @@
+/* ------------------INICIAL--------------------- */
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+
+
+* {
+     font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar {
+
+     z-index: 999;
+     position: fixed;
+     top: 0;
+     width: 100%;
+}
+
+
+@media only screen and (min-width: 300px){
+     body {
+          margin-top: 650px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 125vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 150px;
+     }
+
+     #diploma_container .font_1 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 12px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 14px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 24px;
+     }
+
+     #diploma_container .sello {
+          width: 50px;
+     }
+     
+}
+
+@media only screen and (min-width: 400px){
+     body {
+          margin-top: 700px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 120vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 150px;
+     }
+
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 14px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 30px;
+     }
+
+     #diploma_container .sello {
+          width: 60px;
+     }
+     
+}
+
+@media only screen and (min-width: 440px){
+     body {
+          margin-top: 700px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 110vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 150px;
+     }
+
+     #diploma_container .font_1 {
+          font-size: 22px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 30px;
+     }
+
+     #diploma_container .sello {
+          width: 68px;
+     }
+     
+}
+
+@media only screen and (min-width: 500px){
+     body {
+          margin-top: 700px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 93vw;
+          background-position: 50%;
+     }
+     #diploma_container{
+          top: 150px;
+     }
+     #diploma_container .font_1 {
+          font-size: 22px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 30px;
+     }
+
+     #diploma_container .sello {
+          width: 68px;
+     }
+     
+}
+
+@media only screen and (min-width: 600px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 70vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 14px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 26px;
+     }
+
+     #diploma_container .sello {
+          width: 55px;
+     }
+     
+}
+
+@media only screen and (min-width: 660px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 65vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 18px;
+     }
+     
+     #diploma_container .font_2 {
+          font-size: 15px;
+     }
+     
+     #diploma_container .font_3 {
+          font-size: 17px;
+     }
+     
+     #diploma_container .font_4 {
+          font-size: 26px;
+     }
+     
+     #diploma_container .sello {
+          width: 55px;
+     }
+     
+}
+
+@media only screen and (min-width: 700px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 59vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 15px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 17px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 26px;
+     }
+
+     #diploma_container .sello {
+          width: 55px;
+     }
+     
+}
+
+@media only screen and (min-width: 800px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 52vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 14px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 25px;
+     }
+
+     #diploma_container .sello {
+          width: 56px;
+     }
+     
+}
+
+@media only screen and (min-width: 900px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 47vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 14px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 28px;
+     }
+
+     #diploma_container .sello {
+          width: 56px;
+     }
+     
+}
+
+@media only screen and (min-width: 1000px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 44vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 15px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 17px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 28px;
+     }
+
+     #diploma_container .sello {
+          width: 60px;
+     }
+     
+}
+
+@media only screen and (min-width: 1050px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 42vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 15px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 17px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 28px;
+     }
+
+     #diploma_container .sello {
+          width: 58px;
+     }
+     
+}
+
+@media only screen and (min-width: 1100px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 39vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+     
+     #diploma_container .font_2 {
+          font-size: 15px;
+     }
+     
+     #diploma_container .font_3 {
+          font-size: 17px;
+     }
+     
+     #diploma_container .font_4 {
+          font-size: 28px;
+     }
+     
+     #diploma_container .sello {
+          width: 58px;
+     }
+     
+}
+
+@media only screen and (min-width: 1200px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 36vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1 {
+          font-size: 20px;
+     }
+
+     #diploma_container .font_2 {
+          font-size: 16px;
+     }
+
+     #diploma_container .font_3 {
+          font-size: 18px;
+     }
+
+     #diploma_container .font_4 {
+          font-size: 32px;
+     }
+
+     #diploma_container .sello {
+          width: 63px;
+     }
+     
+}
+
+@media only screen and (min-width: 1300px){
+     body {
+          margin-top: 600px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 32vw;
+          background-position: 50%;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1{
+          font-size: 34px;
+     }
+     #diploma_container .font_2{
+          font-size: 24px;
+     }
+     #diploma_container .font_3{
+          font-size: 30px;
+     }
+     #diploma_container .font_4{
+          font-size: 55px;
+     }
+     #diploma_container .sello{
+          width: 65px;
+     }
+     
+}
+
+@media only screen and (min-width: 1400px){
+     body {
+          margin-top: 840px;
+          background-image: url('../imgs/marco.png');
+          background-repeat: no-repeat;
+          background-size: 100% 45vw;
+          background-position: 50% ;
+     }
+     #diploma_container {
+          top: 110px;
+     }
+     #diploma_container .font_1{
+          font-size: 34px;
+     }
+     #diploma_container .font_2{
+          font-size: 24px;
+     }
+     #diploma_container .font_3{
+          font-size: 30px;
+     }
+     #diploma_container .font_4{
+          font-size: 55px;
+     }
+     #diploma_container .sello{
+          width: 130px;
+     }
+     
+}
+
+.dark-theme-nav {
+     background-color: rgb(51, 51, 51);
+     padding-top: 10px;
+     padding-bottom: 10px;
+}
+
+/* LOGO DE BARRA NAV */
+.logo-navbar {
+     color: rgb(72, 229, 194);
+     font-size: 28px;
+     margin-right: 75px;
+}
+
+.logo-navbar:hover {
+     color: rgba(58, 189, 160, 0.993);
+     text-decoration: none;
+}
+
+
+/* BOTON DE COLAPSO DE NAV BAR */
+.boton-colapso {
+     border-style: solid;
+     border-color: rgb(196, 196, 196);
+     border-radius: 5px;
+     padding-top: 5px;
+     padding-bottom: 9px;
+     padding-right: 8px;
+     padding-left: 8px;
+
+}
+
+.boton-colapso img {
+     width: 30px;
+}
+
+
+/* BARRA DE BUSQUEDA/ BOTON BUSCAR */
+.buscar {
+     border-radius: 30px;
+     height: 25px;
+     width: 40vw;
+     margin-left: 40px;
+     padding-left: 18px;
+     padding-right: 30px;
+     background-color: rgb(196, 196, 196);
+     color: rgb(51, 51, 51);
+     font-weight: bolder;
+     transform: translate(-50px, 0);
+     z-index: 1;
+
+}
+
+.boton-buscar {
+     position: absolute;
+     background-color: rgba(51, 51, 51, 0);
+     border: none;
+     transform: translateX(-85px);
+}
+
+.boton-buscar img {
+     width: 20px;
+     height: 20px;
+}
+
+/* OPCION CREAR CURSO */
+.opciones-navbar {
+     position: relative;
+     color: rgb(196, 196, 196);
+     margin-right: 55px;
+     font-size: 18px;
+
+}
+
+.opciones-navbar:hover {
+     color: rgb(155, 155, 155);
+     text-decoration: none;
+}
+
+
+/* OPCION REGISTRARSE E INICIAR SESION */
+.opciones-navbar-2 {
+     position: relative;
+     color: rgb(72, 229, 194);
+     margin-right: 30px;
+     font-size: 20px;
+
+}
+
+.opciones-navbar-2:hover {
+     color: rgba(58, 189, 160, 0.993);
+     text-decoration: none;
+}
+
+
+#dropdown-user-inicio {
+     color: rgb(72, 229, 194);
+}
+
+#dropdown-user-inicio:hover {
+     color: rgb(72, 229, 194);
+     text-decoration: none;
+}
+
+.image-user-inicio {
+     width: 30px;
+     height: 30px;
+     border-radius: 30px;
+}
+
+
+.boton-navbar {
+     margin-right: 75px;
+     width: 27px;
+     height: 27px;
+}
+
+.boton-navbar:hover {
+     width: 29px;
+     height: 29px;
+}
+
+
+/* BARRA CATEGORÍAS */
+.barra-categorias {
+     background-color: rgb(196, 196, 196);
+     margin-top: 60px;
+     padding-top: 8px;
+     padding-bottom: 8px;
+     width: 100%;
+     z-index: 998;
+     position: fixed;
+     box-shadow: 0px 5px 5px rgba(119, 119, 119, 0.74);
+
+}
+
+.link-barra-categoria {
+     color: black;
+}
+
+.link-barra-categoria:hover {
+     color: rgb(51, 51, 51);
+     font-size: 110%;
+     text-decoration: none;
+}
+
+
+/* CUERPO DE LA PAGINA */
+.inicio-carta {
+     background-color: rgb(240, 240, 240);
+     height: auto;
+     margin-bottom: 30px;
+}
+
+.inicio-carta-naves {
+     width: 350px;
+     z-index: 0;
+     transform: translate(130px, 10px) scaleX(-1);
+}
+
+.inicio-carta-texto {
+     width: 70%;
+     height: auto;
+     padding-bottom: 15px;
+     margin-top: 30px;
+     margin-left: 70px;
+     margin-bottom: 50px;
+     box-shadow: 10px 5px 5px rgba(119, 119, 119, 0.74);
+}
+
+
+/* CAROUSEL----------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+
+
+
+
+/* CAROUSEL----------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+/* -------------------------------------- */
+
+.courselink-inicio {
+     color: black;
+}
+
+.courselink-inicio:hover {
+     color: black;
+     text-decoration: none;
+}
+
+#courseTitle-inicio {
+     font-weight: bold;
+}
+
+
+
+.stars {
+     color: rgb(239, 131, 56);
+}
+
+
+
+
+/* FOOTER */
+.footer {
+     margin-top: -55px;
+     width: 100%;
+     position: absolute;
+     background-color: rgb(51, 51, 51);
+}
+
+.footer h5 {
+     color: rgb(72, 229, 194);
+}
+
+.footer .copyr {
+     color: rgb(196, 196, 196);
+}
+
+.footer .facebook_icono {
+     width: 20px;
+}
+
+.footer .instagram_icono {
+     width: 20px;
+}
+
+.footer .twitter_icono {
+     width: 20px;
+     height: 21px;
+}
