@@ -89,56 +89,29 @@
                <!-- Chats listados -->
                <div class="col-3 card">
                     <h2 class="pt-3 pb-2 ">Chats</h2>
-                    <div style="overflow-y: auto; height: 21vw;">
-                         <a href="#" class="link-chat  pb-3">
-                              <div class="col-12 link-chat-hover">
-                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
-                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
-                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
-                              </div>
-                              <br>
-                         </a>
-                         <a href="#" class="link-chat  pb-3">
-                              <div class="col-12 link-chat-hover">
-                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
-                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
-                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
-                              </div>
-                              <br>
-                         </a>
-                         <a href="#" class="link-chat  pb-3">
-                              <div class="col-12 link-chat-hover">
-                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
-                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
-                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
-                              </div>
-                              <br>
-                         </a>
-                         <a href="#" class="link-chat  pb-3">
-                              <div class="col-12 link-chat-hover">
-                                   <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
-                                   <h4 style="display: inline;">Bryan Duarte</h4><br>
-                                   <h6 style="display: inline;">Holaa, sip si quieres</h6>
-                              </div>
-                              <br>
-                         </a>
-
+                    <div id="chatsContainer" style="overflow-y: auto; height: 21vw;">
                     </div>
                </div>
                <!-- Cuerpo del chat seleccionado -->
                <div class="col-9 card">
                     <div class="row p-3 ">
-                         <img class="messageAvatar-img" src="imgs/avatar-example.jpg" alt="">
-                         <h2 >Bryan Duarte</h2>
+                         <img id="chatImage" class="messageAvatar-img" src="imgs/didactinaut-chat.png" alt="">
+                         <h2 id="chatSubject">Chat</h2>
                     </div><hr style="margin-top: 0;">
-                    <section class="body-chat" style="background-color: rgb(230, 230, 230); margin-left: -15px; margin-right: -15px;">
-                         <img class="imgchat-saludo" src="imgs/didactinaut-chat.png" alt=""><br>
-                         <h5 class="chat-saludo">¡Bienvenido al chat con <span>Bryan Duarte</span>!</h5>
+                    <section class="body-chat overflow-auto" style="background-color: rgb(230, 230, 230); margin-left: -15px; margin-right: -15px;">
+                        <div id="greeting">
+                            <img class="imgchat-saludo" src="imgs/didactinaut-chat.png" alt=""><br>
+                            <h5 class="chat-saludo">¡Selecciona un chat para ver los mensajes!</h5>
+                        </div>
+                        <div id="messages-container" class="container">
+                            <span class="helper"></span>
+                        </div>
                     </section>
                     <footer class="footer-chat ml-3">
-                         <button id="btn-addFiles" class="footer-chat-btn mr-1"><i class="fa fa-plus"></i></button>
-                         <button id="btn-addImgs" class="footer-chat-btn mr-4"><i class="fa fa-file-image-o "></i></button>
-                         <input id="input-chatMessage" class="footer-chat-input" type="text" placeholder="Aa">
+                        <form id="messageForm">
+                            <input id="input-chatMessage" class="footer-chat-input" type="text" placeholder="Aa">
+                            <button id="btnSend" class="footer-chat-btn mr-1"><i class="fa fa-paper-plane"></i></button>
+                        </form>
                     </footer>
                </div>
           </div>
@@ -151,6 +124,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/Messages.js"></script>
+    <script src="../scripts/pages/messages.js"></script>
 
   </body>
    <footer class="footer text-center">
