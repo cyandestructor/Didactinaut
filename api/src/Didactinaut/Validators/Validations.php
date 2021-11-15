@@ -21,7 +21,7 @@ class Validations
 
     public function& alphabetic($error_msg)
     {
-        if (!preg_match('/^[a-zA-Z]+$/', $this->value)) {
+        if (!preg_match('/^[\p{L}]+$/u', $this->value)) {
             $this->addError($error_msg);
         }
 
@@ -30,7 +30,7 @@ class Validations
 
     public function& alphabeticSpaces($error_msg)
     {
-        if (!preg_match('/^[a-zA-Z\s]+$/', $this->value)) {
+        if (!preg_match('/^[\p{L}\s]+$/u', $this->value)) {
             $this->addError($error_msg);
         }
 

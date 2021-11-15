@@ -68,8 +68,71 @@ function loadProductsInfo(products) {
     document.getElementById('total').textContent = total.toFixed(2);
 }
 
+async function getCurrentSession() {
+    const url = 'http://localhost/api/session/';
+
+    const response = await fetch(url);
+
+    const responseData = await response.json();
+
+    return responseData;
+}
+
+async function placeOrder(order) {
+    const url = 'http://localhost/api/orders/';
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(order)
+    });
+
+    return response.ok;
+}
+
+async function placeOrderButton(e) {
+    e.target.disabled = true; // Disable button
+
+    const session = await getCurrentSession();
+
+    if (!session) {
+        alert('Necesita iniciar sesión antes de hacer la compra');
+        return;
+    }
+    
+    const paymentMethod = 1; // TEMP
+
+    const order = {
+        ordererId: session.id,
+        paymentMethod: paymentMethod,
+        products: ShoppingCart.getProducts()
+    };
+
+    const success = await placeOrder(order);
+    
+    if (!success) {
+        alert('Lo sentimos, no se ha podido realizar el pedido');
+        return;
+    }
+    
+    ShoppingCart.clearCart();
+    alert('Gracias por su compra');
+
+    e.target.disabled = false;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const cart = ShoppingCart.getProducts();
+
+    const btnPay = document.getElementById('btnPay');
+    btnPay.disabled = true;
     
     Promise.all(cart.map((productId) => getProductInfo(productId))).then(loadProductsInfo);
+
+    if (cart.length > 0) {
+        btnPay.addEventListener('click', placeOrderButton);
+        btnPay.disabled = false;
+    }
 });
