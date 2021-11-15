@@ -205,3 +205,6 @@ body {
 .resource-box a:hover{
     color: rgb(58, 189, 160);
 }
+.active-area{
+     pointer-events: none;
+}
