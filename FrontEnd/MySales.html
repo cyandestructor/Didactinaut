@@ -99,55 +99,7 @@
 
      <div class="container-fluid card pt-3 pb-3">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12 mb-3">
-                        <section class="card" style="width: 75vw;">
-                            <div class="row">
-                                <div class="col-12 col-lg-4 col-md-5">
-                                    <img  class="curso-img-section" src="imgs/course-example-3.jpg" alt="">
-                                </div>
-                                <div class="col-12 col-lg-8 col-md-7" style="font-size: 18px;">
-                                     <span id="courseTitle-historial">Variaciones para cocinar huevos </span> 
-                                     <span style="margin-left: 15px;">
-                                        <a href="course-edition.html"><i class="fa fa-edit" style="color: black;"></i></a>
-                                    </span>
-                                    <span style="margin-left: 15px;">
-                                        <a href="#"><i class="fa fa-trash" style="color: black;"></i></a>
-                                    </span>
-                                   <hr>
-                                        No de alumnos inscritos: <a class="alumnos_link" href="Students.html">
-                                             <span id="registeredStudents">2 <i class="fa fa-arrow-right"></i></span>
-                                        </a><br>
-                                        Nivel promedio: <span id="averagelevelStudents">1</span><br>
-                                        Total de ingresos: $ <span id="paymentCourse">2,400.00 MXN</span><br> 
-                                </div>
-                            </div>
-                        </section>
-                </div>
-                <div class="col-12 col-lg-12 mb-3">
-                        <section class="card" style="width: 75vw;">
-                            <div class="row">
-                                <div class="col-12 col-lg-4 col-md-5">
-                                    <img  class="curso-img-section" src="imgs/course-example-4.jpg" alt="">
-                                </div>
-                                <div class="col-12 col-lg-8 col-md-7" style="font-size: 18px;">
-                                     <span id="courseTitle-historial">Variaciones y estilos de recetas para pizzas </span> 
-                                     <span style="margin-left: 15px;">
-                                        <a href="course-edition.html"><i class="fa fa-edit" style="color: black;"></i></a> 
-                                    </span>
-                                    <span style="margin-left: 15px;">
-                                        <a href="#"><i class="fa fa-trash" style="color: black;"></i></a>
-                                    </span>
-                                   <hr>
-                                        No de alumnos inscritos: <a class="alumnos_link" href="Students.html">
-                                             <span id="registeredStudents">2 <i class="fa fa-arrow-right"></i></span>
-                                        </a><br>
-                                        Nivel promedio: <span id="averagelevelStudents">1</span><br>
-                                        Total de ingresos: $ <span id="paymentCourse">2,400.00 MXN</span><br> 
-                                </div>
-                            </div>
-                        </section>
-                </div>
+            <div id="coursesSalesReportContainer" class="row">
             </div>
         </div>
     </div>
@@ -157,17 +109,10 @@
           <div class="col-12 card text-center totalingresos-container" >
               <h4>Total de ingresos: </h4>
         </div>
-        <div class="card-header totales_mysales" style="width: 100%;">
-            <div class="col-12  pt-3 pl-3 text-center ">
-                <div>Tarjeta de crédito............................................$ <span id="creditCardTotal">2,400.00 MXN</span> </div><br>
-            </div>
-            <div class="col-12  pl-3 text-center ">
-                <div>Paypal.................................................................$ <span id="paypalTotal">2,400.00 MXN</span> </div><hr>
-            </div>
+        <div id="paymentMethodsReportContainer" class="card-header totales_mysales" style="width: 100%;">
             <div class="col-12 pt-3 pl-3 text-center ">
-                <div>Total.....................................................................$ <span id="paypalTotal">4,800.00 MXN</span> </div>
+                <div>Total $ <span id="salesTotal">0.00</span> MXN</div>
             </div>
-
         </div>
      </div>
     </div>
@@ -180,6 +125,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/MySales.js"></script>
+    <script src="../scripts/pages/sales.js"></script>
 
   </body>
   <footer class="footer text-center">
