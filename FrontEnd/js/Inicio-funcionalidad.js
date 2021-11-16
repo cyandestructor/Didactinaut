@@ -71,7 +71,23 @@ $(document).ready(function(){
                var container_cursos = $("#cursos_recientes");
 
                for(var i=0; i<data_public.length; i++){
-                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_public[i].id +'"><img src="'+ data_public[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_public[i].title +'</span> <span id="course-Instructor">'+ data_public[i].instructor.name +'</span><span class="stars"><span style="color: black;">'+ data_public[i].score + '</span> </span></div></a></div>')
+                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_public[i].id +'"><img src="'+ data_public[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_public[i].title +'</span> <span id="course-Instructor">Instructor: '+ data_public[i].instructor.name +'</span><span class="stars"><span style="color: black;" id="score_course_public"></span> </span></div></a></div>')
+                    if(data_public[i].score == null){$("#score_course_public").append('No hay reseñas disponibles');}
+                    if(data_public[i].score == 1){
+                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_public[i].score == 2){
+                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_public[i].score == 3){
+                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_public[i].score == 4){
+                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_public[i].score == 5){
+                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
+                    }
                }
           })
 
@@ -97,7 +113,23 @@ $(document).ready(function(){
                var container_cursos = $("#cursos_vendidos");
 
                for(var i=0; i<data_sales.length; i++){
-                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_sales[i].id +'"><img src="'+ data_sales[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_sales[i].title +'</span> <span id="course-Instructor">'+ data_sales[i].instructor.name +'</span><span class="stars"><span style="color: black;">'+ data_sales[i].score + '</span> </span></div></a></div>')
+                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_sales[i].id +'"><img src="'+ data_sales[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_sales[i].title +'</span> <span id="course-Instructor">Instructor: '+ data_sales[i].instructor.name +'</span><span class="stars"><span style="color: black;" id="score_course_sales"></span> </span></div></a></div>')
+                    if(data_sales[i].score == null){$("#score_course_sales").append('No hay reseñas disponibles');}
+                    if(data_sales[i].score == 1){
+                         $("#score_course_sales").append(data_sales[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_sales[i].score == 2){
+                         $("#score_course_sales").append(data_sales[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_sales[i].score == 3){
+                         $("#score_course_sales").append(data_sales[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_sales[i].score == 4){
+                         $("#score_course_sales").append(data_sales[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_sales[i].score == 5){
+                         $("#score_course_sales").append(data_sales[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
+                    }
                }
           })
 
@@ -123,7 +155,24 @@ $(document).ready(function(){
                var container_cursos = $("#cursos_calificados");
 
                for(var i=0; i<data_calif.length; i++){
-                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_calif[i].id +'"><img src="'+ data_calif[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_calif[i].title +'</span> <span id="course-Instructor">'+ data_calif[i].instructor.name +'</span><span class="stars"><span style="color: black;">'+ data_calif[i].score + '</span> </span></div></a></div>')
+                    container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_calif[i].id +'"><img src="'+ data_calif[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_calif[i].title +'</span> <span id="course-Instructor">Instructor: '+ data_calif[i].instructor.name +'</span><span class="stars"><span style="color: black;" id="score_course_calif"></span> </span></div></a></div>')
+                    if(data_calif[i].score == null){$("#score_course_calif").append('No hay reseñas disponibles');}
+                    if(data_calif[i].score == 1){
+                         $("#score_course_calif").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_calif[i].score == 2){
+                         $("#score_course_calif").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_calif[i].score == 3){
+                         $("#score_course_calif").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_calif[i].score == 4){
+                         $("#score_course_calif").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
+                    }
+                    if(data_calif[i].score == 5){
+                         $("#score_course_calif").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
+                    }
+                    
                }
           })
 
@@ -150,8 +199,6 @@ $(document).ready(function(){
                window.location.href = `${url_buscar}=${busca_input}`;
 
           }
-
-
 
      });
 

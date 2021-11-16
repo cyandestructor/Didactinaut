@@ -156,7 +156,21 @@ function loadCourseInfo(courseInfo) {
         const productId = btn.dataset.productId;
 
         ShoppingCart.addProduct(productId);
-        alert('Producto agregado con éxito');
+        // alert('Producto agregado con éxito');
+        Swal.fire({
+            icon: 'success',
+            title: '<h2 style="color: white;">Producto agregado con éxito</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
     });
 
     btnBuyNow.addEventListener('click', (e) => {
@@ -223,14 +237,42 @@ async function sendMessageBtn(e) {
     const messageBody = document.getElementById('message-text').value.trim();
 
     if (chatSubject == '') {
-        alert('Escriba un asunto para el mensaje')
+        // alert('Escriba un asunto para el mensaje')
+        Swal.fire({
+            icon: 'warning',
+            title: '<h2 style="color: white;">Escriba un asunto para el mensaje</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
     const session = await getCurrentSession();
 
     if (!session) {
-        alert('Necesita iniciar sesión para enviar mensajes')
+        // alert('Necesita iniciar sesión para enviar mensajes')
+        Swal.fire({
+            icon: 'warning',
+            title: '<h2 style="color: white;">Necesita iniciar sesión para enviar mensajes</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
@@ -242,7 +284,21 @@ async function sendMessageBtn(e) {
     const chatId = await createChat(chat, session.id);
 
     if (!chatId) {
-        alert('Lo sentimos, no se pudo enviar el mensaje.');
+        // alert('Lo sentimos, no se pudo enviar el mensaje.');
+        Swal.fire({
+            icon: 'error',
+            title: '<h2 style="color: white;">Lo sentimos, no se pudo enviar el mensaje.</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
@@ -255,7 +311,21 @@ async function sendMessageBtn(e) {
         const success = await sendMessage(initialMessage, chatId);
     
         if (!success) {
-            alert('Lo sentimos, no se pudo enviar el mensaje.');
+            // alert('Lo sentimos, no se pudo enviar el mensaje.');
+            Swal.fire({
+                icon: 'error',
+                title: '<h2 style="color: white;">Lo sentimos, no se pudo enviar el mensaje.</h2>',
+                confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+                confirmButtonColor: '#48e5c2',
+                showConfirmButton: false,
+                timer: 1200,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseenter', Swal.resumeTimer)
+                },
+                background: '#333333',
+            })  
             return;
         }
     }
@@ -290,7 +360,21 @@ async function reviewFormSubmit(e) {
     const session = await getCurrentSession();
 
     if (!session) {
-        alert('Necesita iniciar sesión para publicar un review');
+        // alert('Necesita iniciar sesión para publicar un review');
+        Swal.fire({
+            icon: 'warning',
+            title: '<h2 style="color: white;">Inicia sesión para publicar un review</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
@@ -301,7 +385,21 @@ async function reviewFormSubmit(e) {
     const reviewScore = reviewScoreInput.value;
 
     if (reviewBody === '') {
-        alert('Escriba un mensaje en su reseña');
+        // alert('Escriba un mensaje en su reseña');
+        Swal.fire({
+            icon: 'warning',
+            title: '<h2 style="color: white;">Escribe un mensaje en la reseña</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
@@ -314,11 +412,39 @@ async function reviewFormSubmit(e) {
     const success = await addReview(review, courseId);
 
     if (!success) {
-        alert('No se pudo publicar la reseña');
+        // alert('No se pudo publicar la reseña');
+        Swal.fire({
+            icon: 'error',
+            title: '<h2 style="color: white;">No se pudo publicar la reseña</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
 
-    alert('Reseña publicada con éxito');
+    // alert('Reseña publicada con éxito');
+    Swal.fire({
+            icon: 'success',
+            title: '<h2 style="color: white;">Reseña publicada con éxito</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
     // Reset
     form.reset();
 }
