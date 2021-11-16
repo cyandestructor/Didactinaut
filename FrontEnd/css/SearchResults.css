@@ -316,6 +316,10 @@ body {
      color: black;
      text-decoration: none;
 }
+.courselink-inicio div:hover {
+     background-color: rgb(228, 228, 228);
+
+}
 
 #courseTitle-inicio {
      font-weight: bold;

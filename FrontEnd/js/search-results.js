@@ -76,10 +76,32 @@ $(document).ready(function(){
                if(data){
                     //Agrega esta navbar si ya hay sesion iniciada y recibe datos
                     var container_session =$("#container_sesion_nav");
-                    container_session.append('<a class="logo-navbar" href="SesionIniciada.html">Didactinaut</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" ><span class="boton-colapso"> <img src="imgs/Boton-colapso.png" alt=""> </span></button><div class="collapse navbar-collapse " id="contenidocolapsable"><form action="" id="form_busqueda"><input class="buscar" type="text" placeholder="Buscar cursos" id="container_buscar"><a href="search-results.html"><button type="submit" class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button></a></form><ul class="navbar-nav mr-auto"> <li class="nav-item"><a class="opciones-navbar" href="course-creation.html">Crear curso</a></li><li class="nav-item"><a class="opciones-navbar" href="Historial-usuario.html">Historial</a></li><li class="nav-item"><a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a></li><li class="nav-item"><div class="dropdown show"><a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="opciones-navbar-2" style="margin-right: 0;" id="nom_usu_pag"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt=""> </span>  </a><div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio"><a class="dropdown-item" href="MySales.html">Mis ventas</a><a class="dropdown-item" href="user-profile.html">Perfil público</a><a class="dropdown-item" href="user-edition.html">Editar perfil</a><a id="cierra_sesion" class="dropdown-item" href="Inicio.html" >Cerrar sesión</a></div></div></li></ul></div>')
+                    container_session.append('<a class="logo-navbar" href="SesionIniciada.html">Didactinaut</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contenidocolapsable" aria-controls="contenidocolapsable" aria-expanded="false" aria-label="Toggle navigation" ><span class="boton-colapso"> <img src="imgs/Boton-colapso.png" alt=""> </span></button><div class="collapse navbar-collapse " id="contenidocolapsable"><form action="" id="form_busqueda"><input class="buscar" type="text" placeholder="Buscar cursos" id="container_buscar"><a href="search-results.html"><button type="submit" class="boton-buscar"><img src="imgs/Buscar.png" alt=""> </button></a></form><ul class="navbar-nav mr-auto"> <li class="nav-item"><a class="opciones-navbar" href="course-creation.html">Crear curso</a></li><li class="nav-item"><a class="opciones-navbar" href="Historial-usuario.html">Historial</a></li><li class="nav-item"><a href="cart.html"><img class="boton-navbar" src="imgs/Carrito.png" alt=""> </a></li><li class="nav-item"><div class="dropdown show"><a class="dropdown-toggle" href="#" role="button" id="dropdown-user-inicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="opciones-navbar-2" style="margin-right: 0;" id="nom_usu_pag"> <img class="image-user-inicio" src="https://avatars.dicebear.com/api/bottts/miguel-villanueva.svg?background=%23FF004D" alt=""> </span>  </a><div class="nav-item dropdown-menu" aria-labelledby="dropdown-user-inicio"><a class="dropdown-item" href="MySales.html">Mis ventas</a><a class="dropdown-item" href="user-profile.html">Perfil público</a><a class="dropdown-item" href="user-edition.html">Editar perfil</a><a id="cierra_sesion" class="dropdown-item" href="#" >Cerrar sesión</a></div></div></li></ul></div>')
                     $("#nom_usu_pag").append(data.username);
                     $(".image-user-inicio").attr('src', data.avatar);
-                    document.getElementById("cierra_sesion").onclick = confirmacerrar;
+                    // document.getElementById("cierra_sesion").onclick = confirmacerrar;
+                    $("#cierra_sesion").on("click", function(){
+                         Swal.fire({
+                              icon: 'question',
+                              title: '<h2 style="color: white;">¿Deseas cerrar sesión?</h2>',
+                              showCancelButton: true,
+                              cancelButtonText: '<span style="color: #c4c4c4; margin-bottom: 0; font-weight: bolder;">Cancelar</span>',
+                              confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">Cerrar sesión</span>',
+                              confirmButtonColor: '#48e5c2',
+                              cancelButtonColor: 'red',
+                              background: '#333333'
+                         }).then((result)=>{
+                              if (result.isConfirmed){
+                                   fetch('http://localhost/api/session/', {
+                                   method: 'DELETE'
+                                   }).then((response)=>{
+                                        if(response.ok){
+                                             return response.json(window.location.replace("Inicio.html"));
+                                        }
+                                   })
+                              }
+                         })
+                    })
                     document.getElementById("form_busqueda").addEventListener('submit', (result) => {
                          result.preventDefault();
                          
@@ -175,8 +197,24 @@ $(document).ready(function(){
                if(data){
                     console.log(data);
                     for(var i=0; i<data.length; i++){
-                         $("#container_resultados_busqueda").append(' <div class="col-12 col-sm-6 col-md-4 col-lg-3 active"><img src="imgs/course-example-2.jpg" class="img-fluid mx-auto d-block" alt="img1"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">' + data[i].title + '</span> <span id="course-Instructor">' + data[i].instructor.name + '</span><span class="stars"><span style="color: black;">4.0</span> </span></div></div>')
-                    }
+                         $("#container_resultados_busqueda").append('<div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data[i].id +'"><img src="'+ data[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data[i].title +'</span> <span id="course-Instructor">Instructor: '+ data[i].instructor.name +'</span><span class="stars"><span style="color: black;" id="score_course"></span> </span></div></a></div>')
+                         if(data[i].score == null){$("#score_course").append('No hay reseñas disponibles');}
+                         if(data[i].score == 1){
+                              $("#score_course").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         }
+                         if(data[i].score == 2){
+                              $("#score_course").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         }
+                         if(data[i].score == 3){
+                              $("#score_course").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         }
+                         if(data[i].score == 4){
+                              $("#score_course").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
+                         }
+                         if(data[i].score == 5){
+                              $("#score_course").append(data_calif[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
+                         }
+                         }
                }
           })
 
