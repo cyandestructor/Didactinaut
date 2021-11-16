@@ -263,6 +263,66 @@ async function sendMessageBtn(e) {
     window.location.href = `/FrontEnd/Messages.html?chatId=${chatId}`;
 }
 
+async function addReview(review, courseId) {
+    const url = `http://localhost/api/courses/${courseId}/reviews/`;
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(review)
+    });
+    
+    return response.ok;
+}
+
+async function reviewFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+
+    const courseId = form.dataset.courseId;
+
+    if (!courseId) {
+        return;
+    }
+
+    const session = await getCurrentSession();
+
+    if (!session) {
+        alert('Necesita iniciar sesión para publicar un review');
+        return;
+    }
+
+    const reviewBodyInput = document.getElementById('reviewBody');
+    const reviewScoreInput = document.getElementById('reviewScore');
+
+    const reviewBody = reviewBodyInput.value.trim();
+    const reviewScore = reviewScoreInput.value;
+
+    if (reviewBody === '') {
+        alert('Escriba un mensaje en su reseña');
+        return;
+    }
+
+    const review = {
+        body: reviewBody,
+        score: reviewScore,
+        userId: session.id
+    };
+
+    const success = await addReview(review, courseId);
+
+    if (!success) {
+        alert('No se pudo publicar la reseña');
+        return;
+    }
+
+    alert('Reseña publicada con éxito');
+    // Reset
+    form.reset();
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
 
@@ -284,6 +344,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnSendMessage = document.getElementById('btnSendMessage');
     btnSendMessage.dataset.instructorId = courseInfo.instructor.id;
     btnSendMessage.addEventListener('click', sendMessageBtn);
+
+    // Set the review form
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.dataset.courseId = courseInfo.id;
+    reviewForm.addEventListener('submit', reviewFormSubmit);
 
     // Load course content
     const courseContent = document.getElementById('courseContent');
