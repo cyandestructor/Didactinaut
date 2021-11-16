@@ -221,6 +221,14 @@ function setLessonCompleted(userId, lessonId, completed = true, callback = null)
     });
 }
 
+function setLastTimeChecked(userId, courseId) {
+    const url = `http://localhost/api/users/${userId}/enrollments/${courseId}`;
+
+    fetch(url, {
+        method: 'PUT'
+    });
+}
+
 async function btnLoadLesson(e) {
     const btn = e.target;
 
@@ -299,6 +307,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!session) {
         return;
     }
+
+    setLastTimeChecked(session.id, courseId);
 
     const courseContent = document.getElementById('courseContent');
     const courseSections = await getCourseSections(courseId, session.id);
