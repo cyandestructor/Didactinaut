@@ -72,21 +72,21 @@ $(document).ready(function(){
 
                for(var i=0; i<data_public.length; i++){
                     container_cursos.append('  <div class="col-12 col-sm-6 col-md-4 col-lg-3"><a class="courselink-inicio" href="http://localhost/FrontEnd/course-details.html?id='+ data_public[i].id +'"><img src="'+ data_public[i].image +'" class="img-fluid mx-auto d-block" alt="img2"><div class="card" style="height: 100px;"><span id="courseTitle-inicio">'+ data_public[i].title +'</span> <span id="course-Instructor">Instructor: '+ data_public[i].instructor.name +'</span><span class="stars"><span style="color: black;" id="score_course_public"></span> </span></div></a></div>')
-                    if(data_public[i].score == null){$("#score_course_public").append('No hay reseñas disponibles');}
+                    if(data_public[i].score == null){container_cursos.children().last().find("#score_course_public").append('No hay reseñas disponibles');}
                     if(data_public[i].score == 1){
-                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         container_cursos.children().last().find("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
                     }
                     if(data_public[i].score == 2){
-                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         container_cursos.children().last().find("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
                     }
                     if(data_public[i].score == 3){
-                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
+                         container_cursos.children().last().find("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>');
                     }
                     if(data_public[i].score == 4){
-                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
+                         container_cursos.children().last().find("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>');
                     }
                     if(data_public[i].score == 5){
-                         $("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
+                         container_cursos.children().last().find("#score_course_public").append(data_public[i].score + ' <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>');
                     }
                }
           })
