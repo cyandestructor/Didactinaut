@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Editar curso- Didactinaut</title>
+    <title>Editar curso - Didactinaut</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -88,59 +88,59 @@
       <h1 class="text-center " style="font-weight: bold;">Edita tu curso</h1>
       
       <div class="container card container-coursecreation" >
-        <form action="" id="form_courseEdition">
-          <div class="row">
-               <div class="col-12"><h4 style="font-weight: bold;">Configuración general del curso</h4></div>
-          </div>
-          <hr>
-          <div class="row">
-                  <div class="col-12 text-center">
-                      <h5>Título del curso</h5>
-                      <input type="text" id="courseTitle_input" name="courseTitle_input" class="inputs_curso_title" >     
-                    </div>
-           
-                 
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                       <h5>Descripción del curso</h5>
-                       <textarea class="inputs_curso" name="courseDescription_input_edit" id="courseDescription_input_edit" cols="30" rows="10"></textarea>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-sm-12">
-                       <h5>Imagen del curso</h5>
-                       <section class="imagen_seleccion">
-                            <label for="courseImage_input_edit">Select file</label>
-                            <input style="display: none;" type="file" id="courseImage_input_edit"  onchange="readURL(this);"> <img  src="#" id="img_curso" alt="">
-                       </section>
-                           <img class="w-50 img-diseño" src="imgs/Conocimiento.png" alt="">
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                       <h5>Costo del curso</h5>
-                           <select class="mr-2" name="" id="courseCoin_input_edit">
-                               <option value="">MXN</option>
-                               <option value="">USD</option>
-                           </select>
-                       
-                       <input class="inputs_curso" id="courseCost_input_edit" type="text">
-                       <span class="ml-2" style="font-size: 20px;"><input type="checkbox" id="precio_gratis">Gratis</span>
-                  </div>
-
+        <div class="row">
+            <div class="col-12"><h4 style="font-weight: bold;">Configuración general del curso</h4></div>
+       </div>
+       <hr>
+       <div class="row">
+            <div class="col-12 text-center">
+                <h5>Título del curso</h5>
+                <input type="text" id="courseTitle_input" name="courseTitle_input" class="inputs_curso_title" >     
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-12"><h4 style="font-weight: bold;">Contenido  del curso</h4><hr></div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        <button type="button" id="newCourseLevel" class="btn_nuevoNivel"><i class="fa fa-plus"></i> Nuevo nivel</button>
-                        <br><section class="inputs_curso_nivel">
-                            
-                        </section>
-                    </div>
-                </div>
-                
-                <button type="submit" form="form_courseEdition" class="btn_crearcurso">Actualizar</button>
-            </form>
+    
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <h5>Descripción del curso</h5>
+                <textarea class="inputs_curso" name="courseDescription_input_edit" id="courseDescription_input_edit" cols="30" rows="10"></textarea>
             </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <h5>Imagen del curso</h5>
+                <section class="imagen_seleccion">
+                        <label for="courseImage_input_edit">Select file</label>
+                        <input style="display: none;" type="file" id="courseImage_input_edit"  onchange="readURL(this);"> <img  src="#" id="img_curso" alt="">
+                </section>
+                    <img id="courseImage" class="w-50 img-diseño" src="imgs/Conocimiento.png" alt="">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5>Costo del curso</h5>
+                    <select class="mr-2" name="" id="courseCoin_input_edit">
+                        <option value="">MXN</option>
+                        <option value="">USD</option>
+                    </select>
+                
+                <input class="inputs_curso" id="courseCost_input_edit" type="text">
+                <span class="ml-2" style="font-size: 20px;"><input type="checkbox" id="precio_gratis">Gratis</span>
+            </div>
+            <button id="btnEditCourseInfo" type="button" class="btn_crearcurso">Guardar cambios</button>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12"><h4 style="font-weight: bold;">Contenido  del curso</h4><hr></div>
+                <div id="editedCourseContent" class="col-12 mb-3">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" id="newCourseLevel" class="btn_nuevoNivel"><i class="fa fa-plus"></i> Nuevo nivel</button>
+                    <br><section class="inputs_curso_nivel">
+                        
+                    </section>
+                </div>
+            </div>
+            
+            <button id="btnUpdateCourse" type="button" class="btn_crearcurso">Actualizar</button>
+      </div>
             
             
             <!-- Optional JavaScript -->
@@ -151,6 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script type="module" src="js/CourseEdition.js"></script>
+    <script src="../scripts/pages/course-edition.js"></script>
     <script src="js/Utilidad.js"></script>
     
   </body>
