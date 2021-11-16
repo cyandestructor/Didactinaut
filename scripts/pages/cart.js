@@ -98,7 +98,21 @@ async function placeOrderButton(e) {
     const session = await getCurrentSession();
 
     if (!session) {
-        alert('Necesita iniciar sesión antes de hacer la compra');
+        // alert('Necesita iniciar sesión antes de hacer la compra');
+        Swal.fire({
+            icon: 'warning',
+            title: '<h2 style="color: white;">Inicia sesión antes de hacer la compra.</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
     
@@ -113,12 +127,40 @@ async function placeOrderButton(e) {
     const success = await placeOrder(order);
     
     if (!success) {
-        alert('Lo sentimos, no se ha podido realizar el pedido');
+        // alert('Lo sentimos, no se ha podido realizar el pedido');
+        Swal.fire({
+            icon: 'error',
+            title: '<h2 style="color: white;">Lo sentimos, no se ha podido realizar el pedido.</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
         return;
     }
     
     ShoppingCart.clearCart();
-    alert('Gracias por su compra');
+    // alert('Gracias por su compra');
+    Swal.fire({
+            icon: 'success',
+            title: '<h2 style="color: white;">Gracias por su compra.</h2>',
+            confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+            confirmButtonColor: '#48e5c2',
+            showConfirmButton: false,
+            timer: 1200,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseenter', Swal.resumeTimer)
+            },
+            background: '#333333',
+        })
 
     e.target.disabled = false;
 }
