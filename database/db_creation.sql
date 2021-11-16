@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS Users_Lessons (
         REFERENCES Lessons (lesson_id)
 );
 
-alter table courses add constraint FK_Courses_Course_Image foreign key (course_image) references Images (image_id);
+-- alter table courses add constraint FK_Courses_Course_Image foreign key (course_image) references Images (image_id);
 
 
 
@@ -332,7 +332,7 @@ ALTER TABLE PaymentMethods MODIFY COLUMN payment_method_name VARCHAR(30) NOT NUL
 ALTER TABLE Orders MODIFY COLUMN order_id INT NOT NULL AUTO_INCREMENT comment 'Id de orden';
 ALTER TABLE Orders MODIFY COLUMN order_date DATETIME DEFAULT CURRENT_TIMESTAMP comment 'Fecha de la orden';
 ALTER TABLE Orders MODIFY COLUMN orderer_user_id INT NOT NULL comment 'Id del usuario que ordena';
-ALTER TABLE Orders MODIFY COLUMN seller_user_id INT NOT NULL comment 'Id del usuario que vende';
+-- ALTER TABLE Orders MODIFY COLUMN seller_user_id INT NOT NULL comment 'Id del usuario que vende';
 ALTER TABLE Orders MODIFY COLUMN payment_method INT NOT NULL comment 'Id de método de pago en orden';
 
 -- Categories DD
@@ -369,7 +369,7 @@ ALTER TABLE Users_Lessons MODIFY COLUMN  user_lesson_id INT NOT NULL AUTO_INCREM
 ALTER TABLE Users_Lessons MODIFY COLUMN  user_id INT NOT NULL comment 'Id del usuario de la lección';
 ALTER TABLE Users_Lessons MODIFY COLUMN  lesson_id INT NOT NULL comment 'Id de la lección de usuario';
 
-SELECT distinct
+SELECT
 		t.table_schema AS Nombre_BD,
         t.table_name AS Nombre_tabla,
         c.column_name AS Atributo,
