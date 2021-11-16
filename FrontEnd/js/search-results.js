@@ -15,6 +15,34 @@ function confirmacerrar(){
 
 $(document).ready(function(){
 
+     $('#btnApplyFilter').on('click', function () {
+        const category = $('#courseCategorie_input').val();
+        const fromDate = $('#dateFrom').val();
+        const toDate = $('#dateTo').val();
+
+        const originalParams = new URLSearchParams(location.search);
+
+        const params = {
+             query: originalParams.get('query') ?? ''
+        };
+
+        if (category !== '') {
+             params.category = category;
+        }
+        if (fromDate !== '') {
+             params.from = fromDate;
+        }
+        if (toDate !== '') {
+             params.to = toDate;
+        }
+
+        const url = new URL('http://localhost/FrontEnd/search-results.html');
+        url.search = new URLSearchParams(params);
+
+        location.href = url;
+     });
+
+
      fetch('http://localhost/api/session/', {
                method: 'GET'
           }).then((response)=>{
@@ -178,8 +206,10 @@ $(document).ready(function(){
                params_page['category']=category;
           }
 
-          if(firstdate && lastdate){
+          if(firstdate){
                params_page['from']=firstdate;
+          }
+          if (lastdate) {
                params_page['to']=lastdate;
           }
 
