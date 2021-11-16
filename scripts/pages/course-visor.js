@@ -174,7 +174,7 @@ function createLessonCard(lessonInfo, index = 0) {
     
     const html = `
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" ${lessonInfo.completed ? 'checked' : ''}>
+            <input class="lesson-complete-check form-check-input" type="checkbox" ${lessonInfo.completed ? 'checked' : ''}>
         </div>
         <span class="active-area">
             ${index + 1}. ${lessonInfo.title}
@@ -207,6 +207,20 @@ function loadLessonInfo(lesson) {
     loadLessonResources(lesson.id);
 }
 
+function setLessonCompleted(userId, lessonId, completed = true, callback = null) {
+    const url = `http://localhost/api/users/${userId}/lessons/${lessonId}?completed=${completed}`;
+
+    fetch(url, {
+        method: 'PUT'
+    }).then((response) => {
+        if (response.ok) {
+            if (callback) {
+                callback();
+            }
+        }
+    });
+}
+
 async function btnLoadLesson(e) {
     const btn = e.target;
 
@@ -220,6 +234,20 @@ async function btnLoadLesson(e) {
 
     if (!lessonInfo) {
         return;
+    }
+
+    const completedCheckbox = btn.getElementsByClassName('lesson-complete-check')[0];
+    const lessonCompleted = completedCheckbox.checked;
+
+    console.log(lessonCompleted);
+
+    if (!lessonCompleted) {
+        const session =  await getCurrentSession();
+        if (session) {
+            setLessonCompleted(session.id, lessonId, true, () => {
+                completedCheckbox.checked = true;
+            });
+        }
     }
 
     loadLessonInfo(lessonInfo);
