@@ -11,7 +11,7 @@ function createReportCourseCard(course, image) {
                 <div class="col-12 col-lg-8 col-md-7" style="font-size: 18px;">
                     <span>${course.courseTitle}</span> 
                     <span style="margin-left: 15px;">
-                        <a href="course-edition.html"><i class="fa fa-edit" style="color: black;"></i></a>
+                        <a href="course-edition.html?id=${course.courseId}"><i class="fa fa-edit" style="color: black;"></i></a>
                     </span>
                     <span style="margin-left: 15px;">
                         <a href="#"><i class="fa fa-trash" style="color: black;"></i></a>
