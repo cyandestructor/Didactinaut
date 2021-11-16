@@ -40,12 +40,12 @@ $(document).ready(function(){
 
                //Carga categoria de 1 a 5 en barra de categorias
                for(var i = 0; i < 5; i++){
-                   nav_categories.append('<div class="col-6 col-lg-2 ml-4"><a href="search-results.html" class="link-barra-categoria" id="'+ data[i].id +'">' + data[i].name + '</a></div>')
+                   nav_categories.append('<div class="col-6 col-lg-2 ml-4"><a href="search-results.html?query=&category='+ data[i].id + '" class="link-barra-categoria" id="'+ data[i].id +'">' + data[i].name + '</a></div>')
                }
 
                //Carga categorias de la 6 en adelante en dropdown en bara 
                for(var i=5; i < len; i++ ){
-                  drop_categories.append('<a class="dropdown-item" href="search-results.html">' + data[i].name + '</a>')
+                  drop_categories.append('<a class="dropdown-item" href="search-results.html?query=&category='+ data[i].id + '">' + data[i].name + '</a>')
                }
           })
 
