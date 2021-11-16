@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/Cart.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Ad5pFhvHJYt3ZIUJ8yyS8lET47S4-2Wmat9LqPztrHwlurzoOtH53NvMdha00_1N3zws5zKzWojM6MiE&currency=MXN"> 
+  </script>
   </head>
  <nav class="navbar navbar-expand-lg  dark-theme-nav">
        <!-- LOGO PAGINA EN NAVBAR -->
@@ -150,23 +152,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><i class="fa fa-lock"></i> Conexión segura</h5>
                                     Para completar la transacción, te enviaremos a los servidores seguros de Paypal, haz clic en el botón
-                                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                                    <input type="hidden" name="cmd" value="_cart" />
-                                    <input type="hidden" name="upload" value="1" />
-                                    <input type="hidden" name="business" value="sb-0b8448467251@business.example.com" />
-                                    <input type="hidden" name="currency_code" value="MXN" />
-                                    <input type="hidden" name="lc" value="MX" />
-                                    <input type="hidden" name="rm" value="2" />
-                                    <input type="hidden" name="return" value="https://domain.com/thankyou" />
-                                    <input type="hidden" name="cancel_return" value="https://domain.com/cancel" />
-                                    <input type="hidden" name="notify_url" value="https://domain.com/ipn" />
-                                    <input type="hidden" name="charset" value="utf-8" />
-                                    <input type="hidden" name="item_name_1" value="PC" />
-                                    <input type="hidden" name="item_number_1" value="0045" />
-                                    <input type="hidden" name="amount_1" value="500.00" />
-                                    <input type="hidden" name="quantity_1" value="1" />
-                                    <input style="margin-top:10px; width: 5vw;" type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-                                    </form>
+                                    <div class="w-50" id="paypal-button-container">
+
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -249,6 +238,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="./js/cart.js"></script>
     <script type="module" src="../scripts/pages/cart.js"></script>
+    <script src="./js/paypal.js"></script>
 
   </body>
   

@@ -63,7 +63,68 @@ function loadProductsInfo(products) {
         container.append(createProductCard(product));
         total += Number.parseFloat(product.price);
     }
-    
+    paypal.Buttons({
+        style:{
+            layout: 'horizontal',
+            color: 'blue',
+            shape: 'rect',
+            label: 'pay',
+            tagline: 'false'
+        },
+        //data es donde regresa toda la info procesada
+        //actions indica alguna funcion a realizar
+        createOrder: function(data, actions){
+            return actions.order.create({
+                purchase_units:[{
+                    amount:{
+                            value: 100
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions){
+            actions.order.capture().then(function(detalles){
+                console.log(detalles);
+                const Toast_ = Swal.mixin({
+                toast: true,
+                });
+                Toast_.fire({
+                    icon: 'success',
+                    title: '<h2 style="color: white;">Pago completado.</h2>',
+                    confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+                    confirmButtonColor: '#48e5c2',
+                    showConfirmButton: false,
+                    timer: 1200,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseenter', Swal.resumeTimer)
+                    },
+                    background: '#333333'
+                })
+            });
+        },
+        onCancel: function(data){
+            const Toast = Swal.mixin({
+                toast: true,
+            });
+            Toast.fire({
+                icon: 'info',
+                title: '<h2 style="color: white;">Pago cancelado.</h2>',
+                confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">De acuerdo</span>',
+                confirmButtonColor: '#48e5c2',
+                showConfirmButton: false,
+                timer: 1200,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseenter', Swal.resumeTimer)
+                },
+                background: '#333333'
+            })
+            console.log(data);
+        }
+    }).render('#paypal-button-container');
     document.getElementById('totalProducts').textContent = totalProducts;
     document.getElementById('total').textContent = total.toFixed(2);
 }
