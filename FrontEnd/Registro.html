@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Roboto:wght@100&family=Sura&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/Registro.css">
     <link rel="stylesheet" href="css/Validaciones.css">
   </head>
@@ -94,7 +95,9 @@
                
                            <input type="text" class="inputs_registro" id="correo_registro" name="email" placeholder="Correo electrónico"> <br>
                
-                           <input type="text" class="inputs_registro" id="contra_registro"  name="password" placeholder="Contraseña"> <br>
+                           <input type="password" class="inputs_registro" id="contra_registro"  name="password" placeholder="Contraseña"> <br>
+
+                            <span><i class="fa fa-warning"></i> Tu rol por default será de "alumno" para volverte "instructor" solo debes crear un curso.</span><br>
                
                            <input type="submit" id="btn_registro" form="form_registro" value="Registrarse">
                        </form>

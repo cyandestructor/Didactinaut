@@ -24,6 +24,7 @@ $(document).ready(function(){
                console.log(data);
                $("#nom_usu_pag").append(data.username);
                $("#nom_usuario").append(data.username);
+               $("#rol_usuario").append(data.role);
                $("#img_perfil_usuario").attr('src', data.avatar);
                $(".image-user-inicio").attr('src', data.avatar);
                // document.getElementById("cierra_sesion").onclick = confirmacerrar;
