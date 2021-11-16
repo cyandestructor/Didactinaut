@@ -77,7 +77,7 @@ function loadProductsInfo(products) {
             return actions.order.create({
                 purchase_units:[{
                     amount:{
-                            value: 100
+                            value: total
                     }
                 }]
             });
@@ -85,6 +85,7 @@ function loadProductsInfo(products) {
         onApprove: function(data, actions){
             actions.order.capture().then(function(detalles){
                 console.log(detalles);
+                document.getElementById('btnPay').click();
                 const Toast_ = Swal.mixin({
                 toast: true,
                 });
@@ -224,6 +225,7 @@ async function placeOrderButton(e) {
         })
 
     e.target.disabled = false;
+    window.location.reload();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
