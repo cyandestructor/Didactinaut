@@ -313,7 +313,21 @@ document.getElementById('form_coursecreation').addEventListener('submit', async 
     if (session) {
         try {
             await uploadCourseInfo(courseInfo, session.id);
-            alert('Course created');
+            // alert('Course created');
+            Swal.fire({
+                        icon: 'success',
+                        title: '<h2 style="color: white;">Curso creado</h2>',
+                        confirmButtonText: '<span style="color: #333333; margin-bottom: 0;">¡Vamos!</span>',
+                        confirmButtonColor: '#48e5c2',
+                        showConfirmButton: false,
+                        timer: 1200,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseenter', Swal.resumeTimer)
+                        },
+                        background: '#333333',
+                    })
             window.location.href = '/FrontEnd/user-profile.html';
         } catch (error) {
             console.log(error);
