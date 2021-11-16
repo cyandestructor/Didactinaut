@@ -26,7 +26,7 @@ $(document).ready(function(){
                $("#nom_usuario").append(data.username);
                $("#img_perfil_usuario").attr('src', data.avatar);
                $(".image-user-inicio").attr('src', data.avatar);
-               $("#nombre_estudiante").append(data.name + ' ' + data.lastname);
+               //$("#nombre_estudiante").append(data.name + ' ' + data.lastname);
                document.getElementById("cierra_sesion").onclick = confirmacerrar;
           })
 

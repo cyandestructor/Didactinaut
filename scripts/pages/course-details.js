@@ -168,6 +168,101 @@ function loadCourseInfo(courseInfo) {
     });
 }
 
+async function getCurrentSession() {
+    const url = 'http://localhost/api/session/';
+
+    const response = await fetch(url);
+
+    const responseData = await response.json();
+
+    return responseData;
+}
+
+async function sendMessage(message, chatId) {
+    const url = `http://localhost/api/chats/${chatId}/messages/`;
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(message)
+    });
+
+    return response.ok;
+}
+
+async function createChat(chat, userId) {
+    const url = `http://localhost/api/users/${userId}/chats/`;
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(chat)
+    });
+
+    if (response.ok) {
+        const responseData = await response.json();
+        return responseData.id;
+    }
+
+    return null;
+}
+
+async function sendMessageBtn(e) {
+    const button = e.target;
+    const instructorId = button.dataset.instructorId;
+
+    if (!instructorId) {
+        return;
+    }
+
+    const chatSubject = document.getElementById('subject-text').value.trim();
+    const messageBody = document.getElementById('message-text').value.trim();
+
+    if (chatSubject == '') {
+        alert('Escriba un asunto para el mensaje')
+        return;
+    }
+
+    const session = await getCurrentSession();
+
+    if (!session) {
+        alert('Necesita iniciar sesión para enviar mensajes')
+        return;
+    }
+
+    const chat = {
+        subject: chatSubject,
+        receptorId: instructorId
+    }
+
+    const chatId = await createChat(chat, session.id);
+
+    if (!chatId) {
+        alert('Lo sentimos, no se pudo enviar el mensaje.');
+        return;
+    }
+
+    if (messageBody !== '') {
+        const initialMessage = {
+            senderId: session.id,
+            body: messageBody
+        }
+    
+        const success = await sendMessage(initialMessage, chatId);
+    
+        if (!success) {
+            alert('Lo sentimos, no se pudo enviar el mensaje.');
+            return;
+        }
+    }
+
+    window.location.href = `/FrontEnd/Messages.html?chatId=${chatId}`;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
 
@@ -184,6 +279,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     loadCourseInfo(courseInfo);
+
+    // Set the send message button
+    const btnSendMessage = document.getElementById('btnSendMessage');
+    btnSendMessage.dataset.instructorId = courseInfo.instructor.id;
+    btnSendMessage.addEventListener('click', sendMessageBtn);
 
     // Load course content
     const courseContent = document.getElementById('courseContent');
