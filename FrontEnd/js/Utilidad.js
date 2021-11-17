@@ -40,7 +40,7 @@ jQuery.validator.addMethod("sololetra", function(value, element){
 
 //REGEX VALIDACION DE CONTRASEÑA
 jQuery.validator.addMethod("formatocontrasenia", function(value, element){
-     return this.optional(element) || /^(?=.*.\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value);
+     return this.optional(element) || /^(?=.*.\d)(?=.*[a-z])(?=.*?[#?!@$%^&*-])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(value);
 
 });
 
@@ -123,7 +123,7 @@ $(document).ready(function(){
                 },
                 password:{
                     required: "Ingresa la contraseña",
-                    formatocontrasenia: "Ingresa: 8 caracteres mín. 1 mayúscula, 1 carácter especial, 1 número"
+                    formatocontrasenia: "Ingresa: 8 caracteres mín. 1 mayúscula, 1 minúscula, 1 carácter especial, 1 número"
                 }
             }
         });
@@ -188,7 +188,7 @@ $(document).ready(function(){
             messages:{
                 input_password:{
                     required: "Ingresa la contraseña",
-                    formatocontrasenia: "Ingresa: 8 caracteres mín. 1 mayúscula, 1 carácter especial, 1 número"
+                    formatocontrasenia: "Ingresa: 8 caracteres mín. 1 mayúscula, 1 minúscula, 1 carácter especial, 1 número"
                     
                 },
                 input_repeat_password:{
