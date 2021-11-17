@@ -258,6 +258,8 @@ function getCourseInfo() {
     info.price = document.getElementById('courseCost_input').value;
     info.image = document.getElementById('courseImage_input').files[0];
 
+    info.price = info.price == '' ? 0 : info.price;
+    
     const categoriesSelect = document.getElementById('categoria_container');
     info.categories = [];
     for (const option of categoriesSelect.selectedOptions) {
