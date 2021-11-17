@@ -227,7 +227,6 @@ $(document).ready(function(){
         rules:{
             name: {
                 required: true,
-                sololetra: true
             },
             description: {
                 required: true
@@ -236,7 +235,6 @@ $(document).ready(function(){
         messages:{
             name: {
                 required: "Ingresa un nombre",
-                sololetra: "Ingresa sólo letras"
             },
             description:{
                 required: "Ingresa una descripción"
