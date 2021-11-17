@@ -135,9 +135,11 @@ async function getCurrentSession() {
 
     const response = await fetch(url);
 
-    const responseData = await response.json();
+    if (response.ok) {
+        return await response.json();
+    }
 
-    return responseData;
+    return null;
 }
 
 async function placeOrder(order) {
