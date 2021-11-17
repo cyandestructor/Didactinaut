@@ -7,7 +7,7 @@ export default class ShoppingCart {
             cart = JSON.parse(currentCartJson);
         }
 
-        if (!cart.includes(product)) {
+        if (!cart.includes(Number(product))) {
             cart.push(Number(product));
         }
 
