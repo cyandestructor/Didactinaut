@@ -51,6 +51,18 @@ async function getCourseReviews(courseId, count, page = 1) {
     return [];
 }
 
+async function getCourseCategories(courseId) {
+    const url = `/api/courses/${courseId}/categories/`;
+
+    const response = await fetch(url);
+
+    if (response.ok) {
+        return await response.json();
+    }
+
+    return [];
+}
+
 function createSectionCard(sectionInfo, lessons = [], show = false) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -465,6 +477,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     loadCourseInfo(courseInfo);
+
+    getCourseCategories(courseId).then((categories) => {
+        const courseCategories = document.getElementById('courseCategory');
+        
+        let categoriesString = '';
+        for (const category of categories) {
+            categoriesString += ' ' + category.name + ',';
+        }
+        categoriesString = categoriesString.substr(0, categoriesString.length - 1); // Remove last comma
+
+        courseCategories.innerText = categoriesString;
+    });
 
     // Set the send message button
     const btnSendMessage = document.getElementById('btnSendMessage');
