@@ -1,0 +1,16 @@
+USE didactinaut_dev;
+
+DELIMITER $$
+DROP TRIGGER IF EXISTS TR_AFTER_INSERT_ON_COURSES $$
+
+CREATE TRIGGER TR_AFTER_INSERT_ON_COURSES
+AFTER INSERT
+ON Courses FOR EACH ROW
+BEGIN
+	UPDATE Users AS U
+    SET
+		U.user_role = 'Instructor'
+	WHERE
+		U.user_id = New.course_instructor;
+END $$
+DELIMITER ;
